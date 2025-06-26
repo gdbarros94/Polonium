@@ -26,6 +26,10 @@ class System
         // Configurar o sistema de log
         ini_set('log_errors', 'On');
         ini_set('error_log', __DIR__ . '/../logs/system.log');
+        mkdir -p (__DIR__ . '/../logs');
+        if (!file_exists(__DIR__ . '/../logs/system.log')) {
+            file_put_contents(__DIR__ . '/../logs/system.log', '');
+        }
         error_log('Logging system initialized.');
     }
 
