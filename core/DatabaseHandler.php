@@ -75,7 +75,7 @@ class QueryBuilder
     {
         $this->table = $table;
     }
-
+    
     public function select($columns = ["*"])
     {
         $this->query = "SELECT " . implode(", ", $columns) . " FROM {$this->table}";
@@ -133,3 +133,7 @@ class QueryBuilder
 }
 
 
+
+$query = new QueryBuilder("users");
+$result = $query->select()->where("id", "=", 1)->get();
+$insert = $query->insert(["name" => "John Doe", "email" => "BwK8B@example.com"])->execute();

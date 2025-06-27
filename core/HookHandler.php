@@ -8,7 +8,7 @@ class HookHandler
      * Registra um hook (função de callback) para uma ação específica.
      *
      * @param string $actionName Nome da ação (ex: 'gerar_relatorio').
-     * @param callable $callback Função a ser executada quando o hook for acionado.
+     * @param callback $callback Função a ser executada quando o hook for acionado.
      * @param string $when Quando o hook deve ser executado ('before' ou 'after').
      * @param int $priority Prioridade de execução (menor número executa primeiro).
      */
