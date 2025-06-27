@@ -21,17 +21,31 @@ class System
         error_log('System health check completed.');
     }
 
-    private static function setupLogging()
-    {
-        // Configurar o sistema de log
-        ini_set('log_errors', 'On');
-        ini_set('error_log', __DIR__ . '/../logs/system.log');
-        system("mkdir -p (__DIR__ . '/../logs')");
-        if (!file_exists(__DIR__ . '/../logs/system.log')) {
-            file_put_contents(__DIR__ . '/../logs/system.log', '');
+    function logMessage($logFile, $message)
+{
+    $logDir = dirname($logFile);
+
+    // Verifica se o diretório existe, se não, cria de forma recursiva e segura
+    if (!is_dir($logDir)) {
+        if (!mkdir($logDir, 0755, true) && !is_dir($logDir)) {
+            throw new RuntimeException("Não foi possível criar o diretório de log: $logDir");
         }
-        error_log('Logging system initialized.');
     }
+
+    // Verifica se o arquivo existe, se não, cria
+    if (!file_exists($logFile)) {
+        $handle = fopen($logFile, 'w');
+        if ($handle === false) {
+            throw new RuntimeException("Não foi possível criar o arquivo de log: $logFile");
+        }
+        fclose($handle);
+        // Define permissão se necessário
+        chmod($logFile, 0644);
+    }
+
+    // Escreve a mensagem no log
+    file_put_contents($logFile, $message . PHP_EOL, FILE_APPEND | LOCK_EX);
+}
 
     public static function log($message, $level = 'info')
     {
