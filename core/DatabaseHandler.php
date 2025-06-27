@@ -134,6 +134,6 @@ class QueryBuilder
 
 
 
-$query = new QueryBuilder("users");
-$result = $query->select()->where("id", "=", 1)->get();
-$insert = $query->insert(["name" => "John Doe", "email" => "BwK8B@example.com"])->execute();
+//$query = new QueryBuilder("users");
+//$result = $query->select()->where("id", "=", 1)->get();
+//$insert = $query->insert(["name" => "John Doe", "email" => "BwK8B@example.com"])->execute();
