@@ -3,7 +3,7 @@
 // Carrega as configurações globais
 $config = require_once __DIR__ . 
 '/config/config.php';
-
+echo "teste";
 // Carrega os módulos principais
 require_once __DIR__ . '/core/System.php';
 require_once __DIR__ . '/core/ThemeHandler.php';
@@ -21,8 +21,8 @@ DatabaseHandler::init();
 OutHandler::init();
 PluginHandler::init();
 RoutesHandler::init();
-
+echo "teste 2";
 // Dispatch da rota
 RoutesHandler::dispatch();
-
+echo "teste 3";
 
