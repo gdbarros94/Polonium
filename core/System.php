@@ -11,7 +11,7 @@ class System
         // self::checkDatabaseIntegrity();
 
         // Gerenciamento de logs
-        self::setupLogging();
+        //self::setupLogging();
     }
 
     private static function healthCheck()
@@ -22,30 +22,30 @@ class System
     }
 
     function logMessage($logFile, $message)
-{
-    $logDir = dirname($logFile);
+    {
+        $logDir = dirname($logFile);
 
-    // Verifica se o diretório existe, se não, cria de forma recursiva e segura
-    if (!is_dir($logDir)) {
-        if (!mkdir($logDir, 0755, true) && !is_dir($logDir)) {
-            throw new RuntimeException("Não foi possível criar o diretório de log: $logDir");
+        // Verifica se o diretório existe, se não, cria de forma recursiva e segura
+        if (!is_dir($logDir)) {
+            if (!mkdir($logDir, 0755, true) && !is_dir($logDir)) {
+                throw new RuntimeException("Não foi possível criar o diretório de log: $logDir");
+            }
         }
-    }
 
-    // Verifica se o arquivo existe, se não, cria
-    if (!file_exists($logFile)) {
-        $handle = fopen($logFile, 'w');
-        if ($handle === false) {
-            throw new RuntimeException("Não foi possível criar o arquivo de log: $logFile");
+        // Verifica se o arquivo existe, se não, cria
+        if (!file_exists($logFile)) {
+            $handle = fopen($logFile, 'w');
+            if ($handle === false) {
+                throw new RuntimeException("Não foi possível criar o arquivo de log: $logFile");
+            }
+            fclose($handle);
+            // Define permissão se necessário
+            chmod($logFile, 0644);
         }
-        fclose($handle);
-        // Define permissão se necessário
-        chmod($logFile, 0644);
-    }
 
-    // Escreve a mensagem no log
-    file_put_contents($logFile, $message . PHP_EOL, FILE_APPEND | LOCK_EX);
-}
+        // Escreve a mensagem no log
+        file_put_contents($logFile, $message . PHP_EOL, FILE_APPEND | LOCK_EX);
+    }
 
     public static function log($message, $level = 'info')
     {
