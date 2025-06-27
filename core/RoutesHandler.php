@@ -7,7 +7,6 @@ class RoutesHandler
 
     public static function init()
     {
-        echo "teste";
         // Rotas padrão do sistema
         self::addRoute("GET", "/", function () {
             echo "Bem-vindo ao CRM!";
