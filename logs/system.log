@@ -1,1 +1,597 @@
-#silence is golden
+#silence is golden[2025-06-29 01:09:03][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:09:03][error] Database connection failed: SQLSTATE[HY000] [1049] Unknown database 'crm_alunostds_dev_br'
+[2025-06-29 01:10:50][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:10:50][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:10:50][info] DatabaseHandler initialized.
+[2025-06-29 01:10:50][info] OutHandler initialized. Session started.
+[2025-06-29 01:10:50][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:10:50][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:10:50][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:10:50][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:10:50][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:10:50][info] Route added: [GET] /clientes
+[2025-06-29 01:10:50][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:10:50][info] Finished loading plugins.
+[2025-06-29 01:10:50][info] Route added: [GET] /
+[2025-06-29 01:10:50][info] Route added: [GET] /login
+[2025-06-29 01:10:50][info] Route added: [GET] /admin
+[2025-06-29 01:10:50][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:10:50][info] RoutesHandler initialized.
+[2025-06-29 01:10:52][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:10:52][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:10:52][info] DatabaseHandler initialized.
+[2025-06-29 01:10:52][info] OutHandler initialized. Session started.
+[2025-06-29 01:10:52][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:10:52][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:10:52][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:10:52][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:10:52][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:10:52][info] Route added: [GET] /clientes
+[2025-06-29 01:10:52][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:10:52][info] Finished loading plugins.
+[2025-06-29 01:10:52][info] Route added: [GET] /
+[2025-06-29 01:10:52][info] Route added: [GET] /login
+[2025-06-29 01:10:52][info] Route added: [GET] /admin
+[2025-06-29 01:10:52][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:10:52][info] RoutesHandler initialized.
+[2025-06-29 01:11:08][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:11:08][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:11:08][info] DatabaseHandler initialized.
+[2025-06-29 01:11:08][info] OutHandler initialized. Session started.
+[2025-06-29 01:11:08][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:11:08][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:11:08][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:11:08][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:11:08][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:11:08][info] Route added: [GET] /clientes
+[2025-06-29 01:11:08][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:11:08][info] Finished loading plugins.
+[2025-06-29 01:11:08][info] Route added: [GET] /
+[2025-06-29 01:11:08][info] Route added: [GET] /login
+[2025-06-29 01:11:08][info] Route added: [GET] /admin
+[2025-06-29 01:11:08][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:11:08][info] RoutesHandler initialized.
+[2025-06-29 01:11:49][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:11:49][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:11:49][info] DatabaseHandler initialized.
+[2025-06-29 01:11:49][info] OutHandler initialized. Session started.
+[2025-06-29 01:11:49][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:11:49][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:11:49][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:11:49][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:11:49][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:11:49][info] Route added: [GET] /clientes
+[2025-06-29 01:11:49][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:11:49][info] Finished loading plugins.
+[2025-06-29 01:11:49][info] Route added: [GET] /
+[2025-06-29 01:11:49][info] Route added: [GET] /login
+[2025-06-29 01:11:49][info] Route added: [GET] /admin
+[2025-06-29 01:11:49][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:11:49][info] RoutesHandler initialized.
+[2025-06-29 01:15:22][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:15:22][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:15:22][info] DatabaseHandler initialized.
+[2025-06-29 01:15:22][info] OutHandler initialized. Session started.
+[2025-06-29 01:15:22][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:15:22][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:15:22][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:15:22][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:15:22][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:15:22][info] Route added: [GET] /clientes
+[2025-06-29 01:15:22][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:15:22][info] Finished loading plugins.
+[2025-06-29 01:15:22][info] Route added: [GET] /
+[2025-06-29 01:15:22][info] Route added: [GET] /login
+[2025-06-29 01:15:22][info] Route added: [GET] /admin
+[2025-06-29 01:15:22][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:15:22][info] RoutesHandler initialized.
+[2025-06-29 01:15:23][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:15:23][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:15:23][info] DatabaseHandler initialized.
+[2025-06-29 01:15:23][info] OutHandler initialized. Session started.
+[2025-06-29 01:15:23][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:15:23][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:15:23][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:15:23][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:15:23][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:15:23][info] Route added: [GET] /clientes
+[2025-06-29 01:15:23][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:15:23][info] Finished loading plugins.
+[2025-06-29 01:15:23][info] Route added: [GET] /
+[2025-06-29 01:15:23][info] Route added: [GET] /login
+[2025-06-29 01:15:23][info] Route added: [GET] /admin
+[2025-06-29 01:15:23][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:15:23][info] RoutesHandler initialized.
+[2025-06-29 01:15:23][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:15:23][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:15:23][info] DatabaseHandler initialized.
+[2025-06-29 01:15:23][info] OutHandler initialized. Session started.
+[2025-06-29 01:15:23][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:15:23][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:15:23][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:15:23][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:15:23][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:15:23][info] Route added: [GET] /clientes
+[2025-06-29 01:15:23][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:15:23][info] Finished loading plugins.
+[2025-06-29 01:15:23][info] Route added: [GET] /
+[2025-06-29 01:15:23][info] Route added: [GET] /login
+[2025-06-29 01:15:23][info] Route added: [GET] /admin
+[2025-06-29 01:15:23][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:15:23][info] RoutesHandler initialized.
+[2025-06-29 01:15:24][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:15:24][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:15:24][info] DatabaseHandler initialized.
+[2025-06-29 01:15:24][info] OutHandler initialized. Session started.
+[2025-06-29 01:15:24][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:15:24][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:15:24][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:15:24][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:15:24][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:15:24][info] Route added: [GET] /clientes
+[2025-06-29 01:15:24][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:15:24][info] Finished loading plugins.
+[2025-06-29 01:15:24][info] Route added: [GET] /
+[2025-06-29 01:15:24][info] Route added: [GET] /login
+[2025-06-29 01:15:24][info] Route added: [GET] /admin
+[2025-06-29 01:15:24][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:15:24][info] RoutesHandler initialized.
+[2025-06-29 01:15:53][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:15:53][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:15:53][info] DatabaseHandler initialized.
+[2025-06-29 01:15:53][info] OutHandler initialized. Session started.
+[2025-06-29 01:15:53][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:15:53][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:15:53][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:15:53][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:15:53][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:15:53][info] Route added: [GET] /clientes
+[2025-06-29 01:15:53][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:15:53][info] Finished loading plugins.
+[2025-06-29 01:15:53][info] Route added: [GET] /
+[2025-06-29 01:15:53][info] Route added: [GET] /login
+[2025-06-29 01:15:53][info] Route added: [GET] /admin
+[2025-06-29 01:15:53][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:15:53][info] RoutesHandler initialized.
+[2025-06-29 01:16:10][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:16:10][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:16:10][info] DatabaseHandler initialized.
+[2025-06-29 01:16:10][info] OutHandler initialized. Session started.
+[2025-06-29 01:16:10][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:16:10][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:16:10][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:16:10][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:16:10][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:16:10][info] Route added: [GET] /clientes
+[2025-06-29 01:16:10][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:16:10][info] Finished loading plugins.
+[2025-06-29 01:16:10][info] Route added: [GET] /
+[2025-06-29 01:16:10][info] Route added: [GET] /login
+[2025-06-29 01:16:10][info] Route added: [GET] /admin
+[2025-06-29 01:16:10][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:16:10][info] RoutesHandler initialized.
+[2025-06-29 01:16:41][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:16:41][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:16:41][info] DatabaseHandler initialized.
+[2025-06-29 01:16:41][info] OutHandler initialized. Session started.
+[2025-06-29 01:16:41][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:16:41][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:16:41][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:16:41][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:16:41][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:16:41][info] Route added: [GET] /clientes
+[2025-06-29 01:16:41][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:16:41][info] Finished loading plugins.
+[2025-06-29 01:16:41][info] Route added: [GET] /
+[2025-06-29 01:16:41][info] Route added: [GET] /login
+[2025-06-29 01:16:41][info] Route added: [GET] /admin
+[2025-06-29 01:16:41][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:16:41][info] RoutesHandler initialized.
+[2025-06-29 01:16:42][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:16:42][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:16:42][info] DatabaseHandler initialized.
+[2025-06-29 01:16:42][info] OutHandler initialized. Session started.
+[2025-06-29 01:16:42][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:16:42][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:16:42][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:16:42][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:16:42][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:16:42][info] Route added: [GET] /clientes
+[2025-06-29 01:16:42][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:16:42][info] Finished loading plugins.
+[2025-06-29 01:16:42][info] Route added: [GET] /
+[2025-06-29 01:16:42][info] Route added: [GET] /login
+[2025-06-29 01:16:42][info] Route added: [GET] /admin
+[2025-06-29 01:16:42][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:16:42][info] RoutesHandler initialized.
+[2025-06-29 01:19:08][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:19:08][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:19:08][info] DatabaseHandler initialized.
+[2025-06-29 01:19:08][info] OutHandler initialized. Session started.
+[2025-06-29 01:19:08][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:19:08][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:19:08][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:19:08][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:19:08][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:19:08][info] Route added: [GET] /clientes
+[2025-06-29 01:19:08][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:19:08][info] Finished loading plugins.
+[2025-06-29 01:19:08][info] Route added: [GET] /
+[2025-06-29 01:19:08][info] Route added: [GET] /login
+[2025-06-29 01:19:08][info] Route added: [GET] /admin
+[2025-06-29 01:19:08][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:19:08][info] RoutesHandler initialized.
+[2025-06-29 01:22:00][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:22:00][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:22:00][info] DatabaseHandler initialized.
+[2025-06-29 01:22:00][info] OutHandler initialized. Session started.
+[2025-06-29 01:22:00][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:22:00][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:22:00][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:22:00][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:22:00][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:22:00][info] Route added: [GET] /clientes
+[2025-06-29 01:22:00][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:22:00][info] Finished loading plugins.
+[2025-06-29 01:22:00][info] Route added: [GET] /
+[2025-06-29 01:22:00][info] Route added: [GET] /login
+[2025-06-29 01:22:00][info] Route added: [GET] /admin
+[2025-06-29 01:22:00][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:22:00][info] RoutesHandler initialized.
+[2025-06-29 01:22:00][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:22:00][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:22:00][info] DatabaseHandler initialized.
+[2025-06-29 01:22:00][info] OutHandler initialized. Session started.
+[2025-06-29 01:22:00][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:22:00][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:22:00][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:22:00][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:22:00][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:22:00][info] Route added: [GET] /clientes
+[2025-06-29 01:22:00][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:22:00][info] Finished loading plugins.
+[2025-06-29 01:22:00][info] Route added: [GET] /
+[2025-06-29 01:22:00][info] Route added: [GET] /login
+[2025-06-29 01:22:00][info] Route added: [GET] /admin
+[2025-06-29 01:22:00][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:22:00][info] RoutesHandler initialized.
+[2025-06-29 01:22:01][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:22:01][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:22:01][info] DatabaseHandler initialized.
+[2025-06-29 01:22:01][info] OutHandler initialized. Session started.
+[2025-06-29 01:22:01][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:22:01][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:22:01][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:22:01][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:22:01][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:22:01][info] Route added: [GET] /clientes
+[2025-06-29 01:22:01][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:22:01][info] Finished loading plugins.
+[2025-06-29 01:22:01][info] Route added: [GET] /
+[2025-06-29 01:22:01][info] Route added: [GET] /login
+[2025-06-29 01:22:01][info] Route added: [GET] /admin
+[2025-06-29 01:22:01][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:22:01][info] RoutesHandler initialized.
+[2025-06-29 01:22:01][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:22:01][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:22:01][info] DatabaseHandler initialized.
+[2025-06-29 01:22:01][info] OutHandler initialized. Session started.
+[2025-06-29 01:22:01][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:22:01][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:22:01][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:22:01][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:22:01][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:22:01][info] Route added: [GET] /clientes
+[2025-06-29 01:22:01][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:22:01][info] Finished loading plugins.
+[2025-06-29 01:22:01][info] Route added: [GET] /
+[2025-06-29 01:22:01][info] Route added: [GET] /login
+[2025-06-29 01:22:01][info] Route added: [GET] /admin
+[2025-06-29 01:22:01][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:22:01][info] RoutesHandler initialized.
+[2025-06-29 01:22:09][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:22:09][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:22:09][info] DatabaseHandler initialized.
+[2025-06-29 01:22:09][info] OutHandler initialized. Session started.
+[2025-06-29 01:22:09][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:22:09][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:22:09][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:22:09][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:22:09][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:22:09][info] Route added: [GET] /clientes
+[2025-06-29 01:22:09][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:22:09][info] Finished loading plugins.
+[2025-06-29 01:22:09][info] Route added: [GET] /
+[2025-06-29 01:22:09][info] Route added: [GET] /login
+[2025-06-29 01:22:09][info] Route added: [GET] /admin
+[2025-06-29 01:22:09][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:22:09][info] RoutesHandler initialized.
+[2025-06-29 01:22:09][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:22:09][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:22:09][info] DatabaseHandler initialized.
+[2025-06-29 01:22:09][info] OutHandler initialized. Session started.
+[2025-06-29 01:22:09][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:22:09][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:22:09][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:22:09][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:22:09][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:22:09][info] Route added: [GET] /clientes
+[2025-06-29 01:22:09][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:22:09][info] Finished loading plugins.
+[2025-06-29 01:22:09][info] Route added: [GET] /
+[2025-06-29 01:22:09][info] Route added: [GET] /login
+[2025-06-29 01:22:09][info] Route added: [GET] /admin
+[2025-06-29 01:22:09][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:22:09][info] RoutesHandler initialized.
+[2025-06-29 01:26:14][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:26:14][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:26:14][info] DatabaseHandler initialized.
+[2025-06-29 01:26:14][info] OutHandler initialized. Session started.
+[2025-06-29 01:26:14][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:26:14][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:26:14][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:26:14][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:26:14][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:26:14][info] Route added: [GET] /clientes
+[2025-06-29 01:26:14][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:26:14][info] Finished loading plugins.
+[2025-06-29 01:26:14][info] Route added: [GET] /
+[2025-06-29 01:26:14][info] Route added: [GET] /login
+[2025-06-29 01:26:14][info] Route added: [GET] /admin
+[2025-06-29 01:26:14][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:26:14][info] RoutesHandler initialized.
+[2025-06-29 01:26:14][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:26:14][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:26:14][info] DatabaseHandler initialized.
+[2025-06-29 01:26:14][info] OutHandler initialized. Session started.
+[2025-06-29 01:26:14][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:26:14][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:26:14][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:26:14][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:26:14][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:26:14][info] Route added: [GET] /clientes
+[2025-06-29 01:26:14][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:26:14][info] Finished loading plugins.
+[2025-06-29 01:26:14][info] Route added: [GET] /
+[2025-06-29 01:26:14][info] Route added: [GET] /login
+[2025-06-29 01:26:14][info] Route added: [GET] /admin
+[2025-06-29 01:26:14][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:26:14][info] RoutesHandler initialized.
+[2025-06-29 01:26:24][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:26:24][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:26:24][info] DatabaseHandler initialized.
+[2025-06-29 01:26:24][info] OutHandler initialized. Session started.
+[2025-06-29 01:26:24][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:26:24][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:26:24][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:26:24][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:26:24][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:26:24][info] Route added: [GET] /clientes
+[2025-06-29 01:26:24][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:26:24][info] Finished loading plugins.
+[2025-06-29 01:26:24][info] Route added: [GET] /
+[2025-06-29 01:26:24][info] Route added: [GET] /login
+[2025-06-29 01:26:24][info] Route added: [GET] /admin
+[2025-06-29 01:26:24][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:26:24][info] RoutesHandler initialized.
+[2025-06-29 01:26:24][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:26:24][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:26:24][info] DatabaseHandler initialized.
+[2025-06-29 01:26:24][info] OutHandler initialized. Session started.
+[2025-06-29 01:26:24][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:26:24][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:26:24][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:26:24][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:26:24][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:26:24][info] Route added: [GET] /clientes
+[2025-06-29 01:26:24][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:26:24][info] Finished loading plugins.
+[2025-06-29 01:26:24][info] Route added: [GET] /
+[2025-06-29 01:26:24][info] Route added: [GET] /login
+[2025-06-29 01:26:24][info] Route added: [GET] /admin
+[2025-06-29 01:26:24][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:26:24][info] RoutesHandler initialized.
+[2025-06-29 01:26:36][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:26:36][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:26:36][info] DatabaseHandler initialized.
+[2025-06-29 01:26:36][info] OutHandler initialized. Session started.
+[2025-06-29 01:26:36][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:26:36][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:26:36][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:26:36][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:26:36][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:26:36][info] Route added: [GET] /clientes
+[2025-06-29 01:26:36][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:26:36][info] Finished loading plugins.
+[2025-06-29 01:26:36][info] Route added: [GET] /
+[2025-06-29 01:26:36][info] Route added: [GET] /login
+[2025-06-29 01:26:36][info] Route added: [GET] /admin
+[2025-06-29 01:26:36][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:26:36][info] RoutesHandler initialized.
+[2025-06-29 01:26:45][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:26:45][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:26:45][info] DatabaseHandler initialized.
+[2025-06-29 01:26:45][info] OutHandler initialized. Session started.
+[2025-06-29 01:26:45][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:26:45][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:26:45][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:26:45][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:26:45][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:26:45][info] Route added: [GET] /clientes
+[2025-06-29 01:26:45][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:26:45][info] Finished loading plugins.
+[2025-06-29 01:26:45][info] Route added: [GET] /
+[2025-06-29 01:26:45][info] Route added: [GET] /login
+[2025-06-29 01:26:45][info] Route added: [GET] /admin
+[2025-06-29 01:26:45][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:26:45][info] RoutesHandler initialized.
+[2025-06-29 01:27:20][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:27:20][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:27:20][info] DatabaseHandler initialized.
+[2025-06-29 01:27:20][info] OutHandler initialized. Session started.
+[2025-06-29 01:27:20][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:27:20][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:27:20][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:27:20][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:27:20][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:27:20][info] Route added: [GET] /clientes
+[2025-06-29 01:27:20][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:27:20][info] Finished loading plugins.
+[2025-06-29 01:27:20][info] Route added: [GET] /
+[2025-06-29 01:27:20][info] Route added: [GET] /login
+[2025-06-29 01:27:20][info] Route added: [GET] /admin
+[2025-06-29 01:27:20][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:27:20][info] RoutesHandler initialized.
+[2025-06-29 01:27:31][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:27:31][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:27:31][info] DatabaseHandler initialized.
+[2025-06-29 01:27:31][info] OutHandler initialized. Session started.
+[2025-06-29 01:27:31][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:27:31][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:27:31][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:27:31][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:27:31][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:27:31][info] Route added: [GET] /clientes
+[2025-06-29 01:27:31][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:27:31][info] Finished loading plugins.
+[2025-06-29 01:27:31][info] Route added: [GET] /
+[2025-06-29 01:27:31][info] Route added: [GET] /login
+[2025-06-29 01:27:31][info] Route added: [GET] /admin
+[2025-06-29 01:27:31][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:27:31][info] RoutesHandler initialized.
+[2025-06-29 01:38:14][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:38:14][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:38:14][info] DatabaseHandler initialized.
+[2025-06-29 01:38:14][info] AuthHandler initialized. Session started.
+[2025-06-29 01:38:14][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:38:14][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:38:14][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:38:14][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:38:14][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:38:14][info] Route added: [GET] /clientes
+[2025-06-29 01:38:14][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:38:14][info] Finished loading plugins.
+[2025-06-29 01:38:14][info] Route added: [GET] /
+[2025-06-29 01:38:14][info] Route added: [GET] /login
+[2025-06-29 01:38:14][info] Route added: [GET] /admin
+[2025-06-29 01:38:14][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:38:14][info] RoutesHandler initialized.
+[2025-06-29 01:38:15][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:38:15][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:38:15][info] DatabaseHandler initialized.
+[2025-06-29 01:38:15][info] AuthHandler initialized. Session started.
+[2025-06-29 01:38:15][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:38:15][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:38:15][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:38:15][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:38:15][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:38:15][info] Route added: [GET] /clientes
+[2025-06-29 01:38:15][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:38:15][info] Finished loading plugins.
+[2025-06-29 01:38:15][info] Route added: [GET] /
+[2025-06-29 01:38:15][info] Route added: [GET] /login
+[2025-06-29 01:38:15][info] Route added: [GET] /admin
+[2025-06-29 01:38:15][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:38:15][info] RoutesHandler initialized.
+[2025-06-29 01:38:15][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:38:15][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:38:15][info] DatabaseHandler initialized.
+[2025-06-29 01:38:15][info] AuthHandler initialized. Session started.
+[2025-06-29 01:38:15][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:38:15][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:38:15][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:38:15][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:38:15][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:38:15][info] Route added: [GET] /clientes
+[2025-06-29 01:38:15][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:38:15][info] Finished loading plugins.
+[2025-06-29 01:38:15][info] Route added: [GET] /
+[2025-06-29 01:38:15][info] Route added: [GET] /login
+[2025-06-29 01:38:15][info] Route added: [GET] /admin
+[2025-06-29 01:38:15][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:38:15][info] RoutesHandler initialized.
+[2025-06-29 01:38:15][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:38:15][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:38:15][info] DatabaseHandler initialized.
+[2025-06-29 01:38:15][info] AuthHandler initialized. Session started.
+[2025-06-29 01:38:15][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:38:15][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:38:15][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:38:15][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:38:15][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:38:15][info] Route added: [GET] /clientes
+[2025-06-29 01:38:15][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:38:15][info] Finished loading plugins.
+[2025-06-29 01:38:15][info] Route added: [GET] /
+[2025-06-29 01:38:15][info] Route added: [GET] /login
+[2025-06-29 01:38:15][info] Route added: [GET] /admin
+[2025-06-29 01:38:15][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:38:15][info] RoutesHandler initialized.
+[2025-06-29 01:38:15][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:38:15][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:38:15][info] DatabaseHandler initialized.
+[2025-06-29 01:38:15][info] AuthHandler initialized. Session started.
+[2025-06-29 01:38:15][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:38:15][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:38:15][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:38:15][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:38:15][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:38:15][info] Route added: [GET] /clientes
+[2025-06-29 01:38:15][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:38:15][info] Finished loading plugins.
+[2025-06-29 01:38:15][info] Route added: [GET] /
+[2025-06-29 01:38:15][info] Route added: [GET] /login
+[2025-06-29 01:38:15][info] Route added: [GET] /admin
+[2025-06-29 01:38:15][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:38:15][info] RoutesHandler initialized.
+[2025-06-29 01:38:15][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:38:15][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:38:15][info] DatabaseHandler initialized.
+[2025-06-29 01:38:15][info] AuthHandler initialized. Session started.
+[2025-06-29 01:38:15][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:38:15][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:38:15][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:38:15][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:38:15][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:38:15][info] Route added: [GET] /clientes
+[2025-06-29 01:38:15][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:38:15][info] Finished loading plugins.
+[2025-06-29 01:38:15][info] Route added: [GET] /
+[2025-06-29 01:38:15][info] Route added: [GET] /login
+[2025-06-29 01:38:15][info] Route added: [GET] /admin
+[2025-06-29 01:38:15][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:38:15][info] RoutesHandler initialized.
+[2025-06-29 01:38:16][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:38:16][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:38:16][info] DatabaseHandler initialized.
+[2025-06-29 01:38:16][info] AuthHandler initialized. Session started.
+[2025-06-29 01:38:16][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:38:16][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:38:16][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:38:16][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:38:16][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:38:16][info] Route added: [GET] /clientes
+[2025-06-29 01:38:16][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:38:16][info] Finished loading plugins.
+[2025-06-29 01:38:16][info] Route added: [GET] /
+[2025-06-29 01:38:16][info] Route added: [GET] /login
+[2025-06-29 01:38:16][info] Route added: [GET] /admin
+[2025-06-29 01:38:16][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:38:16][info] RoutesHandler initialized.
+[2025-06-29 01:38:23][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:38:23][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:38:23][info] DatabaseHandler initialized.
+[2025-06-29 01:38:23][info] AuthHandler initialized. Session started.
+[2025-06-29 01:38:23][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:38:23][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:38:23][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:38:23][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:38:23][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:38:23][info] Route added: [GET] /clientes
+[2025-06-29 01:38:23][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:38:23][info] Finished loading plugins.
+[2025-06-29 01:38:23][info] Route added: [GET] /
+[2025-06-29 01:38:23][info] Route added: [GET] /login
+[2025-06-29 01:38:23][info] Route added: [GET] /admin
+[2025-06-29 01:38:23][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:38:23][info] RoutesHandler initialized.

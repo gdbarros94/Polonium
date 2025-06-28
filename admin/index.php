@@ -1,7 +1,6 @@
 <?php
 
-require_once __DIR__ . 
-'/../bootstrap.php';
+require_once __DIR__ . '/../bootstrap.php';
 
 // Verificar autenticação e permissão de admin
 OutHandler::requireAuth();
