@@ -595,3 +595,20 @@
 [2025-06-29 01:38:23][info] Route added: [GET] /admin
 [2025-06-29 01:38:23][info] Route added: [ANY] /api/(.*)
 [2025-06-29 01:38:23][info] RoutesHandler initialized.
+[2025-06-29 01:42:31][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 01:42:31][info] Database connection established successfully with driver: mysql.
+[2025-06-29 01:42:31][info] DatabaseHandler initialized.
+[2025-06-29 01:42:31][info] AuthHandler initialized. Session started.
+[2025-06-29 01:42:31][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 01:42:31][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 01:42:31][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 01:42:31][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 01:42:31][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 01:42:31][info] Route added: [GET] /clientes
+[2025-06-29 01:42:31][info] Route added: [GET] /clientes/novo
+[2025-06-29 01:42:31][info] Finished loading plugins.
+[2025-06-29 01:42:31][info] Route added: [GET] /
+[2025-06-29 01:42:31][info] Route added: [GET] /login
+[2025-06-29 01:42:31][info] Route added: [GET] /admin
+[2025-06-29 01:42:31][info] Route added: [ANY] /api/(.*)
+[2025-06-29 01:42:31][info] RoutesHandler initialized.
