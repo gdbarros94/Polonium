@@ -9,5 +9,3 @@ return [
     'collation' => 'utf8mb4_unicode_ci',
     'prefix' => 'tds_crm_v1_',
 ];
-
-Teste
