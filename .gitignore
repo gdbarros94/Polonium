@@ -4,3 +4,4 @@
 
 # Ignora configuração do banco de dados
 database.config.php
+database.config.copy.php

@@ -612,3 +612,144 @@
 [2025-06-29 01:42:31][info] Route added: [GET] /admin
 [2025-06-29 01:42:31][info] Route added: [ANY] /api/(.*)
 [2025-06-29 01:42:31][info] RoutesHandler initialized.
+[2025-06-29 17:51:51][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 17:51:51][info] Database connection established successfully with driver: mysql.
+[2025-06-29 17:51:51][info] DatabaseHandler initialized.
+[2025-06-29 17:51:51][info] AuthHandler initialized. Session started.
+[2025-06-29 17:51:51][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 17:51:51][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 17:51:51][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 17:51:51][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 17:51:51][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 17:51:51][info] Route added: [GET] /clientes
+[2025-06-29 17:51:51][info] Route added: [GET] /clientes/novo
+[2025-06-29 17:51:51][info] Finished loading plugins.
+[2025-06-29 17:51:51][info] Route added: [GET] /
+[2025-06-29 17:51:51][info] Route added: [GET] /login
+[2025-06-29 17:51:51][info] Route added: [GET] /admin
+[2025-06-29 17:51:51][info] Route added: [ANY] /api/(.*)
+[2025-06-29 17:51:51][info] RoutesHandler initialized.
+[2025-06-29 18:17:38][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 18:17:38][info] Database connection established successfully with driver: mysql.
+[2025-06-29 18:17:38][info] DatabaseHandler initialized.
+[2025-06-29 18:17:38][info] AuthHandler initialized. Session started.
+[2025-06-29 18:17:38][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 18:17:38][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 18:17:38][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 18:17:38][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 18:17:38][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 18:17:38][info] Route added: [GET] /clientes
+[2025-06-29 18:17:38][info] Route added: [GET] /clientes/novo
+[2025-06-29 18:17:38][info] Finished loading plugins.
+[2025-06-29 18:17:38][info] Route added: [GET] /
+[2025-06-29 18:17:38][info] Route added: [GET] /login
+[2025-06-29 18:17:38][info] Route added: [GET] /admin
+[2025-06-29 18:17:38][info] Route added: [ANY] /api/(.*)
+[2025-06-29 18:17:38][info] RoutesHandler initialized.
+[2025-06-29 18:17:45][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 18:17:45][info] Database connection established successfully with driver: mysql.
+[2025-06-29 18:17:45][info] DatabaseHandler initialized.
+[2025-06-29 18:17:45][info] AuthHandler initialized. Session started.
+[2025-06-29 18:17:45][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 18:17:45][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 18:17:45][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 18:17:45][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 18:17:45][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 18:17:45][info] Route added: [GET] /clientes
+[2025-06-29 18:17:45][info] Route added: [GET] /clientes/novo
+[2025-06-29 18:17:45][info] Finished loading plugins.
+[2025-06-29 18:17:45][info] Route added: [GET] /
+[2025-06-29 18:17:45][info] Route added: [GET] /login
+[2025-06-29 18:17:45][info] Route added: [GET] /admin
+[2025-06-29 18:17:45][info] Route added: [ANY] /api/(.*)
+[2025-06-29 18:17:45][info] RoutesHandler initialized.
+[2025-06-29 18:38:02][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 18:38:02][info] Database connection established successfully with driver: mysql.
+[2025-06-29 18:38:02][info] DatabaseHandler initialized.
+[2025-06-29 18:38:02][info] AuthHandler initialized. Session started.
+[2025-06-29 18:38:02][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 18:38:02][warning] Skipping folder (missing plugin.json or main.php): admin
+[2025-06-29 18:38:02][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 18:38:02][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 18:38:02][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 18:38:02][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 18:38:02][info] Route added: [GET] /clientes
+[2025-06-29 18:38:02][info] Route added: [GET] /clientes/novo
+[2025-06-29 18:38:02][info] Finished loading plugins.
+[2025-06-29 18:38:02][info] Route added: [GET] /
+[2025-06-29 18:38:02][info] Route added: [GET] /login
+[2025-06-29 18:38:02][info] Route added: [GET] /admin
+[2025-06-29 18:38:02][info] Route added: [ANY] /api/(.*)
+[2025-06-29 18:38:02][info] RoutesHandler initialized.
+[2025-06-29 18:38:03][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 18:38:03][info] Database connection established successfully with driver: mysql.
+[2025-06-29 18:38:03][info] DatabaseHandler initialized.
+[2025-06-29 18:38:03][info] AuthHandler initialized. Session started.
+[2025-06-29 18:38:03][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 18:38:03][warning] Skipping folder (missing plugin.json or main.php): admin
+[2025-06-29 18:38:03][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 18:38:03][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 18:38:03][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 18:38:03][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 18:38:03][info] Route added: [GET] /clientes
+[2025-06-29 18:38:03][info] Route added: [GET] /clientes/novo
+[2025-06-29 18:38:03][info] Finished loading plugins.
+[2025-06-29 18:38:03][info] Route added: [GET] /
+[2025-06-29 18:38:03][info] Route added: [GET] /login
+[2025-06-29 18:38:03][info] Route added: [GET] /admin
+[2025-06-29 18:38:03][info] Route added: [ANY] /api/(.*)
+[2025-06-29 18:38:03][info] RoutesHandler initialized.
+[2025-06-29 18:38:03][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 18:38:03][info] Database connection established successfully with driver: mysql.
+[2025-06-29 18:38:03][info] DatabaseHandler initialized.
+[2025-06-29 18:38:03][info] AuthHandler initialized. Session started.
+[2025-06-29 18:38:03][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 18:38:03][warning] Skipping folder (missing plugin.json or main.php): admin
+[2025-06-29 18:38:03][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 18:38:03][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 18:38:03][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 18:38:03][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 18:38:03][info] Route added: [GET] /clientes
+[2025-06-29 18:38:03][info] Route added: [GET] /clientes/novo
+[2025-06-29 18:38:03][info] Finished loading plugins.
+[2025-06-29 18:38:03][info] Route added: [GET] /
+[2025-06-29 18:38:03][info] Route added: [GET] /login
+[2025-06-29 18:38:03][info] Route added: [GET] /admin
+[2025-06-29 18:38:03][info] Route added: [ANY] /api/(.*)
+[2025-06-29 18:38:03][info] RoutesHandler initialized.
+[2025-06-29 18:38:03][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 18:38:03][info] Database connection established successfully with driver: mysql.
+[2025-06-29 18:38:03][info] DatabaseHandler initialized.
+[2025-06-29 18:38:03][info] AuthHandler initialized. Session started.
+[2025-06-29 18:38:03][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 18:38:03][warning] Skipping folder (missing plugin.json or main.php): admin
+[2025-06-29 18:38:03][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 18:38:03][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 18:38:03][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 18:38:03][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 18:38:03][info] Route added: [GET] /clientes
+[2025-06-29 18:38:03][info] Route added: [GET] /clientes/novo
+[2025-06-29 18:38:03][info] Finished loading plugins.
+[2025-06-29 18:38:03][info] Route added: [GET] /
+[2025-06-29 18:38:03][info] Route added: [GET] /login
+[2025-06-29 18:38:03][info] Route added: [GET] /admin
+[2025-06-29 18:38:03][info] Route added: [ANY] /api/(.*)
+[2025-06-29 18:38:03][info] RoutesHandler initialized.
+[2025-06-29 18:38:28][info] ThemeHandler initialized. Active theme: default
+[2025-06-29 18:38:28][info] Database connection established successfully with driver: mysql.
+[2025-06-29 18:38:28][info] DatabaseHandler initialized.
+[2025-06-29 18:38:28][info] AuthHandler initialized. Session started.
+[2025-06-29 18:38:28][info] PluginHandler initialized. Loading plugins...
+[2025-06-29 18:38:28][warning] Skipping folder (missing plugin.json or main.php): admin
+[2025-06-29 18:38:28][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-06-29 18:38:28][info] Route added: [GET] /exemplo-plugin/teste
+[2025-06-29 18:38:28][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-06-29 18:38:28][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-06-29 18:38:28][info] Route added: [GET] /clientes
+[2025-06-29 18:38:28][info] Route added: [GET] /clientes/novo
+[2025-06-29 18:38:28][info] Finished loading plugins.
+[2025-06-29 18:38:28][info] Route added: [GET] /
+[2025-06-29 18:38:28][info] Route added: [GET] /login
+[2025-06-29 18:38:28][info] Route added: [GET] /admin
+[2025-06-29 18:38:28][info] Route added: [ANY] /api/(.*)
+[2025-06-29 18:38:28][info] RoutesHandler initialized.
