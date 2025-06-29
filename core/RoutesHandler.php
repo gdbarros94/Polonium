@@ -15,8 +15,7 @@ class RoutesHandler
             echo "Página de Login";
         });
         self::addRoute("GET", "/admin", function () {
-            require_once __DIR__ . 
-'/../admin/index.php';
+            require_once __DIR__ . '/../admin/index.php';
         }, ["auth" => true, "permission" => "admin"]);
 
         // Tratamento especial para rotas /api/*
@@ -57,13 +56,13 @@ class RoutesHandler
 
                     // Verificar autenticação e permissões
                     if (isset($route["middlewares"]["auth"]) && $route["middlewares"]["auth"] === true) {
-                        if (!OutHandler::isLoggedIn()) {
-                            OutHandler::redirect("/login");
+                        if (!AuthHandler::isLoggedIn()) {
+                            AuthHandler::redirect("/login");
                             return;
                         }
                     }
                     if (isset($route["middlewares"]["permission"])) {
-                        if (!OutHandler::checkPermission($route["middlewares"]["permission"])) {
+                        if (!AuthHandler::checkPermission($route["middlewares"]["permission"])) {
                             echo "Acesso negado."; // Ou redirecionar para página de erro
                             return;
                         }

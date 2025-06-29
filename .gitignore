@@ -1,0 +1,6 @@
+# Ignora arquivos temporários
+*.log
+*.tmp
+
+# Ignora configuração do banco de dados
+database.config.php
