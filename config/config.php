@@ -7,5 +7,3 @@ return [
   'locale' => 'pt_BR',
   'default_route' => '/dashboard'
 ];
-
-
