@@ -11,12 +11,12 @@ class RoutesHandler
         self::addRoute("GET", "/", function () {
             echo "Bem-vindo ao CRM!";
         });
-        self::addRoute("GET", "/login", function () {
-            echo "Página de Login";
-        });
-        self::addRoute("GET", "/admin", function () {
-            require_once __DIR__ . '/../admin/index.php';
-        }, ["auth" => true, "permission" => "admin"]);
+        // self::addRoute("GET", "/login", function () {
+        //     echo "Página de Login";
+        // });
+        // self::addRoute("GET", "/admin", function () {
+        //     require_once __DIR__ . '/../admin/index.php';
+        // }, ["auth" => true, "permission" => "admin"]);
 
         // Tratamento especial para rotas /api/*
         self::addRoute("ANY", "/api/(.*)", function ($params) {
@@ -49,6 +49,7 @@ class RoutesHandler
         $method = $_SERVER["REQUEST_METHOD"];
 
         foreach (self::$routes as $route) {
+            //echo $route['pattern'];
             if (preg_match($route["pattern"], $uri, $matches)) {
                 if ($route["method"] === "ANY" || $route["method"] === $method) {
                     // Remover o primeiro elemento (full match) dos matches

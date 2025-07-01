@@ -3,4 +3,4 @@
 *.tmp
 
 # Ignora configuração do banco de dados
-database.config.php
+/config/
