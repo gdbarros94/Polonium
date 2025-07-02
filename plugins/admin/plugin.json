@@ -6,8 +6,8 @@
   "author": "Luiz Gustavo D. Pulz",
   "routes": [
     "/admin",
-    "/admin/login",
-    "/admin/logout"
+    "/login",
+    "/logout"
   ],
   "hooks": [
     "after_gerar_relatorio"

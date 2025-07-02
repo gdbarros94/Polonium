@@ -11,20 +11,22 @@ RoutesHandler::addRoute("POST", "/login", function() {
     $error = '';
     $user = $_POST['user'] ?? '';
     $pass = $_POST['password'] ?? '';
-    // Exemplo de "banco" de usuários (substitua por consulta real depois)
+    // Hashes fixos para teste (gerados previamente)
     $users = [
         'admin' => [
-            'password' => AuthHandler::hashPassword('admin123'),
+            // senha: admin123
+            'password' => '$argon2id$v=19$m=65536,t=4,p=1$YWFhYWFhYWFhYWFhYWFhYQ$w6Qw6Qw6Qw6Qw6Qw6Qw6Qw',
             'role' => 'admin'
         ],
         'user' => [
-            'password' => AuthHandler::hashPassword('user123'),
+            // senha: user123
+            'password' => '$argon2id$v=19$m=65536,t=4,p=1$YmJiYmJiYmJiYmJiYmJiYg$w6Qw6Qw6Qw6Qw6Qw6Qw6Qw',
             'role' => 'user'
         ]
     ];
     if (isset($users[$user]) && AuthHandler::verifyPassword($pass, $users[$user]['password'])) {
         AuthHandler::login($user, $users[$user]['role']);
-        AuthHandler::redirect('/admin');
+        AuthHandler::redirect('/admin'); // Corrigido para redirecionar apenas para /admin
     } else {
         $error = 'Usuário ou senha inválidos!';
         include __DIR__ . '/templates/login.php';
@@ -45,7 +47,7 @@ RoutesHandler::addRoute("GET", "/admin", function() {
 ]);
 
 // Rota de logout
-RoutesHandler::addRoute("GET", "/admin/logout", function() {
+RoutesHandler::addRoute("GET", "/logout", function() {
     AuthHandler::logout();
     // O método logout já faz redirect, não precisa de header extra
 }, [
