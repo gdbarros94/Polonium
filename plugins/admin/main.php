@@ -1,30 +1,34 @@
 <?php
 
-// Rota de login (GET e POST)
-RoutesHandler::addRoute(["GET", "POST"], "/login", function() {
+// Rota de login (GET)
+RoutesHandler::addRoute("GET", "/admin/login", function() {
     $error = '';
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $user = $_POST['user'] ?? '';
-        $pass = $_POST['password'] ?? '';
-        // Exemplo de "banco" de usuários (substitua por consulta real depois)
-        $users = [
-            'admin' => [
-                'password' => AuthHandler::hashPassword('admin123'),
-                'role' => 'admin'
-            ],
-            'user' => [
-                'password' => AuthHandler::hashPassword('user123'),
-                'role' => 'user'
-            ]
-        ];
-        if (isset($users[$user]) && AuthHandler::verifyPassword($pass, $users[$user]['password'])) {
-            AuthHandler::login($user, $users[$user]['role']);
-            AuthHandler::redirect('/admin');
-        } else {
-            $error = 'Usuário ou senha inválidos!';
-        }
-    }
     include __DIR__ . '/templates/login.php';
+});
+
+// Rota de login (POST)
+RoutesHandler::addRoute("POST", "/admin/login", function() {
+    $error = '';
+    $user = $_POST['user'] ?? '';
+    $pass = $_POST['password'] ?? '';
+    // Exemplo de "banco" de usuários (substitua por consulta real depois)
+    $users = [
+        'admin' => [
+            'password' => AuthHandler::hashPassword('admin123'),
+            'role' => 'admin'
+        ],
+        'user' => [
+            'password' => AuthHandler::hashPassword('user123'),
+            'role' => 'user'
+        ]
+    ];
+    if (isset($users[$user]) && AuthHandler::verifyPassword($pass, $users[$user]['password'])) {
+        AuthHandler::login($user, $users[$user]['role']);
+        AuthHandler::redirect('/admin');
+    } else {
+        $error = 'Usuário ou senha inválidos!';
+        include __DIR__ . '/templates/login.php';
+    }
 });
 
 // Rota principal do painel admin (protegida)
