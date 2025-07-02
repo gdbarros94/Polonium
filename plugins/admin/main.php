@@ -17,12 +17,12 @@ RoutesHandler::addRoute("POST", "/login", function() {
     $users = [
         'admin' => [
             // senha: admin123
-            'password' => '$argon2id$v=19$m=65536,t=4,p=1$YWFhYWFhYWFhYWFhYWFhYQ$w6Qw6Qw6Qw6Qw6Qw6Qw6Qw',
+            'password' => '$argon2id$v=19$m=65536,t=4,p=1$VlBaWVhocXRpcHBLSXdNZA$junmjqeOW2EN90RPy0Z5MLxu30YgUVg4/yrvY0pzqs4',
             'role' => 'admin'
         ],
         'user' => [
             // senha: user123
-            'password' => '$argon2id$v=19$m=65536,t=4,p=1$YmJiYmJiYmJiYmJiYmJiYg$w6Qw6Qw6Qw6Qw6Qw6Qw6Qw',
+            'password' => '$argon2id$v=19$m=65536,t=4,p=1$cXNHUzU3aVBUbEUudEZLVQ$qLfEhKVj0ssf7re1zwiOsHWL4bA7Y+y1CqEJY9x5p0c',
             'role' => 'user'
         ]
     ];
