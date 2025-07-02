@@ -1,13 +1,13 @@
 <?php
 
 // Rota de login (GET)
-RoutesHandler::addRoute("GET", "/admin/login", function() {
+RoutesHandler::addRoute("GET", "/login", function() {
     $error = '';
     include __DIR__ . '/templates/login.php';
 });
 
 // Rota de login (POST)
-RoutesHandler::addRoute("POST", "/admin/login", function() {
+RoutesHandler::addRoute("POST", "/login", function() {
     $error = '';
     $user = $_POST['user'] ?? '';
     $pass = $_POST['password'] ?? '';
@@ -34,6 +34,10 @@ RoutesHandler::addRoute("POST", "/admin/login", function() {
 // Rota principal do painel admin (protegida)
 RoutesHandler::addRoute("GET", "/admin", function() {
     AuthHandler::requireAuth();
+    if (!AuthHandler::checkPermission('admin')) {
+        echo "Acesso negado.";
+        return;
+    }
     include __DIR__ . '/templates/admin_panel.php';
 }, [
     "auth" => true,
