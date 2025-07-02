@@ -6,7 +6,8 @@
 </head>
 <body>
     <h2>Login de Teste</h2>
-    <form method="post" action="/admin/login">
+    <form method="post" action="/login">
+        <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($redirect ?? '/admin'); ?>">
         <label for="user">Usuário:</label>
         <input type="text" id="user" name="user" required><br><br>
         <label for="password">Senha:</label>

@@ -3,6 +3,7 @@
 // Rota de login (GET)
 RoutesHandler::addRoute("GET", "/login", function() {
     $error = '';
+    $redirect = $_GET['redirect'] ?? '/admin';
     include __DIR__ . '/templates/login.php';
 });
 
@@ -11,6 +12,7 @@ RoutesHandler::addRoute("POST", "/login", function() {
     $error = '';
     $user = $_POST['user'] ?? '';
     $pass = $_POST['password'] ?? '';
+    $redirect = $_POST['redirect'] ?? '/admin';
     // Hashes fixos para teste (gerados previamente)
     $users = [
         'admin' => [
@@ -26,9 +28,15 @@ RoutesHandler::addRoute("POST", "/login", function() {
     ];
     if (isset($users[$user]) && AuthHandler::verifyPassword($pass, $users[$user]['password'])) {
         AuthHandler::login($user, $users[$user]['role']);
-        AuthHandler::redirect('/admin'); // Corrigido para redirecionar apenas para /admin
+        // Redireciona para a rota original, se for segura
+        if (strpos($redirect, '/') === 0) {
+            AuthHandler::redirect($redirect);
+        } else {
+            AuthHandler::redirect('/admin');
+        }
     } else {
         $error = 'Usuário ou senha inválidos!';
+        echo "<script>alert('$error');</script>";
         include __DIR__ . '/templates/login.php';
     }
 });
