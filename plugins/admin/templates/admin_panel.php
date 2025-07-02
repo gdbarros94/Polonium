@@ -8,6 +8,6 @@
     <h2>Painel Admin (Teste)</h2>
     <p>Bem-vindo, <?php echo htmlspecialchars($_SESSION['user_id'] ?? 'Usuário'); ?>!</p>
     <p>Seu papel: <?php echo htmlspecialchars($_SESSION['user_role'] ?? 'N/A'); ?></p>
-    <a href="/admin/logout">Sair</a>
+    <a href="/logout">Sair</a>
 </body>
 </html>

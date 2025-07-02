@@ -57,10 +57,8 @@ RoutesHandler::addRoute("GET", "/admin", function() {
 // Rota de logout
 RoutesHandler::addRoute("GET", "/logout", function() {
     AuthHandler::logout();
-    // O método logout já faz redirect, não precisa de header extra
-}, [
-    "auth" => true
-]);
+    // O método logout já faz redirect para /login
+});
 
 // Exemplo de hook: log após gerar relatório
 HookHandler::register_hook("after_gerar_relatorio", function() {
