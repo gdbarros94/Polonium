@@ -1,4 +1,3 @@
-
 <?php
 
 class AuthHandler
@@ -60,6 +59,18 @@ class AuthHandler
     {
         header("Location: " . $url);
         exit();
+    }
+
+    // Gera o hash da senha usando Argon2id
+    public static function hashPassword($password)
+    {
+        return password_hash($password, PASSWORD_ARGON2ID);
+    }
+
+    // Verifica se a senha corresponde ao hash
+    public static function verifyPassword($password, $hash)
+    {
+        return password_verify($password, $hash);
     }
 }
 

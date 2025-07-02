@@ -1,38 +1,45 @@
 <?php
 
-// Rota principal do painel admin, protegida por autenticação e permissão
+// Rota de login (GET e POST)
+RoutesHandler::addRoute(["GET", "POST"], "/login", function() {
+    $error = '';
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $user = $_POST['user'] ?? '';
+        $pass = $_POST['password'] ?? '';
+        // Exemplo de "banco" de usuários (substitua por consulta real depois)
+        $users = [
+            'admin' => [
+                'password' => AuthHandler::hashPassword('admin123'),
+                'role' => 'admin'
+            ],
+            'user' => [
+                'password' => AuthHandler::hashPassword('user123'),
+                'role' => 'user'
+            ]
+        ];
+        if (isset($users[$user]) && AuthHandler::verifyPassword($pass, $users[$user]['password'])) {
+            AuthHandler::login($user, $users[$user]['role']);
+            AuthHandler::redirect('/admin');
+        } else {
+            $error = 'Usuário ou senha inválidos!';
+        }
+    }
+    include __DIR__ . '/templates/login.php';
+});
+
+// Rota principal do painel admin (protegida)
 RoutesHandler::addRoute("GET", "/admin", function() {
-    // Renderize um template ou inclua um arquivo
-    // Exemplo usando ThemeHandler (ajuste conforme seu tema)
-    ThemeHandler::render_header(['title' => 'Painel de Administração']);
-    echo "<h1>Página do Painel de Admin</h1>";
-    echo "<p>Bem-vindo ao painel administrativo!</p>";
-    ThemeHandler::render_footer();
+    AuthHandler::requireAuth();
+    include __DIR__ . '/templates/admin_panel.php';
 }, [
     "auth" => true,
     "permission" => "admin"
 ]);
 
-// Rota de login (pública)
-RoutesHandler::addRoute("GET", "/login", function() {
-    ThemeHandler::render_header(['title' => 'Login']);
-    echo "<h1>Página de Login</h1>";
-    // Exemplo: listar rotas registradas
-    $routes = RoutesHandler::getRoutes();
-    echo "<ul>";
-    foreach ($routes as $route) {
-        echo "<li>" . htmlspecialchars($route['pattern']) . "</li>";
-    }
-    echo "</ul>";
-    ThemeHandler::render_footer();
-});
-
-// Rota de logout (protegida)
+// Rota de logout
 RoutesHandler::addRoute("GET", "/admin/logout", function() {
     AuthHandler::logout();
-    // O método logout já faz redirect, mas por segurança:
-    header("Location: /login");
-    exit;
+    // O método logout já faz redirect, não precisa de header extra
 }, [
     "auth" => true
 ]);
