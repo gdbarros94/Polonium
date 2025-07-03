@@ -1,6 +1,20 @@
-# Ignora arquivos temporários
+# Arquivos temporários e logs
 *.log
 *.tmp
 
-# Ignora configuração do banco de dados
+# Configuração do banco de dados
 /config/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Pastas de IDEs
+.vscode/
+.idea/
+
+# Dependências PHP
+/vendor/
+
+# Dependências Node.js
+/node_modules/
