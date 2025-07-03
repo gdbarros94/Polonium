@@ -9,6 +9,7 @@ RoutesHandler::addRoute("GET", "/login", function() {
 
 // Rota de login (POST)
 RoutesHandler::addRoute("POST", "/login", function() {
+    var_dump(PluginHandler::getActivePlugins());
     $error = '';
     $user = $_POST['user'] ?? '';
     $pass = $_POST['password'] ?? '';

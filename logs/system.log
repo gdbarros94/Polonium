@@ -4907,3 +4907,341 @@
 [2025-07-03 21:08:26][info] Route added: [ANY] /api/(.*)
 [2025-07-03 21:08:26][info] RoutesHandler initialized.
 [2025-07-03 21:08:26][debug] Checking permission: admin
+[2025-07-04 00:36:22][info] ThemeHandler initialized. Active theme: default
+[2025-07-04 00:36:22][info] Database connection established successfully with driver: mysql.
+[2025-07-04 00:36:22][info] DatabaseHandler initialized.
+[2025-07-04 00:36:22][info] AuthHandler initialized. Session started.
+[2025-07-04 00:36:22][info] PluginHandler initialized. Loading plugins...
+[2025-07-04 00:36:22][warning] Invalid plugin.json for plugin in folder: InventoryCore
+[2025-07-04 00:36:22][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-04 00:36:22][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-04 00:36:22][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:36:22][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-04 00:36:22][info] Route added: [GET] /clientes
+[2025-07-04 00:36:22][info] Route added: [GET] /clientes/novo
+[2025-07-04 00:36:22][info] Loading plugin: System Manager (sys_manager)
+[2025-07-04 00:36:22][info] Route added: [GET] /login
+[2025-07-04 00:36:22][info] Route added: [POST] /login
+[2025-07-04 00:36:22][info] Route added: [GET] /admin
+[2025-07-04 00:36:22][info] Route added: [GET] /logout
+[2025-07-04 00:36:22][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:36:22][info] Plugin admin-panel carregado com sucesso.
+[2025-07-04 00:36:22][info] Route added: [GET] /admin
+[2025-07-04 00:36:22][info] Route added: [GET] /login
+[2025-07-04 00:36:22][info] Route added: [GET] /logout
+[2025-07-04 00:36:22][info] Finished loading plugins.
+[2025-07-04 00:36:22][info] Route added: [GET] /
+[2025-07-04 00:36:22][info] Route added: [ANY] /api/(.*)
+[2025-07-04 00:36:22][info] RoutesHandler initialized.
+[2025-07-04 00:36:22][info] ThemeHandler initialized. Active theme: default
+[2025-07-04 00:36:22][info] Database connection established successfully with driver: mysql.
+[2025-07-04 00:36:22][info] DatabaseHandler initialized.
+[2025-07-04 00:36:22][info] AuthHandler initialized. Session started.
+[2025-07-04 00:36:22][info] PluginHandler initialized. Loading plugins...
+[2025-07-04 00:36:22][warning] Invalid plugin.json for plugin in folder: InventoryCore
+[2025-07-04 00:36:22][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-04 00:36:22][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-04 00:36:22][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:36:22][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-04 00:36:22][info] Route added: [GET] /clientes
+[2025-07-04 00:36:22][info] Route added: [GET] /clientes/novo
+[2025-07-04 00:36:22][info] Loading plugin: System Manager (sys_manager)
+[2025-07-04 00:36:22][info] Route added: [GET] /login
+[2025-07-04 00:36:22][info] Route added: [POST] /login
+[2025-07-04 00:36:22][info] Route added: [GET] /admin
+[2025-07-04 00:36:22][info] Route added: [GET] /logout
+[2025-07-04 00:36:22][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:36:22][info] Plugin admin-panel carregado com sucesso.
+[2025-07-04 00:36:22][info] Route added: [GET] /admin
+[2025-07-04 00:36:22][info] Route added: [GET] /login
+[2025-07-04 00:36:22][info] Route added: [GET] /logout
+[2025-07-04 00:36:22][info] Finished loading plugins.
+[2025-07-04 00:36:22][info] Route added: [GET] /
+[2025-07-04 00:36:22][info] Route added: [ANY] /api/(.*)
+[2025-07-04 00:36:22][info] RoutesHandler initialized.
+[2025-07-04 00:36:22][info] ThemeHandler initialized. Active theme: default
+[2025-07-04 00:36:23][info] Database connection established successfully with driver: mysql.
+[2025-07-04 00:36:23][info] DatabaseHandler initialized.
+[2025-07-04 00:36:23][info] AuthHandler initialized. Session started.
+[2025-07-04 00:36:23][info] PluginHandler initialized. Loading plugins...
+[2025-07-04 00:36:23][warning] Invalid plugin.json for plugin in folder: InventoryCore
+[2025-07-04 00:36:23][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-04 00:36:23][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-04 00:36:23][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:36:23][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-04 00:36:23][info] Route added: [GET] /clientes
+[2025-07-04 00:36:23][info] Route added: [GET] /clientes/novo
+[2025-07-04 00:36:23][info] Loading plugin: System Manager (sys_manager)
+[2025-07-04 00:36:23][info] Route added: [GET] /login
+[2025-07-04 00:36:23][info] Route added: [POST] /login
+[2025-07-04 00:36:23][info] Route added: [GET] /admin
+[2025-07-04 00:36:23][info] Route added: [GET] /logout
+[2025-07-04 00:36:23][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:36:23][info] Plugin admin-panel carregado com sucesso.
+[2025-07-04 00:36:23][info] Route added: [GET] /admin
+[2025-07-04 00:36:23][info] Route added: [GET] /login
+[2025-07-04 00:36:23][info] Route added: [GET] /logout
+[2025-07-04 00:36:23][info] Finished loading plugins.
+[2025-07-04 00:36:23][info] Route added: [GET] /
+[2025-07-04 00:36:23][info] Route added: [ANY] /api/(.*)
+[2025-07-04 00:36:23][info] RoutesHandler initialized.
+[2025-07-04 00:46:20][info] ThemeHandler initialized. Active theme: default
+[2025-07-04 00:46:20][info] Database connection established successfully with driver: mysql.
+[2025-07-04 00:46:20][info] DatabaseHandler initialized.
+[2025-07-04 00:46:20][info] AuthHandler initialized. Session started.
+[2025-07-04 00:46:20][info] PluginHandler initialized. Loading plugins...
+[2025-07-04 00:46:20][warning] Invalid plugin.json for plugin in folder: InventoryCore
+[2025-07-04 00:46:20][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-04 00:46:20][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-04 00:46:20][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:46:20][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-04 00:46:20][info] Route added: [GET] /clientes
+[2025-07-04 00:46:20][info] Route added: [GET] /clientes/novo
+[2025-07-04 00:46:20][info] Loading plugin: System Manager (sys_manager)
+[2025-07-04 00:46:20][info] Route added: [GET] /login
+[2025-07-04 00:46:20][info] Route added: [POST] /login
+[2025-07-04 00:46:20][info] Route added: [GET] /admin
+[2025-07-04 00:46:20][info] Route added: [GET] /logout
+[2025-07-04 00:46:20][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:46:20][info] Plugin admin-panel carregado com sucesso.
+[2025-07-04 00:46:20][info] Route added: [GET] /admin
+[2025-07-04 00:46:20][info] Route added: [GET] /login
+[2025-07-04 00:46:20][info] Route added: [GET] /logout
+[2025-07-04 00:46:20][info] Finished loading plugins.
+[2025-07-04 00:46:20][info] Route added: [GET] /
+[2025-07-04 00:46:20][info] Route added: [ANY] /api/(.*)
+[2025-07-04 00:46:20][info] RoutesHandler initialized.
+[2025-07-04 00:46:21][info] ThemeHandler initialized. Active theme: default
+[2025-07-04 00:46:21][info] Database connection established successfully with driver: mysql.
+[2025-07-04 00:46:21][info] DatabaseHandler initialized.
+[2025-07-04 00:46:21][info] AuthHandler initialized. Session started.
+[2025-07-04 00:46:21][info] PluginHandler initialized. Loading plugins...
+[2025-07-04 00:46:21][warning] Invalid plugin.json for plugin in folder: InventoryCore
+[2025-07-04 00:46:21][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-04 00:46:21][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-04 00:46:21][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:46:21][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-04 00:46:21][info] Route added: [GET] /clientes
+[2025-07-04 00:46:21][info] Route added: [GET] /clientes/novo
+[2025-07-04 00:46:21][info] Loading plugin: System Manager (sys_manager)
+[2025-07-04 00:46:21][info] Route added: [GET] /login
+[2025-07-04 00:46:21][info] Route added: [POST] /login
+[2025-07-04 00:46:21][info] Route added: [GET] /admin
+[2025-07-04 00:46:21][info] Route added: [GET] /logout
+[2025-07-04 00:46:21][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:46:21][info] Plugin admin-panel carregado com sucesso.
+[2025-07-04 00:46:21][info] Route added: [GET] /admin
+[2025-07-04 00:46:21][info] Route added: [GET] /login
+[2025-07-04 00:46:21][info] Route added: [GET] /logout
+[2025-07-04 00:46:21][info] Finished loading plugins.
+[2025-07-04 00:46:21][info] Route added: [GET] /
+[2025-07-04 00:46:21][info] Route added: [ANY] /api/(.*)
+[2025-07-04 00:46:21][info] RoutesHandler initialized.
+[2025-07-04 00:46:21][info] ThemeHandler initialized. Active theme: default
+[2025-07-04 00:46:21][info] Database connection established successfully with driver: mysql.
+[2025-07-04 00:46:21][info] DatabaseHandler initialized.
+[2025-07-04 00:46:21][info] AuthHandler initialized. Session started.
+[2025-07-04 00:46:21][info] PluginHandler initialized. Loading plugins...
+[2025-07-04 00:46:21][warning] Invalid plugin.json for plugin in folder: InventoryCore
+[2025-07-04 00:46:21][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-04 00:46:21][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-04 00:46:21][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:46:21][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-04 00:46:21][info] Route added: [GET] /clientes
+[2025-07-04 00:46:21][info] Route added: [GET] /clientes/novo
+[2025-07-04 00:46:21][info] Loading plugin: System Manager (sys_manager)
+[2025-07-04 00:46:21][info] Route added: [GET] /login
+[2025-07-04 00:46:21][info] Route added: [POST] /login
+[2025-07-04 00:46:21][info] Route added: [GET] /admin
+[2025-07-04 00:46:21][info] Route added: [GET] /logout
+[2025-07-04 00:46:21][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:46:21][info] Plugin admin-panel carregado com sucesso.
+[2025-07-04 00:46:21][info] Route added: [GET] /admin
+[2025-07-04 00:46:21][info] Route added: [GET] /login
+[2025-07-04 00:46:21][info] Route added: [GET] /logout
+[2025-07-04 00:46:21][info] Finished loading plugins.
+[2025-07-04 00:46:21][info] Route added: [GET] /
+[2025-07-04 00:46:21][info] Route added: [ANY] /api/(.*)
+[2025-07-04 00:46:21][info] RoutesHandler initialized.
+[2025-07-04 00:46:21][info] ThemeHandler initialized. Active theme: default
+[2025-07-04 00:46:21][info] Database connection established successfully with driver: mysql.
+[2025-07-04 00:46:21][info] DatabaseHandler initialized.
+[2025-07-04 00:46:21][info] AuthHandler initialized. Session started.
+[2025-07-04 00:46:21][info] PluginHandler initialized. Loading plugins...
+[2025-07-04 00:46:21][warning] Invalid plugin.json for plugin in folder: InventoryCore
+[2025-07-04 00:46:21][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-04 00:46:21][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-04 00:46:21][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:46:21][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-04 00:46:21][info] Route added: [GET] /clientes
+[2025-07-04 00:46:21][info] Route added: [GET] /clientes/novo
+[2025-07-04 00:46:21][info] Loading plugin: System Manager (sys_manager)
+[2025-07-04 00:46:21][info] Route added: [GET] /login
+[2025-07-04 00:46:21][info] Route added: [POST] /login
+[2025-07-04 00:46:21][info] Route added: [GET] /admin
+[2025-07-04 00:46:21][info] Route added: [GET] /logout
+[2025-07-04 00:46:21][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:46:21][info] Plugin admin-panel carregado com sucesso.
+[2025-07-04 00:46:21][info] Route added: [GET] /admin
+[2025-07-04 00:46:21][info] Route added: [GET] /login
+[2025-07-04 00:46:21][info] Route added: [GET] /logout
+[2025-07-04 00:46:21][info] Finished loading plugins.
+[2025-07-04 00:46:21][info] Route added: [GET] /
+[2025-07-04 00:46:21][info] Route added: [ANY] /api/(.*)
+[2025-07-04 00:46:21][info] RoutesHandler initialized.
+[2025-07-04 00:46:21][info] ThemeHandler initialized. Active theme: default
+[2025-07-04 00:46:21][info] Database connection established successfully with driver: mysql.
+[2025-07-04 00:46:21][info] DatabaseHandler initialized.
+[2025-07-04 00:46:21][info] AuthHandler initialized. Session started.
+[2025-07-04 00:46:21][info] PluginHandler initialized. Loading plugins...
+[2025-07-04 00:46:21][warning] Invalid plugin.json for plugin in folder: InventoryCore
+[2025-07-04 00:46:21][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-04 00:46:21][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-04 00:46:21][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:46:21][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-04 00:46:21][info] Route added: [GET] /clientes
+[2025-07-04 00:46:21][info] Route added: [GET] /clientes/novo
+[2025-07-04 00:46:21][info] Loading plugin: System Manager (sys_manager)
+[2025-07-04 00:46:21][info] Route added: [GET] /login
+[2025-07-04 00:46:21][info] Route added: [POST] /login
+[2025-07-04 00:46:21][info] Route added: [GET] /admin
+[2025-07-04 00:46:21][info] Route added: [GET] /logout
+[2025-07-04 00:46:21][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:46:21][info] Plugin admin-panel carregado com sucesso.
+[2025-07-04 00:46:21][info] Route added: [GET] /admin
+[2025-07-04 00:46:21][info] Route added: [GET] /login
+[2025-07-04 00:46:21][info] Route added: [GET] /logout
+[2025-07-04 00:46:21][info] Finished loading plugins.
+[2025-07-04 00:46:21][info] Route added: [GET] /
+[2025-07-04 00:46:21][info] Route added: [ANY] /api/(.*)
+[2025-07-04 00:46:21][info] RoutesHandler initialized.
+[2025-07-04 00:46:21][info] ThemeHandler initialized. Active theme: default
+[2025-07-04 00:46:21][info] Database connection established successfully with driver: mysql.
+[2025-07-04 00:46:21][info] DatabaseHandler initialized.
+[2025-07-04 00:46:21][info] AuthHandler initialized. Session started.
+[2025-07-04 00:46:21][info] PluginHandler initialized. Loading plugins...
+[2025-07-04 00:46:21][warning] Invalid plugin.json for plugin in folder: InventoryCore
+[2025-07-04 00:46:21][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-04 00:46:21][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-04 00:46:21][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:46:21][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-04 00:46:21][info] Route added: [GET] /clientes
+[2025-07-04 00:46:21][info] Route added: [GET] /clientes/novo
+[2025-07-04 00:46:21][info] Loading plugin: System Manager (sys_manager)
+[2025-07-04 00:46:21][info] Route added: [GET] /login
+[2025-07-04 00:46:21][info] Route added: [POST] /login
+[2025-07-04 00:46:21][info] Route added: [GET] /admin
+[2025-07-04 00:46:21][info] Route added: [GET] /logout
+[2025-07-04 00:46:21][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:46:21][info] Plugin admin-panel carregado com sucesso.
+[2025-07-04 00:46:21][info] Route added: [GET] /admin
+[2025-07-04 00:46:21][info] Route added: [GET] /login
+[2025-07-04 00:46:21][info] Route added: [GET] /logout
+[2025-07-04 00:46:21][info] Finished loading plugins.
+[2025-07-04 00:46:21][info] Route added: [GET] /
+[2025-07-04 00:46:21][info] Route added: [ANY] /api/(.*)
+[2025-07-04 00:46:21][info] RoutesHandler initialized.
+[2025-07-04 00:50:02][info] ThemeHandler initialized. Active theme: default
+[2025-07-04 00:50:02][info] Database connection established successfully with driver: mysql.
+[2025-07-04 00:50:02][info] DatabaseHandler initialized.
+[2025-07-04 00:50:02][info] AuthHandler initialized. Session started.
+[2025-07-04 00:50:02][info] PluginHandler initialized. Loading plugins...
+[2025-07-04 00:50:02][warning] Invalid plugin.json for plugin in folder: InventoryCore
+[2025-07-04 00:50:02][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-04 00:50:02][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-04 00:50:02][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:50:02][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-04 00:50:02][info] Route added: [GET] /clientes
+[2025-07-04 00:50:02][info] Route added: [GET] /clientes/novo
+[2025-07-04 00:50:02][info] Loading plugin: System Manager (system_manager)
+[2025-07-04 00:50:02][info] Route added: [GET] /login
+[2025-07-04 00:50:02][info] Route added: [POST] /login
+[2025-07-04 00:50:02][info] Route added: [GET] /admin
+[2025-07-04 00:50:02][info] Route added: [GET] /logout
+[2025-07-04 00:50:02][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:50:02][info] Plugin admin-panel carregado com sucesso.
+[2025-07-04 00:50:02][info] Route added: [GET] /admin
+[2025-07-04 00:50:02][info] Route added: [GET] /login
+[2025-07-04 00:50:02][info] Route added: [GET] /logout
+[2025-07-04 00:50:02][info] Finished loading plugins.
+[2025-07-04 00:50:02][info] Route added: [GET] /
+[2025-07-04 00:50:02][info] Route added: [ANY] /api/(.*)
+[2025-07-04 00:50:02][info] RoutesHandler initialized.
+[2025-07-04 00:50:17][info] ThemeHandler initialized. Active theme: default
+[2025-07-04 00:50:17][info] Database connection established successfully with driver: mysql.
+[2025-07-04 00:50:17][info] DatabaseHandler initialized.
+[2025-07-04 00:50:17][info] AuthHandler initialized. Session started.
+[2025-07-04 00:50:17][info] PluginHandler initialized. Loading plugins...
+[2025-07-04 00:50:17][warning] Invalid plugin.json for plugin in folder: InventoryCore
+[2025-07-04 00:50:17][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-04 00:50:17][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-04 00:50:17][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:50:17][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-04 00:50:17][info] Route added: [GET] /clientes
+[2025-07-04 00:50:17][info] Route added: [GET] /clientes/novo
+[2025-07-04 00:50:17][info] Loading plugin: System Manager (system_manager)
+[2025-07-04 00:50:17][info] Route added: [GET] /login
+[2025-07-04 00:50:17][info] Route added: [POST] /login
+[2025-07-04 00:50:17][info] Route added: [GET] /admin
+[2025-07-04 00:50:17][info] Route added: [GET] /logout
+[2025-07-04 00:50:17][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:50:17][info] Plugin admin-panel carregado com sucesso.
+[2025-07-04 00:50:17][info] Route added: [GET] /admin
+[2025-07-04 00:50:17][info] Route added: [GET] /login
+[2025-07-04 00:50:17][info] Route added: [GET] /logout
+[2025-07-04 00:50:17][info] Finished loading plugins.
+[2025-07-04 00:50:17][info] Route added: [GET] /
+[2025-07-04 00:50:17][info] Route added: [ANY] /api/(.*)
+[2025-07-04 00:50:17][info] RoutesHandler initialized.
+[2025-07-04 00:50:18][info] ThemeHandler initialized. Active theme: default
+[2025-07-04 00:50:18][info] Database connection established successfully with driver: mysql.
+[2025-07-04 00:50:18][info] DatabaseHandler initialized.
+[2025-07-04 00:50:18][info] AuthHandler initialized. Session started.
+[2025-07-04 00:50:18][info] PluginHandler initialized. Loading plugins...
+[2025-07-04 00:50:18][warning] Invalid plugin.json for plugin in folder: InventoryCore
+[2025-07-04 00:50:18][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-04 00:50:18][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-04 00:50:18][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:50:18][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-04 00:50:18][info] Route added: [GET] /clientes
+[2025-07-04 00:50:18][info] Route added: [GET] /clientes/novo
+[2025-07-04 00:50:18][info] Loading plugin: System Manager (system_manager)
+[2025-07-04 00:50:18][info] Route added: [GET] /login
+[2025-07-04 00:50:18][info] Route added: [POST] /login
+[2025-07-04 00:50:18][info] Route added: [GET] /admin
+[2025-07-04 00:50:18][info] Route added: [GET] /logout
+[2025-07-04 00:50:18][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:50:18][info] Plugin admin-panel carregado com sucesso.
+[2025-07-04 00:50:18][info] Route added: [GET] /admin
+[2025-07-04 00:50:18][info] Route added: [GET] /login
+[2025-07-04 00:50:18][info] Route added: [GET] /logout
+[2025-07-04 00:50:18][info] Finished loading plugins.
+[2025-07-04 00:50:18][info] Route added: [GET] /
+[2025-07-04 00:50:18][info] Route added: [ANY] /api/(.*)
+[2025-07-04 00:50:18][info] RoutesHandler initialized.
+[2025-07-04 00:50:18][info] ThemeHandler initialized. Active theme: default
+[2025-07-04 00:50:18][info] Database connection established successfully with driver: mysql.
+[2025-07-04 00:50:18][info] DatabaseHandler initialized.
+[2025-07-04 00:50:18][info] AuthHandler initialized. Session started.
+[2025-07-04 00:50:18][info] PluginHandler initialized. Loading plugins...
+[2025-07-04 00:50:18][warning] Invalid plugin.json for plugin in folder: InventoryCore
+[2025-07-04 00:50:18][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-04 00:50:18][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-04 00:50:18][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:50:18][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-04 00:50:18][info] Route added: [GET] /clientes
+[2025-07-04 00:50:18][info] Route added: [GET] /clientes/novo
+[2025-07-04 00:50:18][info] Loading plugin: System Manager (system_manager)
+[2025-07-04 00:50:18][info] Route added: [GET] /login
+[2025-07-04 00:50:18][info] Route added: [POST] /login
+[2025-07-04 00:50:18][info] Route added: [GET] /admin
+[2025-07-04 00:50:18][info] Route added: [GET] /logout
+[2025-07-04 00:50:18][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-04 00:50:18][info] Plugin admin-panel carregado com sucesso.
+[2025-07-04 00:50:18][info] Route added: [GET] /admin
+[2025-07-04 00:50:18][info] Route added: [GET] /login
+[2025-07-04 00:50:18][info] Route added: [GET] /logout
+[2025-07-04 00:50:18][info] Finished loading plugins.
+[2025-07-04 00:50:18][info] Route added: [GET] /
+[2025-07-04 00:50:18][info] Route added: [ANY] /api/(.*)
+[2025-07-04 00:50:18][info] RoutesHandler initialized.
