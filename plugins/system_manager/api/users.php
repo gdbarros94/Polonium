@@ -1,8 +1,6 @@
 <?php
 // users.php - CRUD de usuários para API do system_manager
 
-require_once __DIR__ . '/../../core/APIHandler.php';
-
 class SystemManagerUsersApi {
     public static function registerRoutes() {
         // GET /api/users
