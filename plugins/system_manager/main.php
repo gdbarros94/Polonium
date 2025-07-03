@@ -1,4 +1,10 @@
 <?php
+require_once __DIR__ . '/api/users.php';
+require_once __DIR__ . '/api/token.php';
+
+// Carrega e registra as rotas da API do system_manager
+SystemManagerUsersApi::registerRoutes();
+SystemManagerTokenApi::registerRoutes();
 
 // Rota de login (GET)
 RoutesHandler::addRoute("GET", "/login", function() {
