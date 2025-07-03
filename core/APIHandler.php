@@ -1,7 +1,28 @@
 <?php
+/**
+ * Class APIHandler
+ *
+ * Esta classe é responsável por gerenciar as requisições da API.
+ * Ela autentica as requisições, roteia os endpoints apropriados e
+ * envia respostas em formato JSON. Os métodos principais incluem
+ * autenticação, listagem de clientes e criação de novos usuários.
+ *
+ * Exemplos de endpoints suportados:
+ * - clientes/listar: Retorna uma lista de clientes.
+ * - usuarios/novo: Cria um novo usuário.
+ *
+ * @package CoreCRM\Core
+ */
 
 class APIHandler
 {
+    /**
+     * Handles an API request.
+     *
+     * @param string $endpoint API endpoint requested (e.g. "clientes/listar")
+     *
+     * @return void
+     */
     public static function handleRequest($endpoint)
     {
         System::log("Handling API request for endpoint: {$endpoint}", "debug");
@@ -28,6 +49,17 @@ class APIHandler
         }
     }
 
+    /**
+     * Authenticates the API request using a token from the request headers.
+     *
+     * This function retrieves the 'Authorization' header, extracts the token,
+     * and checks it against a predefined secret token. Logs authentication
+     * success or failure. Returns true if authentication is successful,
+     * otherwise returns false.
+     *
+     * @return bool True if the request is authenticated, false otherwise.
+     */
+
     private static function authenticate()
     {
         // Implementar lógica de autenticação de token aqui
@@ -43,6 +75,15 @@ class APIHandler
         return false;
     }
 
+    /**
+     * Retorna uma lista de clientes.
+     *
+     * Este método é chamado quando o endpoint da API "clientes/listar" é acessado.
+     * Ele utiliza o DatabaseHandler para executar uma consulta SQL SELECT
+     * na tabela "clients" e retorna o resultado como uma resposta em JSON.
+     *
+     * @return void
+     */
     private static function listClients()
     {
         // Exemplo de uso do DatabaseHandler
@@ -69,6 +110,13 @@ class APIHandler
         self::sendJsonResponse(["message" => "User created successfully."], 201);
     }
 
+    /**
+     * Envia uma resposta em JSON com um status code opcional.
+     *
+     * @param mixed $data Dados a serem enviados em formato JSON.
+     * @param int $statusCode Código de status HTTP a ser enviado. Padr o: 200.
+     * @return void
+     */
     public static function sendJsonResponse($data, $statusCode = 200)
     {
         header("Content-Type: application/json");
