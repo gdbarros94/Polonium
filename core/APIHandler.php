@@ -1,5 +1,18 @@
 <?php
-
+/**
+ * Class APIHandler
+ *
+ * Esta classe é responsável por gerenciar as requisições da API.
+ * Ela autentica as requisições, roteia os endpoints apropriados e
+ * envia respostas em formato JSON. Os métodos principais incluem
+ * autenticação, listagem de clientes e criação de novos usuários.
+ *
+ * Exemplos de endpoints suportados:
+ * - clientes/listar: Retorna uma lista de clientes.
+ * - usuarios/novo: Cria um novo usuário.
+ *
+ * @package CoreCRM\Core
+ */
 class APIHandler
 {
     /**
@@ -56,5 +69,4 @@ class APIHandler
         return bin2hex(random_bytes($length / 2));
     }
 }
-
 
