@@ -37,18 +37,6 @@ class RoutesHandler
         self::addRoute("GET", "/", function () {
             echo "Bem-vindo ao CRM!";
         });
-        // self::addRoute("GET", "/login", function () {
-        //     echo "Página de Login";
-        // });
-        // self::addRoute("GET", "/admin", function () {
-        //     require_once __DIR__ . '/../admin/index.php';
-        // }, ["auth" => true, "permission" => "admin"]);
-
-        // Tratamento especial para rotas /api/*
-        self::addRoute("ANY", "/api/(.*)", function ($params) {
-            APIHandler::handleRequest($params[0]);
-        });
-
         System::log("RoutesHandler initialized.");
     }
 
