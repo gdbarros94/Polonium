@@ -35,7 +35,7 @@ class APIHandler
         $headers = function_exists('getallheaders') ? getallheaders() : [];
         $authToken = isset($headers["Authorization"]) ? str_replace("Bearer ", "", $headers["Authorization"]) : null;
         if (!$authToken) return false;
-        $token = (new QueryBuilder("user_tokens"))->select()->where(["token" => $authToken])->first();
+        $token = (new QueryBuilder("api_tokens"))->select()->where(["token" => $authToken])->first();
         return $token ? true : false;
     }
 
@@ -72,11 +72,11 @@ class APIHandler
             ]
         ];
         $user = isset($users[$username]) ? $users[$username] : null;
-        if (!$user || !password_verify($password, $user["password"])) {
+        if (!$user || !AuthHandler::verifyPassword($password, $user["password"])) {
             self::sendJsonResponse(["error" => "Invalid credentials"], 401);
         }
         $token = self::generateSecureToken();
-        (new QueryBuilder("user_tokens"))->insert([
+        (new QueryBuilder("api_tokens"))->insert([
             "user_id" => $user["id"],
             "token" => $token,
             "created_at" => date("Y-m-d H:i:s")
