@@ -74,4 +74,8 @@ class SystemManagerUsersApi {
         (new QueryBuilder("users"))->delete()->where(["id" => $params["id"]])->execute();
         APIHandler::sendJsonResponse(["message" => "User deleted"]);
     }
+
 }
+
+// Garante que as rotas da API de usuários sejam registradas ao carregar o módulo
+SystemManagerUsersApi::registerRoutes();
