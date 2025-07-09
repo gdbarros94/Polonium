@@ -1,4 +1,8 @@
 <?php
+require_once 'api/token.php';
+require_once 'api/users.php';
+SystemManagerTokenApi::registerRoutes();
+SystemManagerUsersApi::registerRoutes();
 
 // Rota de login (GET)
 RoutesHandler::addRoute("GET", "/login", function() {

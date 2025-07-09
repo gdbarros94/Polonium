@@ -5608,3 +5608,2907 @@
 [2025-07-04 01:55:46][info] Finished loading plugins.
 [2025-07-04 01:55:46][info] Route added: [GET] /
 [2025-07-04 01:55:46][info] RoutesHandler initialized.
+[2025-07-09 01:14:43][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:14:43][error] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'crm_alunostds_dev_br'@'localhost' (using password: YES)
+[2025-07-09 01:14:43][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:14:43][error] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'crm_alunostds_dev_br'@'localhost' (using password: YES)
+[2025-07-09 01:16:10][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:16:10][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:16:10][info] DatabaseHandler initialized.
+[2025-07-09 01:16:10][info] AuthHandler initialized. Session started.
+[2025-07-09 01:16:10][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:16:10][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:16:10][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:16:10][info] Database table created/verified successfully.
+[2025-07-09 01:16:10][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:16:10][info] Database table created/verified successfully.
+[2025-07-09 01:16:10][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:16:10][info] Database table created/verified successfully.
+[2025-07-09 01:16:10][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:16:10][info] Database table created/verified successfully.
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/products
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:16:10][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:16:10][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:16:10][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:16:10][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:16:10][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:16:10][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:16:10][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:16:10][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/products
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:16:10][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:16:10][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:16:10][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:16:10][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:16:10][info] Route added: [GET] /clientes
+[2025-07-09 01:16:10][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:16:10][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:16:10][info] Route added: [GET] /login
+[2025-07-09 01:16:10][info] Route added: [POST] /login
+[2025-07-09 01:16:10][info] Route added: [GET] /admin
+[2025-07-09 01:16:10][info] Route added: [GET] /logout
+[2025-07-09 01:16:10][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:16:10][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:16:10][info] Route added: [GET] /admin
+[2025-07-09 01:16:10][info] Route added: [GET] /login
+[2025-07-09 01:16:10][info] Route added: [GET] /logout
+[2025-07-09 01:16:10][info] Finished loading plugins.
+[2025-07-09 01:16:10][info] Route added: [GET] /
+[2025-07-09 01:16:10][info] RoutesHandler initialized.
+[2025-07-09 01:16:10][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:16:10][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:16:10][info] DatabaseHandler initialized.
+[2025-07-09 01:16:10][info] AuthHandler initialized. Session started.
+[2025-07-09 01:16:10][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:16:10][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:16:10][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:16:10][info] Database table created/verified successfully.
+[2025-07-09 01:16:10][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:16:10][info] Database table created/verified successfully.
+[2025-07-09 01:16:10][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:16:10][info] Database table created/verified successfully.
+[2025-07-09 01:16:10][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:16:10][info] Database table created/verified successfully.
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/products
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:16:10][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:16:10][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:16:10][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:16:10][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:16:10][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:16:10][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:16:10][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:16:10][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/products
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:16:10][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:16:10][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:16:10][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:16:10][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:16:10][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:16:10][info] Route added: [GET] /clientes
+[2025-07-09 01:16:10][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:16:10][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:16:10][info] Route added: [GET] /login
+[2025-07-09 01:16:10][info] Route added: [POST] /login
+[2025-07-09 01:16:10][info] Route added: [GET] /admin
+[2025-07-09 01:16:10][info] Route added: [GET] /logout
+[2025-07-09 01:16:10][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:16:10][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:16:10][info] Route added: [GET] /admin
+[2025-07-09 01:16:10][info] Route added: [GET] /login
+[2025-07-09 01:16:10][info] Route added: [GET] /logout
+[2025-07-09 01:16:10][info] Finished loading plugins.
+[2025-07-09 01:16:10][info] Route added: [GET] /
+[2025-07-09 01:16:10][info] RoutesHandler initialized.
+[2025-07-09 01:16:33][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:16:33][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:16:33][info] DatabaseHandler initialized.
+[2025-07-09 01:16:33][info] AuthHandler initialized. Session started.
+[2025-07-09 01:16:33][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:16:33][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:16:33][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:16:33][info] Database table created/verified successfully.
+[2025-07-09 01:16:33][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:16:33][info] Database table created/verified successfully.
+[2025-07-09 01:16:33][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:16:33][info] Database table created/verified successfully.
+[2025-07-09 01:16:33][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:16:33][info] Database table created/verified successfully.
+[2025-07-09 01:16:33][info] Route added: [GET] /inventory
+[2025-07-09 01:16:33][info] Route added: [GET] /inventory/products
+[2025-07-09 01:16:33][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:16:33][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:16:33][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:16:33][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:16:33][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:16:33][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:16:33][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:16:33][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:16:33][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:16:33][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:16:33][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:16:33][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:16:33][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:16:33][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:16:33][info] Route added: [GET] /inventory
+[2025-07-09 01:16:33][info] Route added: [GET] /inventory/products
+[2025-07-09 01:16:33][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:16:33][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:16:33][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:16:33][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:16:33][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:16:33][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:16:33][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:16:33][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:16:33][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:16:33][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:16:33][info] Route added: [GET] /clientes
+[2025-07-09 01:16:33][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:16:33][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:16:33][info] Route added: [GET] /login
+[2025-07-09 01:16:33][info] Route added: [POST] /login
+[2025-07-09 01:16:33][info] Route added: [GET] /admin
+[2025-07-09 01:16:33][info] Route added: [GET] /logout
+[2025-07-09 01:16:33][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:16:33][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:16:33][info] Route added: [GET] /admin
+[2025-07-09 01:16:33][info] Route added: [GET] /login
+[2025-07-09 01:16:33][info] Route added: [GET] /logout
+[2025-07-09 01:16:33][info] Finished loading plugins.
+[2025-07-09 01:16:33][info] Route added: [GET] /
+[2025-07-09 01:16:33][info] RoutesHandler initialized.
+[2025-07-09 01:17:28][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:17:28][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:17:28][info] DatabaseHandler initialized.
+[2025-07-09 01:17:28][info] AuthHandler initialized. Session started.
+[2025-07-09 01:17:28][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:17:28][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:17:28][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:17:28][info] Database table created/verified successfully.
+[2025-07-09 01:17:28][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:17:28][info] Database table created/verified successfully.
+[2025-07-09 01:17:28][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:17:28][info] Database table created/verified successfully.
+[2025-07-09 01:17:28][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:17:28][info] Database table created/verified successfully.
+[2025-07-09 01:17:28][info] Route added: [GET] /inventory
+[2025-07-09 01:17:28][info] Route added: [GET] /inventory/products
+[2025-07-09 01:17:28][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:17:28][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:17:28][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:17:28][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:17:28][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:17:28][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:17:28][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:17:28][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:17:28][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:17:28][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:17:28][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:17:28][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:17:28][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:17:28][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:17:28][info] Route added: [GET] /inventory
+[2025-07-09 01:17:28][info] Route added: [GET] /inventory/products
+[2025-07-09 01:17:28][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:17:28][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:17:28][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:17:28][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:17:28][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:17:28][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:17:28][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:17:28][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:17:28][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:17:28][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:17:28][info] Route added: [GET] /clientes
+[2025-07-09 01:17:28][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:17:28][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:17:28][info] Route added: [GET] /login
+[2025-07-09 01:17:28][info] Route added: [POST] /login
+[2025-07-09 01:17:28][info] Route added: [GET] /admin
+[2025-07-09 01:17:28][info] Route added: [GET] /logout
+[2025-07-09 01:17:28][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:17:28][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:17:28][info] Route added: [GET] /admin
+[2025-07-09 01:17:28][info] Route added: [GET] /login
+[2025-07-09 01:17:28][info] Route added: [GET] /logout
+[2025-07-09 01:17:28][info] Finished loading plugins.
+[2025-07-09 01:17:28][info] Route added: [GET] /
+[2025-07-09 01:17:28][info] RoutesHandler initialized.
+[2025-07-09 01:20:34][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:20:34][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:20:34][info] DatabaseHandler initialized.
+[2025-07-09 01:20:34][info] AuthHandler initialized. Session started.
+[2025-07-09 01:20:34][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:20:34][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:20:34][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:20:34][info] Database table created/verified successfully.
+[2025-07-09 01:20:34][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:20:34][info] Database table created/verified successfully.
+[2025-07-09 01:20:34][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:20:34][info] Database table created/verified successfully.
+[2025-07-09 01:20:34][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:20:34][info] Database table created/verified successfully.
+[2025-07-09 01:20:34][info] Route added: [GET] /inventory
+[2025-07-09 01:20:34][info] Route added: [GET] /inventory/products
+[2025-07-09 01:20:34][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:20:34][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:20:34][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:20:34][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:20:34][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:20:34][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:20:34][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:20:34][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:20:34][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:20:34][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:20:34][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:20:34][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:20:34][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:20:34][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:20:34][info] Route added: [GET] /inventory
+[2025-07-09 01:20:34][info] Route added: [GET] /inventory/products
+[2025-07-09 01:20:34][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:20:34][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:20:34][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:20:34][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:20:34][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:20:34][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:20:34][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:20:34][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:20:34][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:20:34][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:20:34][info] Route added: [GET] /clientes
+[2025-07-09 01:20:34][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:20:34][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:25:21][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:25:21][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:25:21][info] DatabaseHandler initialized.
+[2025-07-09 01:25:21][info] AuthHandler initialized. Session started.
+[2025-07-09 01:25:21][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:25:21][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:25:21][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:25:21][info] Database table created/verified successfully.
+[2025-07-09 01:25:21][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:25:21][info] Database table created/verified successfully.
+[2025-07-09 01:25:21][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:25:21][info] Database table created/verified successfully.
+[2025-07-09 01:25:21][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:25:21][info] Database table created/verified successfully.
+[2025-07-09 01:25:21][info] Route added: [GET] /inventory
+[2025-07-09 01:25:21][info] Route added: [GET] /inventory/products
+[2025-07-09 01:25:21][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:25:21][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:25:21][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:25:21][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:25:21][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:25:21][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:25:21][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:25:21][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:25:21][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:25:21][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:25:21][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:25:21][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:25:21][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:25:21][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:25:21][info] Route added: [GET] /inventory
+[2025-07-09 01:25:21][info] Route added: [GET] /inventory/products
+[2025-07-09 01:25:21][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:25:21][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:25:21][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:25:21][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:25:21][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:25:21][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:25:21][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:25:21][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:25:21][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:25:21][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:25:21][info] Route added: [GET] /clientes
+[2025-07-09 01:25:21][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:25:21][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:25:21][info] Route added: [GET] /api/users
+[2025-07-09 01:25:21][info] Route added: [POST] /api/users
+[2025-07-09 01:25:21][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:25:21][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:25:21][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:25:21][info] Route added: [GET] /login
+[2025-07-09 01:25:21][info] Route added: [POST] /login
+[2025-07-09 01:25:21][info] Route added: [GET] /admin
+[2025-07-09 01:25:21][info] Route added: [GET] /logout
+[2025-07-09 01:25:21][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:25:21][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:25:21][info] Route added: [GET] /admin
+[2025-07-09 01:25:21][info] Route added: [GET] /login
+[2025-07-09 01:25:21][info] Route added: [GET] /logout
+[2025-07-09 01:25:21][info] Finished loading plugins.
+[2025-07-09 01:25:21][info] Route added: [GET] /
+[2025-07-09 01:25:21][info] RoutesHandler initialized.
+[2025-07-09 01:26:53][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:26:53][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:26:53][info] DatabaseHandler initialized.
+[2025-07-09 01:26:53][info] AuthHandler initialized. Session started.
+[2025-07-09 01:26:53][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:26:53][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:26:53][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:26:53][info] Database table created/verified successfully.
+[2025-07-09 01:26:53][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:26:53][info] Database table created/verified successfully.
+[2025-07-09 01:26:53][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:26:53][info] Database table created/verified successfully.
+[2025-07-09 01:26:53][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:26:53][info] Database table created/verified successfully.
+[2025-07-09 01:26:53][info] Route added: [GET] /inventory
+[2025-07-09 01:26:53][info] Route added: [GET] /inventory/products
+[2025-07-09 01:26:53][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:26:53][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:26:53][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:26:53][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:26:53][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:26:53][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:26:53][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:26:53][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:26:53][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:26:53][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:26:53][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:26:53][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:26:53][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:26:53][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:26:53][info] Route added: [GET] /inventory
+[2025-07-09 01:26:53][info] Route added: [GET] /inventory/products
+[2025-07-09 01:26:53][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:26:53][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:26:53][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:26:53][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:26:53][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:26:53][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:26:53][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:26:53][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:26:53][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:26:53][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:26:53][info] Route added: [GET] /clientes
+[2025-07-09 01:26:53][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:26:53][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:26:53][info] Route added: [POST] /api/token
+[2025-07-09 01:26:53][info] Route added: [GET] /api/users
+[2025-07-09 01:26:53][info] Route added: [POST] /api/users
+[2025-07-09 01:26:53][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:26:53][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:26:53][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:26:53][info] Route added: [GET] /login
+[2025-07-09 01:26:53][info] Route added: [POST] /login
+[2025-07-09 01:26:53][info] Route added: [GET] /admin
+[2025-07-09 01:26:53][info] Route added: [GET] /logout
+[2025-07-09 01:26:53][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:26:53][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:26:53][info] Route added: [GET] /admin
+[2025-07-09 01:26:53][info] Route added: [GET] /login
+[2025-07-09 01:26:53][info] Route added: [GET] /logout
+[2025-07-09 01:26:53][info] Finished loading plugins.
+[2025-07-09 01:26:53][info] Route added: [GET] /
+[2025-07-09 01:26:53][info] RoutesHandler initialized.
+[2025-07-09 01:27:17][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:27:17][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:27:17][info] DatabaseHandler initialized.
+[2025-07-09 01:27:17][info] AuthHandler initialized. Session started.
+[2025-07-09 01:27:17][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:27:17][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:27:17][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:17][info] Database table created/verified successfully.
+[2025-07-09 01:27:17][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:17][info] Database table created/verified successfully.
+[2025-07-09 01:27:17][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:27:17][info] Database table created/verified successfully.
+[2025-07-09 01:27:17][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:27:17][info] Database table created/verified successfully.
+[2025-07-09 01:27:17][info] Route added: [GET] /inventory
+[2025-07-09 01:27:17][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:17][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:17][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:27:17][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:17][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:27:17][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:17][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:17][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:17][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:17][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:27:17][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:27:17][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:27:17][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:27:17][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:27:17][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:27:17][info] Route added: [GET] /inventory
+[2025-07-09 01:27:17][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:17][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:17][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:17][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:17][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:17][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:17][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:17][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:27:17][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:27:17][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:17][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:27:17][info] Route added: [GET] /clientes
+[2025-07-09 01:27:17][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:27:17][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:27:17][info] Route added: [POST] /api/token
+[2025-07-09 01:27:17][info] Route added: [GET] /api/users
+[2025-07-09 01:27:17][info] Route added: [POST] /api/users
+[2025-07-09 01:27:17][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:27:17][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:27:17][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:27:17][info] Route added: [GET] /login
+[2025-07-09 01:27:17][info] Route added: [POST] /login
+[2025-07-09 01:27:17][info] Route added: [GET] /admin
+[2025-07-09 01:27:17][info] Route added: [GET] /logout
+[2025-07-09 01:27:17][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:17][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:27:17][info] Route added: [GET] /admin
+[2025-07-09 01:27:17][info] Route added: [GET] /login
+[2025-07-09 01:27:17][info] Route added: [GET] /logout
+[2025-07-09 01:27:17][info] Finished loading plugins.
+[2025-07-09 01:27:17][info] Route added: [GET] /
+[2025-07-09 01:27:17][info] RoutesHandler initialized.
+[2025-07-09 01:27:19][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:27:19][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:27:19][info] DatabaseHandler initialized.
+[2025-07-09 01:27:19][info] AuthHandler initialized. Session started.
+[2025-07-09 01:27:19][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:27:19][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:27:19][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:19][info] Database table created/verified successfully.
+[2025-07-09 01:27:19][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:19][info] Database table created/verified successfully.
+[2025-07-09 01:27:19][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:27:19][info] Database table created/verified successfully.
+[2025-07-09 01:27:19][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:27:19][info] Database table created/verified successfully.
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:19][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:19][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:19][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:27:19][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:27:19][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:27:19][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:27:19][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:27:19][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:19][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:27:19][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:27:19][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:19][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:27:19][info] Route added: [GET] /clientes
+[2025-07-09 01:27:19][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:27:19][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:27:19][info] Route added: [POST] /api/token
+[2025-07-09 01:27:19][info] Route added: [GET] /api/users
+[2025-07-09 01:27:19][info] Route added: [POST] /api/users
+[2025-07-09 01:27:19][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:27:19][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:27:19][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:27:19][info] Route added: [GET] /login
+[2025-07-09 01:27:19][info] Route added: [POST] /login
+[2025-07-09 01:27:19][info] Route added: [GET] /admin
+[2025-07-09 01:27:19][info] Route added: [GET] /logout
+[2025-07-09 01:27:19][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:19][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:27:19][info] Route added: [GET] /admin
+[2025-07-09 01:27:19][info] Route added: [GET] /login
+[2025-07-09 01:27:19][info] Route added: [GET] /logout
+[2025-07-09 01:27:19][info] Finished loading plugins.
+[2025-07-09 01:27:19][info] Route added: [GET] /
+[2025-07-09 01:27:19][info] RoutesHandler initialized.
+[2025-07-09 01:27:19][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:27:19][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:27:19][info] DatabaseHandler initialized.
+[2025-07-09 01:27:19][info] AuthHandler initialized. Session started.
+[2025-07-09 01:27:19][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:27:19][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:27:19][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:19][info] Database table created/verified successfully.
+[2025-07-09 01:27:19][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:19][info] Database table created/verified successfully.
+[2025-07-09 01:27:19][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:27:19][info] Database table created/verified successfully.
+[2025-07-09 01:27:19][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:27:19][info] Database table created/verified successfully.
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:19][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:19][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:19][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:27:19][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:27:19][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:27:19][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:27:19][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:27:19][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:19][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:19][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:27:19][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:27:19][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:19][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:27:19][info] Route added: [GET] /clientes
+[2025-07-09 01:27:19][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:27:19][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:27:19][info] Route added: [POST] /api/token
+[2025-07-09 01:27:19][info] Route added: [GET] /api/users
+[2025-07-09 01:27:19][info] Route added: [POST] /api/users
+[2025-07-09 01:27:19][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:27:19][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:27:19][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:27:19][info] Route added: [GET] /login
+[2025-07-09 01:27:19][info] Route added: [POST] /login
+[2025-07-09 01:27:19][info] Route added: [GET] /admin
+[2025-07-09 01:27:19][info] Route added: [GET] /logout
+[2025-07-09 01:27:19][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:19][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:27:19][info] Route added: [GET] /admin
+[2025-07-09 01:27:19][info] Route added: [GET] /login
+[2025-07-09 01:27:19][info] Route added: [GET] /logout
+[2025-07-09 01:27:19][info] Finished loading plugins.
+[2025-07-09 01:27:19][info] Route added: [GET] /
+[2025-07-09 01:27:19][info] RoutesHandler initialized.
+[2025-07-09 01:27:20][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:27:20][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:27:20][info] DatabaseHandler initialized.
+[2025-07-09 01:27:20][info] AuthHandler initialized. Session started.
+[2025-07-09 01:27:20][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:27:20][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:27:20][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:20][info] Database table created/verified successfully.
+[2025-07-09 01:27:20][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:20][info] Database table created/verified successfully.
+[2025-07-09 01:27:20][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:27:20][info] Database table created/verified successfully.
+[2025-07-09 01:27:20][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:27:20][info] Database table created/verified successfully.
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:20][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:20][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:20][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:27:20][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:27:20][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:27:20][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:27:20][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:27:20][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:20][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:27:20][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:27:20][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:20][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:27:20][info] Route added: [GET] /clientes
+[2025-07-09 01:27:20][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:27:20][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:27:20][info] Route added: [POST] /api/token
+[2025-07-09 01:27:20][info] Route added: [GET] /api/users
+[2025-07-09 01:27:20][info] Route added: [POST] /api/users
+[2025-07-09 01:27:20][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:27:20][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:27:20][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:27:20][info] Route added: [GET] /login
+[2025-07-09 01:27:20][info] Route added: [POST] /login
+[2025-07-09 01:27:20][info] Route added: [GET] /admin
+[2025-07-09 01:27:20][info] Route added: [GET] /logout
+[2025-07-09 01:27:20][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:20][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:27:20][info] Route added: [GET] /admin
+[2025-07-09 01:27:20][info] Route added: [GET] /login
+[2025-07-09 01:27:20][info] Route added: [GET] /logout
+[2025-07-09 01:27:20][info] Finished loading plugins.
+[2025-07-09 01:27:20][info] Route added: [GET] /
+[2025-07-09 01:27:20][info] RoutesHandler initialized.
+[2025-07-09 01:27:20][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:27:20][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:27:20][info] DatabaseHandler initialized.
+[2025-07-09 01:27:20][info] AuthHandler initialized. Session started.
+[2025-07-09 01:27:20][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:27:20][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:27:20][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:20][info] Database table created/verified successfully.
+[2025-07-09 01:27:20][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:20][info] Database table created/verified successfully.
+[2025-07-09 01:27:20][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:27:20][info] Database table created/verified successfully.
+[2025-07-09 01:27:20][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:27:20][info] Database table created/verified successfully.
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:20][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:20][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:20][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:27:20][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:27:20][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:27:20][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:27:20][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:27:20][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:20][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:27:20][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:27:20][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:20][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:27:20][info] Route added: [GET] /clientes
+[2025-07-09 01:27:20][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:27:20][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:27:20][info] Route added: [POST] /api/token
+[2025-07-09 01:27:20][info] Route added: [GET] /api/users
+[2025-07-09 01:27:20][info] Route added: [POST] /api/users
+[2025-07-09 01:27:20][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:27:20][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:27:20][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:27:20][info] Route added: [GET] /login
+[2025-07-09 01:27:20][info] Route added: [POST] /login
+[2025-07-09 01:27:20][info] Route added: [GET] /admin
+[2025-07-09 01:27:20][info] Route added: [GET] /logout
+[2025-07-09 01:27:20][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:20][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:27:20][info] Route added: [GET] /admin
+[2025-07-09 01:27:20][info] Route added: [GET] /login
+[2025-07-09 01:27:20][info] Route added: [GET] /logout
+[2025-07-09 01:27:20][info] Finished loading plugins.
+[2025-07-09 01:27:20][info] Route added: [GET] /
+[2025-07-09 01:27:20][info] RoutesHandler initialized.
+[2025-07-09 01:27:20][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:27:20][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:27:20][info] DatabaseHandler initialized.
+[2025-07-09 01:27:20][info] AuthHandler initialized. Session started.
+[2025-07-09 01:27:20][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:27:20][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:27:20][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:20][info] Database table created/verified successfully.
+[2025-07-09 01:27:20][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:20][info] Database table created/verified successfully.
+[2025-07-09 01:27:20][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:27:20][info] Database table created/verified successfully.
+[2025-07-09 01:27:20][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:27:20][info] Database table created/verified successfully.
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:20][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:20][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:20][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:27:20][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:27:20][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:27:20][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:27:20][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:27:20][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:20][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:20][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:27:20][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:27:20][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:20][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:27:20][info] Route added: [GET] /clientes
+[2025-07-09 01:27:20][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:27:20][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:27:20][info] Route added: [POST] /api/token
+[2025-07-09 01:27:20][info] Route added: [GET] /api/users
+[2025-07-09 01:27:20][info] Route added: [POST] /api/users
+[2025-07-09 01:27:20][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:27:20][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:27:20][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:27:20][info] Route added: [GET] /login
+[2025-07-09 01:27:20][info] Route added: [POST] /login
+[2025-07-09 01:27:20][info] Route added: [GET] /admin
+[2025-07-09 01:27:20][info] Route added: [GET] /logout
+[2025-07-09 01:27:20][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:20][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:27:20][info] Route added: [GET] /admin
+[2025-07-09 01:27:20][info] Route added: [GET] /login
+[2025-07-09 01:27:20][info] Route added: [GET] /logout
+[2025-07-09 01:27:20][info] Finished loading plugins.
+[2025-07-09 01:27:20][info] Route added: [GET] /
+[2025-07-09 01:27:20][info] RoutesHandler initialized.
+[2025-07-09 01:27:25][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:27:25][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:27:25][info] DatabaseHandler initialized.
+[2025-07-09 01:27:25][info] AuthHandler initialized. Session started.
+[2025-07-09 01:27:25][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:27:25][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:27:25][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:25][info] Database table created/verified successfully.
+[2025-07-09 01:27:25][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:25][info] Database table created/verified successfully.
+[2025-07-09 01:27:25][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:27:25][info] Database table created/verified successfully.
+[2025-07-09 01:27:25][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:27:25][info] Database table created/verified successfully.
+[2025-07-09 01:27:25][info] Route added: [GET] /inventory
+[2025-07-09 01:27:25][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:25][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:25][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:27:25][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:25][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:27:25][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:25][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:25][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:25][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:25][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:27:25][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:27:25][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:27:25][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:27:25][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:27:25][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:27:25][info] Route added: [GET] /inventory
+[2025-07-09 01:27:25][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:25][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:25][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:25][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:25][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:25][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:25][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:25][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:27:25][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:27:25][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:25][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:27:25][info] Route added: [GET] /clientes
+[2025-07-09 01:27:25][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:27:25][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:27:25][info] Route added: [POST] /api/token
+[2025-07-09 01:27:25][info] Route added: [GET] /api/users
+[2025-07-09 01:27:25][info] Route added: [POST] /api/users
+[2025-07-09 01:27:25][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:27:25][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:27:25][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:27:25][info] Route added: [GET] /login
+[2025-07-09 01:27:25][info] Route added: [POST] /login
+[2025-07-09 01:27:25][info] Route added: [GET] /admin
+[2025-07-09 01:27:25][info] Route added: [GET] /logout
+[2025-07-09 01:27:25][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:25][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:27:25][info] Route added: [GET] /admin
+[2025-07-09 01:27:25][info] Route added: [GET] /login
+[2025-07-09 01:27:25][info] Route added: [GET] /logout
+[2025-07-09 01:27:25][info] Finished loading plugins.
+[2025-07-09 01:27:25][info] Route added: [GET] /
+[2025-07-09 01:27:25][info] RoutesHandler initialized.
+[2025-07-09 01:27:30][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:27:30][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:27:30][info] DatabaseHandler initialized.
+[2025-07-09 01:27:30][info] AuthHandler initialized. Session started.
+[2025-07-09 01:27:30][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:27:30][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:27:30][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:30][info] Database table created/verified successfully.
+[2025-07-09 01:27:30][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:30][info] Database table created/verified successfully.
+[2025-07-09 01:27:30][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:27:30][info] Database table created/verified successfully.
+[2025-07-09 01:27:30][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:27:30][info] Database table created/verified successfully.
+[2025-07-09 01:27:30][info] Route added: [GET] /inventory
+[2025-07-09 01:27:30][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:30][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:30][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:27:30][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:30][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:27:30][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:30][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:30][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:30][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:30][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:27:30][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:27:30][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:27:30][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:27:30][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:27:30][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:27:30][info] Route added: [GET] /inventory
+[2025-07-09 01:27:30][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:30][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:30][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:30][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:30][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:30][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:30][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:30][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:27:30][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:27:30][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:30][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:27:30][info] Route added: [GET] /clientes
+[2025-07-09 01:27:30][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:27:30][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:27:30][info] Route added: [POST] /api/token
+[2025-07-09 01:27:30][info] Route added: [GET] /api/users
+[2025-07-09 01:27:30][info] Route added: [POST] /api/users
+[2025-07-09 01:27:30][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:27:30][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:27:30][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:27:30][info] Route added: [GET] /login
+[2025-07-09 01:27:30][info] Route added: [POST] /login
+[2025-07-09 01:27:30][info] Route added: [GET] /admin
+[2025-07-09 01:27:30][info] Route added: [GET] /logout
+[2025-07-09 01:27:30][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:30][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:27:30][info] Route added: [GET] /admin
+[2025-07-09 01:27:30][info] Route added: [GET] /login
+[2025-07-09 01:27:30][info] Route added: [GET] /logout
+[2025-07-09 01:27:30][info] Finished loading plugins.
+[2025-07-09 01:27:30][info] Route added: [GET] /
+[2025-07-09 01:27:30][info] RoutesHandler initialized.
+[2025-07-09 01:27:45][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:27:45][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:27:45][info] DatabaseHandler initialized.
+[2025-07-09 01:27:45][info] AuthHandler initialized. Session started.
+[2025-07-09 01:27:45][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:27:45][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:27:45][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:45][info] Database table created/verified successfully.
+[2025-07-09 01:27:45][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:45][info] Database table created/verified successfully.
+[2025-07-09 01:27:45][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:27:45][info] Database table created/verified successfully.
+[2025-07-09 01:27:45][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:27:45][info] Database table created/verified successfully.
+[2025-07-09 01:27:45][info] Route added: [GET] /inventory
+[2025-07-09 01:27:45][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:45][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:45][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:27:45][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:45][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:27:45][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:45][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:45][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:45][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:45][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:27:45][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:27:45][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:27:45][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:27:45][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:27:45][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:27:45][info] Route added: [GET] /inventory
+[2025-07-09 01:27:45][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:45][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:45][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:45][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:45][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:45][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:45][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:45][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:27:45][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:27:45][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:45][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:27:45][info] Route added: [GET] /clientes
+[2025-07-09 01:27:45][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:27:45][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:27:45][info] Route added: [POST] /api/token
+[2025-07-09 01:27:45][info] Route added: [GET] /api/users
+[2025-07-09 01:27:45][info] Route added: [POST] /api/users
+[2025-07-09 01:27:45][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:27:45][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:27:45][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:27:45][info] Route added: [GET] /login
+[2025-07-09 01:27:45][info] Route added: [POST] /login
+[2025-07-09 01:27:45][info] Route added: [GET] /admin
+[2025-07-09 01:27:45][info] Route added: [GET] /logout
+[2025-07-09 01:27:45][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:45][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:27:45][info] Route added: [GET] /admin
+[2025-07-09 01:27:45][info] Route added: [GET] /login
+[2025-07-09 01:27:45][info] Route added: [GET] /logout
+[2025-07-09 01:27:45][info] Finished loading plugins.
+[2025-07-09 01:27:45][info] Route added: [GET] /
+[2025-07-09 01:27:45][info] RoutesHandler initialized.
+[2025-07-09 01:27:58][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:27:58][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:27:58][info] DatabaseHandler initialized.
+[2025-07-09 01:27:58][info] AuthHandler initialized. Session started.
+[2025-07-09 01:27:58][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:27:58][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:27:58][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:58][info] Database table created/verified successfully.
+[2025-07-09 01:27:58][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:58][info] Database table created/verified successfully.
+[2025-07-09 01:27:58][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:27:58][info] Database table created/verified successfully.
+[2025-07-09 01:27:58][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:27:58][info] Database table created/verified successfully.
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:58][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:58][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:58][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:27:58][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:27:58][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:27:58][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:27:58][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:27:58][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:58][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:27:58][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:27:58][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:58][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:27:58][info] Route added: [GET] /clientes
+[2025-07-09 01:27:58][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:27:58][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:27:58][info] Route added: [POST] /api/token
+[2025-07-09 01:27:58][info] Route added: [GET] /api/users
+[2025-07-09 01:27:58][info] Route added: [POST] /api/users
+[2025-07-09 01:27:58][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:27:58][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:27:58][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:27:58][info] Route added: [GET] /login
+[2025-07-09 01:27:58][info] Route added: [POST] /login
+[2025-07-09 01:27:58][info] Route added: [GET] /admin
+[2025-07-09 01:27:58][info] Route added: [GET] /logout
+[2025-07-09 01:27:58][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:58][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:27:58][info] Route added: [GET] /admin
+[2025-07-09 01:27:58][info] Route added: [GET] /login
+[2025-07-09 01:27:58][info] Route added: [GET] /logout
+[2025-07-09 01:27:58][info] Finished loading plugins.
+[2025-07-09 01:27:58][info] Route added: [GET] /
+[2025-07-09 01:27:58][info] RoutesHandler initialized.
+[2025-07-09 01:27:58][info] User admin logged in with role admin.
+[2025-07-09 01:27:58][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:27:58][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:27:58][info] DatabaseHandler initialized.
+[2025-07-09 01:27:58][info] AuthHandler initialized. Session started.
+[2025-07-09 01:27:58][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:27:58][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:27:58][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:58][info] Database table created/verified successfully.
+[2025-07-09 01:27:58][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:27:58][info] Database table created/verified successfully.
+[2025-07-09 01:27:58][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:27:58][info] Database table created/verified successfully.
+[2025-07-09 01:27:58][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:27:58][info] Database table created/verified successfully.
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:58][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:58][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:58][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:27:58][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:27:58][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:27:58][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:27:58][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:27:58][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/products
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:27:58][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:27:58][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:27:58][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:27:58][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:58][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:27:58][info] Route added: [GET] /clientes
+[2025-07-09 01:27:58][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:27:58][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:27:58][info] Route added: [POST] /api/token
+[2025-07-09 01:27:58][info] Route added: [GET] /api/users
+[2025-07-09 01:27:58][info] Route added: [POST] /api/users
+[2025-07-09 01:27:58][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:27:58][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:27:58][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:27:58][info] Route added: [GET] /login
+[2025-07-09 01:27:58][info] Route added: [POST] /login
+[2025-07-09 01:27:58][info] Route added: [GET] /admin
+[2025-07-09 01:27:58][info] Route added: [GET] /logout
+[2025-07-09 01:27:58][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:27:58][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:27:58][info] Route added: [GET] /admin
+[2025-07-09 01:27:58][info] Route added: [GET] /login
+[2025-07-09 01:27:58][info] Route added: [GET] /logout
+[2025-07-09 01:27:58][info] Finished loading plugins.
+[2025-07-09 01:27:58][info] Route added: [GET] /
+[2025-07-09 01:27:58][info] RoutesHandler initialized.
+[2025-07-09 01:27:58][debug] Checking permission: admin
+[2025-07-09 01:27:58][debug] Checking permission: admin
+[2025-07-09 01:28:07][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:28:07][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:28:07][info] DatabaseHandler initialized.
+[2025-07-09 01:28:07][info] AuthHandler initialized. Session started.
+[2025-07-09 01:28:07][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:28:07][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:28:07][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:28:07][info] Database table created/verified successfully.
+[2025-07-09 01:28:07][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:28:07][info] Database table created/verified successfully.
+[2025-07-09 01:28:07][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:28:07][info] Database table created/verified successfully.
+[2025-07-09 01:28:07][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:28:07][info] Database table created/verified successfully.
+[2025-07-09 01:28:07][info] Route added: [GET] /inventory
+[2025-07-09 01:28:07][info] Route added: [GET] /inventory/products
+[2025-07-09 01:28:07][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:28:07][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:28:07][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:28:07][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:28:07][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:28:07][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:28:07][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:28:07][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:28:07][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:28:07][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:28:07][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:28:07][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:28:07][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:28:07][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:28:07][info] Route added: [GET] /inventory
+[2025-07-09 01:28:07][info] Route added: [GET] /inventory/products
+[2025-07-09 01:28:07][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:28:07][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:28:07][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:28:07][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:28:07][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:28:07][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:28:07][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:28:07][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:28:07][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:28:07][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:28:07][info] Route added: [GET] /clientes
+[2025-07-09 01:28:07][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:28:07][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:28:07][info] Route added: [POST] /api/token
+[2025-07-09 01:28:07][info] Route added: [GET] /api/users
+[2025-07-09 01:28:07][info] Route added: [POST] /api/users
+[2025-07-09 01:28:07][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:28:07][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:28:07][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:28:07][info] Route added: [GET] /login
+[2025-07-09 01:28:07][info] Route added: [POST] /login
+[2025-07-09 01:28:07][info] Route added: [GET] /admin
+[2025-07-09 01:28:07][info] Route added: [GET] /logout
+[2025-07-09 01:28:07][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:28:07][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:28:07][info] Route added: [GET] /admin
+[2025-07-09 01:28:07][info] Route added: [GET] /login
+[2025-07-09 01:28:07][info] Route added: [GET] /logout
+[2025-07-09 01:28:07][info] Finished loading plugins.
+[2025-07-09 01:28:07][info] Route added: [GET] /
+[2025-07-09 01:28:07][info] RoutesHandler initialized.
+[2025-07-09 01:28:24][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:28:24][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:28:24][info] DatabaseHandler initialized.
+[2025-07-09 01:28:24][info] AuthHandler initialized. Session started.
+[2025-07-09 01:28:24][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:28:24][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:28:24][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:28:24][info] Database table created/verified successfully.
+[2025-07-09 01:28:24][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:28:24][info] Database table created/verified successfully.
+[2025-07-09 01:28:24][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:28:24][info] Database table created/verified successfully.
+[2025-07-09 01:28:24][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:28:24][info] Database table created/verified successfully.
+[2025-07-09 01:28:24][info] Route added: [GET] /inventory
+[2025-07-09 01:28:24][info] Route added: [GET] /inventory/products
+[2025-07-09 01:28:24][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:28:24][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:28:24][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:28:24][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:28:24][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:28:24][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:28:24][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:28:24][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:28:24][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:28:24][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:28:24][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:28:24][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:28:24][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:28:24][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:28:24][info] Route added: [GET] /inventory
+[2025-07-09 01:28:24][info] Route added: [GET] /inventory/products
+[2025-07-09 01:28:24][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:28:24][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:28:24][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:28:24][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:28:24][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:28:24][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:28:24][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:28:24][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:28:24][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:28:24][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:28:24][info] Route added: [GET] /clientes
+[2025-07-09 01:28:24][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:28:24][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:28:24][info] Route added: [GET] /api/token
+[2025-07-09 01:28:24][info] Route added: [GET] /api/users
+[2025-07-09 01:28:24][info] Route added: [POST] /api/users
+[2025-07-09 01:28:24][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:28:24][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:28:24][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:28:24][info] Route added: [GET] /login
+[2025-07-09 01:28:24][info] Route added: [POST] /login
+[2025-07-09 01:28:24][info] Route added: [GET] /admin
+[2025-07-09 01:28:24][info] Route added: [GET] /logout
+[2025-07-09 01:28:24][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:28:24][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:28:24][info] Route added: [GET] /admin
+[2025-07-09 01:28:24][info] Route added: [GET] /login
+[2025-07-09 01:28:24][info] Route added: [GET] /logout
+[2025-07-09 01:28:24][info] Finished loading plugins.
+[2025-07-09 01:28:24][info] Route added: [GET] /
+[2025-07-09 01:28:24][info] RoutesHandler initialized.
+[2025-07-09 01:30:01][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:30:01][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:30:01][info] DatabaseHandler initialized.
+[2025-07-09 01:30:01][info] AuthHandler initialized. Session started.
+[2025-07-09 01:30:01][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:30:01][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:30:01][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:30:01][info] Database table created/verified successfully.
+[2025-07-09 01:30:01][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:30:01][info] Database table created/verified successfully.
+[2025-07-09 01:30:01][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:30:01][info] Database table created/verified successfully.
+[2025-07-09 01:30:01][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:30:01][info] Database table created/verified successfully.
+[2025-07-09 01:30:01][info] Route added: [GET] /inventory
+[2025-07-09 01:30:01][info] Route added: [GET] /inventory/products
+[2025-07-09 01:30:01][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:30:01][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:30:01][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:30:01][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:30:01][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:30:01][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:30:01][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:30:01][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:30:01][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:30:01][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:30:01][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:30:01][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:30:01][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:30:01][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:30:01][info] Route added: [GET] /inventory
+[2025-07-09 01:30:01][info] Route added: [GET] /inventory/products
+[2025-07-09 01:30:01][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:30:01][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:30:01][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:30:01][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:30:01][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:30:01][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:30:01][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:30:01][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:30:01][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:30:01][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:30:01][info] Route added: [GET] /clientes
+[2025-07-09 01:30:01][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:30:01][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:30:01][info] Route added: [GET] /api/token
+[2025-07-09 01:30:01][info] Route added: [GET] /api/users
+[2025-07-09 01:30:01][info] Route added: [POST] /api/users
+[2025-07-09 01:30:01][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:30:01][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:30:01][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:30:01][info] Route added: [GET] /login
+[2025-07-09 01:30:01][info] Route added: [POST] /login
+[2025-07-09 01:30:01][info] Route added: [GET] /admin
+[2025-07-09 01:30:01][info] Route added: [GET] /logout
+[2025-07-09 01:30:01][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:30:01][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:30:01][info] Route added: [GET] /admin
+[2025-07-09 01:30:01][info] Route added: [GET] /login
+[2025-07-09 01:30:01][info] Route added: [GET] /logout
+[2025-07-09 01:30:01][info] Finished loading plugins.
+[2025-07-09 01:30:01][info] Route added: [GET] /
+[2025-07-09 01:30:01][info] RoutesHandler initialized.
+[2025-07-09 01:30:08][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:30:08][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:30:08][info] DatabaseHandler initialized.
+[2025-07-09 01:30:08][info] AuthHandler initialized. Session started.
+[2025-07-09 01:30:08][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:30:08][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:30:08][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:30:08][info] Database table created/verified successfully.
+[2025-07-09 01:30:08][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:30:08][info] Database table created/verified successfully.
+[2025-07-09 01:30:08][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:30:08][info] Database table created/verified successfully.
+[2025-07-09 01:30:08][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:30:08][info] Database table created/verified successfully.
+[2025-07-09 01:30:08][info] Route added: [GET] /inventory
+[2025-07-09 01:30:08][info] Route added: [GET] /inventory/products
+[2025-07-09 01:30:08][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:30:08][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:30:08][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:30:08][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:30:08][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:30:08][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:30:08][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:30:08][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:30:08][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:30:08][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:30:08][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:30:08][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:30:08][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:30:08][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:30:08][info] Route added: [GET] /inventory
+[2025-07-09 01:30:08][info] Route added: [GET] /inventory/products
+[2025-07-09 01:30:08][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:30:08][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:30:08][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:30:08][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:30:08][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:30:08][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:30:08][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:30:08][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:30:08][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:30:08][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:30:08][info] Route added: [GET] /clientes
+[2025-07-09 01:30:08][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:30:08][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:30:08][info] Route added: [GET] /api/token
+[2025-07-09 01:30:08][info] Route added: [GET] /api/users
+[2025-07-09 01:30:08][info] Route added: [POST] /api/users
+[2025-07-09 01:30:08][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:30:08][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:30:08][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:30:08][info] Route added: [GET] /login
+[2025-07-09 01:30:08][info] Route added: [POST] /login
+[2025-07-09 01:30:08][info] Route added: [GET] /admin
+[2025-07-09 01:30:08][info] Route added: [GET] /logout
+[2025-07-09 01:30:08][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:30:08][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:30:08][info] Route added: [GET] /admin
+[2025-07-09 01:30:08][info] Route added: [GET] /login
+[2025-07-09 01:30:08][info] Route added: [GET] /logout
+[2025-07-09 01:30:08][info] Finished loading plugins.
+[2025-07-09 01:30:08][info] Route added: [GET] /
+[2025-07-09 01:30:08][info] RoutesHandler initialized.
+[2025-07-09 01:30:12][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:30:12][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:30:12][info] DatabaseHandler initialized.
+[2025-07-09 01:30:12][info] AuthHandler initialized. Session started.
+[2025-07-09 01:30:12][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:30:12][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:30:12][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:30:12][info] Database table created/verified successfully.
+[2025-07-09 01:30:12][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:30:12][info] Database table created/verified successfully.
+[2025-07-09 01:30:12][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:30:12][info] Database table created/verified successfully.
+[2025-07-09 01:30:12][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:30:12][info] Database table created/verified successfully.
+[2025-07-09 01:30:12][info] Route added: [GET] /inventory
+[2025-07-09 01:30:12][info] Route added: [GET] /inventory/products
+[2025-07-09 01:30:12][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:30:12][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:30:12][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:30:12][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:30:12][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:30:12][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:30:12][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:30:12][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:30:12][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:30:12][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:30:12][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:30:12][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:30:12][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:30:12][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:30:12][info] Route added: [GET] /inventory
+[2025-07-09 01:30:12][info] Route added: [GET] /inventory/products
+[2025-07-09 01:30:12][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:30:12][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:30:12][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:30:12][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:30:12][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:30:12][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:30:12][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:30:12][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:30:12][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:30:12][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:30:12][info] Route added: [GET] /clientes
+[2025-07-09 01:30:12][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:30:12][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:30:12][info] Route added: [GET] /api/token
+[2025-07-09 01:30:12][info] Route added: [GET] /api/users
+[2025-07-09 01:30:12][info] Route added: [POST] /api/users
+[2025-07-09 01:30:12][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:30:12][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:30:12][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:30:12][info] Route added: [GET] /login
+[2025-07-09 01:30:12][info] Route added: [POST] /login
+[2025-07-09 01:30:12][info] Route added: [GET] /admin
+[2025-07-09 01:30:12][info] Route added: [GET] /logout
+[2025-07-09 01:30:12][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:30:12][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:30:12][info] Route added: [GET] /admin
+[2025-07-09 01:30:12][info] Route added: [GET] /login
+[2025-07-09 01:30:12][info] Route added: [GET] /logout
+[2025-07-09 01:30:12][info] Finished loading plugins.
+[2025-07-09 01:30:12][info] Route added: [GET] /
+[2025-07-09 01:30:12][info] RoutesHandler initialized.
+[2025-07-09 01:30:18][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:30:18][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:30:18][info] DatabaseHandler initialized.
+[2025-07-09 01:30:18][info] AuthHandler initialized. Session started.
+[2025-07-09 01:30:18][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:30:18][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:30:18][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:30:18][info] Database table created/verified successfully.
+[2025-07-09 01:30:18][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:30:18][info] Database table created/verified successfully.
+[2025-07-09 01:30:18][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:30:18][info] Database table created/verified successfully.
+[2025-07-09 01:30:18][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:30:18][info] Database table created/verified successfully.
+[2025-07-09 01:30:18][info] Route added: [GET] /inventory
+[2025-07-09 01:30:18][info] Route added: [GET] /inventory/products
+[2025-07-09 01:30:18][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:30:18][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:30:18][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:30:18][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:30:18][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:30:18][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:30:18][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:30:18][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:30:18][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:30:18][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:30:18][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:30:18][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:30:18][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:30:18][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:30:18][info] Route added: [GET] /inventory
+[2025-07-09 01:30:18][info] Route added: [GET] /inventory/products
+[2025-07-09 01:30:18][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:30:18][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:30:18][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:30:18][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:30:18][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:30:18][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:30:18][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:30:18][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:30:18][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:30:18][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:30:18][info] Route added: [GET] /clientes
+[2025-07-09 01:30:18][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:30:18][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:30:18][info] Route added: [GET] /api/token
+[2025-07-09 01:30:18][info] Route added: [GET] /api/users
+[2025-07-09 01:30:18][info] Route added: [POST] /api/users
+[2025-07-09 01:30:18][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:30:18][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:30:18][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:30:18][info] Route added: [GET] /login
+[2025-07-09 01:30:18][info] Route added: [POST] /login
+[2025-07-09 01:30:18][info] Route added: [GET] /admin
+[2025-07-09 01:30:18][info] Route added: [GET] /logout
+[2025-07-09 01:30:18][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:30:18][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:30:18][info] Route added: [GET] /admin
+[2025-07-09 01:30:18][info] Route added: [GET] /login
+[2025-07-09 01:30:18][info] Route added: [GET] /logout
+[2025-07-09 01:30:18][info] Finished loading plugins.
+[2025-07-09 01:30:18][info] Route added: [GET] /
+[2025-07-09 01:30:18][info] RoutesHandler initialized.
+[2025-07-09 01:30:44][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:30:44][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:30:44][info] DatabaseHandler initialized.
+[2025-07-09 01:30:44][info] AuthHandler initialized. Session started.
+[2025-07-09 01:30:44][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:30:44][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:30:44][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:30:44][info] Database table created/verified successfully.
+[2025-07-09 01:30:44][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:30:44][info] Database table created/verified successfully.
+[2025-07-09 01:30:44][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:30:44][info] Database table created/verified successfully.
+[2025-07-09 01:30:44][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:30:44][info] Database table created/verified successfully.
+[2025-07-09 01:30:44][info] Route added: [GET] /inventory
+[2025-07-09 01:30:44][info] Route added: [GET] /inventory/products
+[2025-07-09 01:30:44][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:30:44][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:30:44][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:30:44][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:30:44][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:30:44][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:30:44][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:30:44][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:30:44][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:30:44][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:30:44][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:30:44][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:30:44][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:30:44][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:30:44][info] Route added: [GET] /inventory
+[2025-07-09 01:30:44][info] Route added: [GET] /inventory/products
+[2025-07-09 01:30:44][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:30:44][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:30:44][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:30:44][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:30:44][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:30:44][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:30:44][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:30:44][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:30:44][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:30:44][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:30:44][info] Route added: [GET] /clientes
+[2025-07-09 01:30:44][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:30:44][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:30:44][info] Route added: [POST] /api/token
+[2025-07-09 01:30:44][info] Route added: [GET] /api/users
+[2025-07-09 01:30:44][info] Route added: [POST] /api/users
+[2025-07-09 01:30:44][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:30:44][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:30:44][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:30:44][info] Route added: [GET] /login
+[2025-07-09 01:30:44][info] Route added: [POST] /login
+[2025-07-09 01:30:44][info] Route added: [GET] /admin
+[2025-07-09 01:30:44][info] Route added: [GET] /logout
+[2025-07-09 01:30:44][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:30:44][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:30:44][info] Route added: [GET] /admin
+[2025-07-09 01:30:44][info] Route added: [GET] /login
+[2025-07-09 01:30:44][info] Route added: [GET] /logout
+[2025-07-09 01:30:44][info] Finished loading plugins.
+[2025-07-09 01:30:44][info] Route added: [GET] /
+[2025-07-09 01:30:44][info] RoutesHandler initialized.
+[2025-07-09 01:34:01][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:34:01][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:34:01][info] DatabaseHandler initialized.
+[2025-07-09 01:34:01][info] AuthHandler initialized. Session started.
+[2025-07-09 01:34:01][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:34:01][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:34:01][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:34:01][info] Database table created/verified successfully.
+[2025-07-09 01:34:01][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:34:01][info] Database table created/verified successfully.
+[2025-07-09 01:34:01][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:34:01][info] Database table created/verified successfully.
+[2025-07-09 01:34:01][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:34:01][info] Database table created/verified successfully.
+[2025-07-09 01:34:01][info] Route added: [GET] /inventory
+[2025-07-09 01:34:01][info] Route added: [GET] /inventory/products
+[2025-07-09 01:34:01][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:34:01][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:34:01][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:34:01][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:34:01][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:34:01][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:34:01][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:34:01][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:34:01][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:34:01][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:34:01][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:34:01][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:34:01][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:34:01][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:34:01][info] Route added: [GET] /inventory
+[2025-07-09 01:34:01][info] Route added: [GET] /inventory/products
+[2025-07-09 01:34:01][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:34:01][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:34:01][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:34:01][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:34:01][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:34:01][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:34:01][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:34:01][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:34:01][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:34:01][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:34:01][info] Route added: [GET] /clientes
+[2025-07-09 01:34:01][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:34:01][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:34:01][info] Route added: [GET] /api/token
+[2025-07-09 01:34:01][info] Route added: [GET] /api/users
+[2025-07-09 01:34:01][info] Route added: [POST] /api/users
+[2025-07-09 01:34:01][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:34:01][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:34:01][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:34:01][info] Route added: [GET] /login
+[2025-07-09 01:34:01][info] Route added: [POST] /login
+[2025-07-09 01:34:01][info] Route added: [GET] /admin
+[2025-07-09 01:34:01][info] Route added: [GET] /logout
+[2025-07-09 01:34:01][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:34:01][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:34:01][info] Route added: [GET] /admin
+[2025-07-09 01:34:01][info] Route added: [GET] /login
+[2025-07-09 01:34:01][info] Route added: [GET] /logout
+[2025-07-09 01:34:01][info] Finished loading plugins.
+[2025-07-09 01:34:01][info] Route added: [GET] /
+[2025-07-09 01:34:01][info] RoutesHandler initialized.
+[2025-07-09 01:34:50][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:34:50][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:34:50][info] DatabaseHandler initialized.
+[2025-07-09 01:34:50][info] AuthHandler initialized. Session started.
+[2025-07-09 01:34:50][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:34:50][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:34:50][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:34:50][info] Database table created/verified successfully.
+[2025-07-09 01:34:50][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:34:50][info] Database table created/verified successfully.
+[2025-07-09 01:34:50][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:34:50][info] Database table created/verified successfully.
+[2025-07-09 01:34:50][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:34:50][info] Database table created/verified successfully.
+[2025-07-09 01:34:50][info] Route added: [GET] /inventory
+[2025-07-09 01:34:50][info] Route added: [GET] /inventory/products
+[2025-07-09 01:34:50][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:34:50][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:34:50][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:34:50][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:34:50][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:34:50][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:34:50][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:34:50][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:34:50][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:34:50][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:34:50][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:34:50][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:34:50][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:34:50][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:34:50][info] Route added: [GET] /inventory
+[2025-07-09 01:34:50][info] Route added: [GET] /inventory/products
+[2025-07-09 01:34:50][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:34:50][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:34:50][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:34:50][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:34:50][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:34:50][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:34:50][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:34:50][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:34:50][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:34:50][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:34:50][info] Route added: [GET] /clientes
+[2025-07-09 01:34:50][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:34:50][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:34:50][info] Route added: [GET] /api/token
+[2025-07-09 01:34:50][info] Route added: [GET] /api/users
+[2025-07-09 01:34:50][info] Route added: [POST] /api/users
+[2025-07-09 01:34:50][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:34:50][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:34:50][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:34:50][info] Route added: [GET] /login
+[2025-07-09 01:34:50][info] Route added: [POST] /login
+[2025-07-09 01:34:50][info] Route added: [GET] /admin
+[2025-07-09 01:34:50][info] Route added: [GET] /logout
+[2025-07-09 01:34:50][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:34:50][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:34:50][info] Route added: [GET] /admin
+[2025-07-09 01:34:50][info] Route added: [GET] /login
+[2025-07-09 01:34:50][info] Route added: [GET] /logout
+[2025-07-09 01:34:50][info] Finished loading plugins.
+[2025-07-09 01:34:50][info] Route added: [GET] /
+[2025-07-09 01:34:50][info] RoutesHandler initialized.
+[2025-07-09 01:35:33][info] ThemeHandler initialized. Active theme: default
+[2025-07-09 01:35:33][info] Database connection established successfully with driver: mysql.
+[2025-07-09 01:35:33][info] DatabaseHandler initialized.
+[2025-07-09 01:35:33][info] AuthHandler initialized. Session started.
+[2025-07-09 01:35:33][info] PluginHandler initialized. Loading plugins...
+[2025-07-09 01:35:33][info] Loading plugin: Inventory Core (InventoryCore)
+[2025-07-09 01:35:33][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_categories (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                description TEXT,
+                parent_id INT DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (parent_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:35:33][info] Database table created/verified successfully.
+[2025-07-09 01:35:33][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_products (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                description TEXT,
+                sku VARCHAR(50) UNIQUE NOT NULL,
+                category_id INT,
+                unit_price DECIMAL(10,2) DEFAULT 0.00,
+                cost_price DECIMAL(10,2) DEFAULT 0.00,
+                min_stock INT DEFAULT 0,
+                max_stock INT DEFAULT 0,
+                active BOOLEAN DEFAULT TRUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (category_id) REFERENCES inventory_categories(id) ON DELETE SET NULL
+            ) Params: []
+[2025-07-09 01:35:33][info] Database table created/verified successfully.
+[2025-07-09 01:35:33][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_stock (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                quantity INT NOT NULL DEFAULT 0,
+                reserved_quantity INT NOT NULL DEFAULT 0,
+                location VARCHAR(100) DEFAULT 'default',
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_product_location (product_id, location)
+            ) Params: []
+[2025-07-09 01:35:33][info] Database table created/verified successfully.
+[2025-07-09 01:35:33][debug] SQL Query: CREATE TABLE IF NOT EXISTS inventory_movements (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                product_id INT NOT NULL,
+                movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
+                quantity INT NOT NULL,
+                reason VARCHAR(255),
+                reference_id INT DEFAULT NULL,
+                reference_type VARCHAR(50) DEFAULT NULL,
+                user_id VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (product_id) REFERENCES inventory_products(id) ON DELETE CASCADE
+            ) Params: []
+[2025-07-09 01:35:33][info] Database table created/verified successfully.
+[2025-07-09 01:35:33][info] Route added: [GET] /inventory
+[2025-07-09 01:35:33][info] Route added: [GET] /inventory/products
+[2025-07-09 01:35:33][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:35:33][info] Route added: [POST] /inventory/products/new
+[2025-07-09 01:35:33][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:35:33][info] Route added: [POST] /inventory/products/edit
+[2025-07-09 01:35:33][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:35:33][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:35:33][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:35:33][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:35:33][info] Hook registered: after_product_created (after, priority 10)
+[2025-07-09 01:35:33][info] Hook registered: after_stock_updated (after, priority 10)
+[2025-07-09 01:35:33][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-09 01:35:33][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-09 01:35:33][info] InventoryCore plugin initialized successfully.
+[2025-07-09 01:35:33][info] InventoryCore plugin loaded successfully.
+[2025-07-09 01:35:33][info] Route added: [GET] /inventory
+[2025-07-09 01:35:33][info] Route added: [GET] /inventory/products
+[2025-07-09 01:35:33][info] Route added: [GET] /inventory/products/new
+[2025-07-09 01:35:33][info] Route added: [GET] /inventory/products/edit
+[2025-07-09 01:35:33][info] Route added: [GET] /inventory/categories
+[2025-07-09 01:35:33][info] Route added: [GET] /inventory/stock
+[2025-07-09 01:35:33][info] Route added: [GET] /inventory/movements
+[2025-07-09 01:35:33][info] Route added: [GET] /inventory/reports
+[2025-07-09 01:35:33][info] Loading plugin: Exemplo de Plugin (exemplo-plugin)
+[2025-07-09 01:35:33][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-09 01:35:33][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:35:33][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-09 01:35:33][info] Route added: [GET] /clientes
+[2025-07-09 01:35:33][info] Route added: [GET] /clientes/novo
+[2025-07-09 01:35:33][info] Loading plugin: System Manager (system_manager)
+[2025-07-09 01:35:33][info] Route added: [GET] /api/token
+[2025-07-09 01:35:33][info] Route added: [GET] /api/users
+[2025-07-09 01:35:33][info] Route added: [POST] /api/users
+[2025-07-09 01:35:33][info] Route added: [GET] /api/users/{id}
+[2025-07-09 01:35:33][info] Route added: [PUT] /api/users/{id}
+[2025-07-09 01:35:33][info] Route added: [DELETE] /api/users/{id}
+[2025-07-09 01:35:33][info] Route added: [GET] /login
+[2025-07-09 01:35:33][info] Route added: [POST] /login
+[2025-07-09 01:35:33][info] Route added: [GET] /admin
+[2025-07-09 01:35:33][info] Route added: [GET] /logout
+[2025-07-09 01:35:33][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-09 01:35:33][info] Plugin admin-panel carregado com sucesso.
+[2025-07-09 01:35:33][info] Route added: [GET] /admin
+[2025-07-09 01:35:33][info] Route added: [GET] /login
+[2025-07-09 01:35:33][info] Route added: [GET] /logout
+[2025-07-09 01:35:33][info] Finished loading plugins.
+[2025-07-09 01:35:33][info] Route added: [GET] /
+[2025-07-09 01:35:33][info] RoutesHandler initialized.

@@ -4,6 +4,6 @@
 class SystemManagerTokenApi {
     public static function registerRoutes() {
         // POST /api/token
-        RoutesHandler::addRoute("POST", "/api/token", [APIHandler::class, 'generateToken']);
+        RoutesHandler::addRoute("GET", "/api/token", [APIHandler::class, 'generateToken']);
     }
 }
