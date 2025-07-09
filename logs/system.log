@@ -5608,3 +5608,19 @@
 [2025-07-04 01:55:46][info] Finished loading plugins.
 [2025-07-04 01:55:46][info] Route added: [GET] /
 [2025-07-04 01:55:46][info] RoutesHandler initialized.
+[2025-07-10 00:33:12][info] ThemeHandler initialized. Active theme: default
+[2025-07-10 00:33:12][error] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'crm_alunostds_dev_br'@'localhost' (using password: YES)
+[2025-07-10 00:33:12][info] ThemeHandler initialized. Active theme: default
+[2025-07-10 00:33:12][error] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'crm_alunostds_dev_br'@'localhost' (using password: YES)
+[2025-07-10 00:36:04][info] ThemeHandler initialized. Active theme: default
+[2025-07-10 00:36:04][error] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'crm_alunostds_dev_br'@'localhost' (using password: YES)
+[2025-07-10 00:36:04][info] ThemeHandler initialized. Active theme: default
+[2025-07-10 00:36:04][error] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'crm_alunostds_dev_br'@'localhost' (using password: YES)
+[2025-07-10 00:36:07][info] ThemeHandler initialized. Active theme: default
+[2025-07-10 00:36:07][error] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'crm_alunostds_dev_br'@'localhost' (using password: YES)
+[2025-07-10 00:36:07][info] ThemeHandler initialized. Active theme: default
+[2025-07-10 00:36:07][error] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'crm_alunostds_dev_br'@'localhost' (using password: YES)
+[2025-07-10 00:36:14][info] ThemeHandler initialized. Active theme: default
+[2025-07-10 00:36:14][error] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'crm_alunostds_dev_br'@'localhost' (using password: YES)
+[2025-07-10 00:36:14][info] ThemeHandler initialized. Active theme: default
+[2025-07-10 00:36:14][error] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'crm_alunostds_dev_br'@'localhost' (using password: YES)
