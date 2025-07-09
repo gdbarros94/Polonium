@@ -35,7 +35,7 @@ class APIHandler
         $headers = function_exists('getallheaders') ? getallheaders() : [];
         $authToken = isset($headers["Authorization"]) ? str_replace("Bearer ", "", $headers["Authorization"]) : null;
         if (!$authToken) return false;
-        $token = (new QueryBuilder("user_tokens"))->select()->where(["token" => $authToken])->first();
+        $token = (new QueryBuilder("api_tokens"))->select()->where(["token" => $authToken])->first();
         return $token ? true : false;
     }
 
@@ -44,16 +44,39 @@ class APIHandler
      */
     public static function generateToken()
     {
-        $input = json_decode(file_get_contents("php://input"), true);
-        if (empty($input["username"]) || empty($input["password"])) {
+        $headers = function_exists('getallheaders') ? getallheaders() : [];
+        if (empty($headers['Authorization']) || stripos($headers['Authorization'], 'Basic ') !== 0) {
+            self::sendJsonResponse(["error" => "Authorization header with Basic Auth required"], 400);
+        }
+        $auth = base64_decode(substr($headers['Authorization'], 6));
+        if (!$auth || strpos($auth, ':') === false) {
+            self::sendJsonResponse(["error" => "Invalid Basic Auth format"], 400);
+        }
+        list($username, $password) = explode(':', $auth, 2);
+        if (empty($username) || empty($password)) {
             self::sendJsonResponse(["error" => "Username and password required"], 400);
         }
-        $user = (new QueryBuilder("users"))->select()->where(["username" => $input["username"]])->first();
-        if (!$user || !password_verify($input["password"], $user["password"])) {
+        // Utiliza o array de usuários fixos para autenticação
+        $users = [
+            'admin' => [
+                // senha: admin123
+                'password' => '$argon2id$v=19$m=65536,t=4,p=1$VlBaWVhocXRpcHBLSXdNZA$junmjqeOW2EN90RPy0Z5MLxu30YgUVg4/yrvY0pzqs4',
+                'role' => 'admin',
+                'id' => 1
+            ],
+            'user' => [
+                // senha: user123
+                'password' => '$argon2id$v=19$m=65536,t=4,p=1$cXNHUzU3aVBUbEUudEZLVQ$qLfEhKVj0ssf7re1zwiOsHWL4bA7Y+y1CqEJY9x5p0c',
+                'role' => 'user',
+                'id' => 2
+            ]
+        ];
+        $user = isset($users[$username]) ? $users[$username] : null;
+        if (!$user || !AuthHandler::verifyPassword($password, $user["password"])) {
             self::sendJsonResponse(["error" => "Invalid credentials"], 401);
         }
         $token = self::generateSecureToken();
-        (new QueryBuilder("user_tokens"))->insert([
+        (new QueryBuilder("api_tokens"))->insert([
             "user_id" => $user["id"],
             "token" => $token,
             "created_at" => date("Y-m-d H:i:s")

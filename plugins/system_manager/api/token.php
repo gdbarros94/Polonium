@@ -7,3 +7,6 @@ class SystemManagerTokenApi {
         RoutesHandler::addRoute("POST", "/api/token", [APIHandler::class, 'generateToken']);
     }
 }
+
+// Garante que as rotas da API de token sejam registradas ao carregar o módulo
+SystemManagerTokenApi::registerRoutes();
