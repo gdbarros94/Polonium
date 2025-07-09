@@ -6,6 +6,6 @@
  * Author: Seu Nome
  */
 
- RoutesHandler::addRoute("GET", "/webhook", function() {
+ RoutesHandler::addRoute("POST", "/webhook", function() {
     include __DIR__ . '/plugins/whatsapp-integration/webhook.php';
 });
