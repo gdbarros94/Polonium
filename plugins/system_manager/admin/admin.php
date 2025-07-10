@@ -1,6 +1,8 @@
 <?php
 
 class SystemManagerAdmin {
+    private static $adminContentCallbacks = [];
+
     public static function registerRoutes() {
         // Rota de login (GET)
         RoutesHandler::addRoute("GET", "/login", [self::class, 'loginGet']);
@@ -63,7 +65,39 @@ class SystemManagerAdmin {
             echo "Acesso negado.";
             return;
         }
+        // Busca plugins ativos
+        $plugins = PluginHandler::getActivePlugins();
+        // Torna plugins disponíveis para o template
+        $sidebarMenu = self::renderSidebarMenu($plugins);
+        // Torna callbacks disponíveis para o template
+        $adminContentCallbacks = self::$adminContentCallbacks;
         include __DIR__ . '/templates/admin_panel.php';
+    }
+
+    /**
+     * Permite que plugins registrem conteúdo para o painel admin
+     * @param callable $callback
+     */
+    public static function addAdminContent(callable $callback) {
+        self::$adminContentCallbacks[] = $callback;
+    }
+
+    /**
+     * Renderiza o menu lateral com base nos plugins ativos
+     * @param array $plugins
+     * @return string HTML do menu
+     */
+    public static function renderSidebarMenu($plugins) {
+        $html = '<nav class="h-full"><ul class="space-y-2">';
+        foreach ($plugins as $slug => $plugin) {
+            $name = htmlspecialchars($plugin['name'] ?? $slug);
+            $desc = htmlspecialchars($plugin['description'] ?? '');
+            $routes = $plugin['routes'] ?? [];
+            $mainRoute = is_array($routes) && count($routes) ? $routes[0] : '#';
+            $html .= "<li><a href=\"{$mainRoute}\" class=\"block px-4 py-2 rounded hover:bg-indigo-100 text-indigo-700 font-semibold\" title=\"{$desc}\">{$name}</a></li>";
+        }
+        $html .= '</ul></nav>';
+        return $html;
     }
 
     public static function logout() {
