@@ -15,6 +15,11 @@ class SystemManagerAdmin {
             "auth" => true,
             "permission" => "admin"
         ]);
+        // Rota para CRUD de usuários dentro do admin
+        RoutesHandler::addRoute("GET", "/admin/usuarios", function() {
+            require_once __DIR__ . '/users_crud.php';
+            SystemManagerUsersCrud::listUsers();
+        }, ["auth" => true, "permission" => "admin"]);
 
         // Rota de logout
         RoutesHandler::addRoute("GET", "/logout", [self::class, 'logout']);
