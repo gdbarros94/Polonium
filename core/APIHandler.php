@@ -27,12 +27,28 @@ class APIHandler
     }
 
     /**
+     * Obtém os headers HTTP, incluindo Authorization, de forma robusta
+     */
+    private static function getAuthorizationHeader()
+    {
+        $headers = function_exists('getallheaders') ? getallheaders() : [];
+        if (empty($headers['Authorization'])) {
+            if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
+                $headers['Authorization'] = $_SERVER['HTTP_AUTHORIZATION'];
+            } elseif (isset($_SERVER['REDIRECT_HTTP_AUTHORIZATION'])) {
+                $headers['Authorization'] = $_SERVER['REDIRECT_HTTP_AUTHORIZATION'];
+            }
+        }
+        return $headers;
+    }
+
+    /**
      * Autentica a requisição via token salvo no banco (tabela user_tokens)
      * Retorna true se autenticado, false caso contrário
      */
     public static function authenticate()
     {
-        $headers = function_exists('getallheaders') ? getallheaders() : [];
+        $headers = self::getAuthorizationHeader();
         $authToken = isset($headers["Authorization"]) ? str_replace("Bearer ", "", $headers["Authorization"]) : null;
         if (!$authToken) return false;
         $token = (new QueryBuilder("api_tokens"))->select()->where(["token" => $authToken])->first();
@@ -44,7 +60,7 @@ class APIHandler
      */
     public static function generateToken()
     {
-        $headers = function_exists('getallheaders') ? getallheaders() : [];
+        $headers = self::getAuthorizationHeader();
         if (empty($headers['Authorization']) || stripos($headers['Authorization'], 'Basic ') !== 0) {
             self::sendJsonResponse(["error" => "Authorization header with Basic Auth required"], 400);
         }
