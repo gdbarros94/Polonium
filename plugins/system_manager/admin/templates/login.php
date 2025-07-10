@@ -1,8 +1,8 @@
 <?php
 // Renderiza o header do tema, já incluindo o Tailwind via CDN no header.php do tema
-ThemeHandler::render_header(['title' => 'Login - CoreCRM']);
+themeHandler::render_header(['title' => 'Login - CoreCRM']);
 ?>
-<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center">
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
     <div class="w-full max-w-md mx-auto bg-white/90 rounded-2xl shadow-2xl p-8 flex flex-col items-center relative">
         <div id="logo-block" class="mb-6 cursor-pointer select-none transition-transform duration-300 hover:scale-105">
             <svg id="corecrm-logo" xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-indigo-600" fill="none" viewBox="0 0 48 48" stroke="currentColor" stroke-width="2">
@@ -37,18 +37,27 @@ ThemeHandler::render_header(['title' => 'Login - CoreCRM']);
             <button onclick="document.getElementById('easteregg').classList.add('hidden');" class="mt-4 px-4 py-2 bg-indigo-500 text-white rounded-lg shadow hover:bg-indigo-700">Fechar</button>
         </div>
     </div>
-    <script>
-        // Easter egg: clique 5x no logo para ativar
-        let logo = document.getElementById('logo-block');
-        let count = 0;
-        logo.addEventListener('click', function() {
-            count++;
-            if(count === 5) {
-                document.getElementById('corecrm-logo').classList.add('egg');
-                document.getElementById('easteregg').classList.remove('hidden');
-                count = 0;
-            }
-            setTimeout(() => { count = 0; }, 2000);
-        });
-    </script>
+</div>
+<script>
+    // Easter egg: clique 5x no logo para ativar
+    let logo = document.getElementById('logo-block');
+    let count = 0;
+    logo.addEventListener('click', function() {
+        count++;
+        if(count === 5) {
+            document.getElementById('corecrm-logo').classList.add('egg');
+            document.getElementById('easteregg').classList.remove('hidden');
+            count = 0;
+        }
+        setTimeout(() => { count = 0; }, 2000);
+    });
+</script>
 <?php ThemeHandler::render_footer(); ?>
+<style>
+    /* Easter egg: clique 5x no logo para um efeito especial */
+    .egg { animation: rainbow 2s linear infinite; }
+    @keyframes rainbow {
+        0%{filter:hue-rotate(0deg);}
+        100%{filter:hue-rotate(360deg);}
+    }
+</style>
