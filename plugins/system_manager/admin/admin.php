@@ -23,6 +23,10 @@ class SystemManagerAdmin {
 
         // Rota de logout
         RoutesHandler::addRoute("GET", "/logout", [self::class, 'logout']);
+
+        // Rota para página de plugins (GET e POST)
+        RoutesHandler::addRoute("GET", "/admin/plugins", [self::class, 'pluginsPage'], ["auth" => true, "permission" => "admin"]);
+        RoutesHandler::addRoute("POST", "/admin/plugins", [self::class, 'pluginsUpload'], ["auth" => true, "permission" => "admin"]);
     }
 
     public static function loginGet() {
@@ -101,6 +105,88 @@ class SystemManagerAdmin {
     public static function logout() {
         AuthHandler::logout();
         // O método logout já faz redirect para /login
+    }
+
+    public static function pluginsPage() {
+        AuthHandler::requireAuth();
+        if (!AuthHandler::checkPermission('admin')) {
+            echo "Acesso negado.";
+            return;
+        }
+        $plugins = self::getAllPlugins();
+        include __DIR__ . '/templates/plugins.php';
+    }
+
+    public static function pluginsUpload() {
+        AuthHandler::requireAuth();
+        if (!AuthHandler::checkPermission('admin')) {
+            echo "Acesso negado.";
+            return;
+        }
+        if (!isset($_FILES['plugin_zip']) || $_FILES['plugin_zip']['error'] !== UPLOAD_ERR_OK) {
+            echo "Erro no upload do arquivo.";
+            return;
+        }
+        $zipPath = $_FILES['plugin_zip']['tmp_name'];
+        $zip = new ZipArchive();
+        if ($zip->open($zipPath) === TRUE) {
+            // Extrai para uma pasta temporária
+            $tmpDir = sys_get_temp_dir() . '/plugin_' . uniqid();
+            mkdir($tmpDir);
+            $zip->extractTo($tmpDir);
+            $zip->close();
+            // Move a(s) pasta(s) extraída(s) para plugins/
+            $pluginBase = dirname(__DIR__, 2) . '/plugins/';
+            $moved = false;
+            foreach (scandir($tmpDir) as $item) {
+                if ($item === '.' || $item === '..') continue;
+                $src = $tmpDir . '/' . $item;
+                $dest = $pluginBase . $item;
+                if (is_dir($src)) {
+                    if (!file_exists($dest)) {
+                        rename($src, $dest);
+                        $moved = true;
+                    }
+                }
+            }
+            // Limpa temp
+            array_map('unlink', glob("$tmpDir/*"));
+            rmdir($tmpDir);
+            if ($moved) {
+                System::log("Plugin enviado e instalado com sucesso.", "info");
+            } else {
+                System::log("Nenhuma pasta de plugin foi movida. Talvez já exista.", "warning");
+            }
+        } else {
+            echo "Não foi possível abrir o arquivo ZIP.";
+            return;
+        }
+        header('Location: /admin/plugins');
+        exit;
+    }
+
+    private static function getAllPlugins() {
+        $pluginDir = dirname(__DIR__, 2) . '/plugins/';
+        $folders = array_filter(scandir($pluginDir), function($f) use ($pluginDir) {
+            return $f !== '.' && $f !== '..' && is_dir($pluginDir . $f);
+        });
+        $activePlugins = PluginHandler::getActivePlugins();
+        $activeFolders = array_map(function($p) { return $p['folder'] ?? $p['name']; }, $activePlugins);
+        $plugins = [];
+        foreach ($folders as $folder) {
+            $pluginJson = $pluginDir . $folder . '/plugin.json';
+            $name = $folder;
+            if (file_exists($pluginJson)) {
+                $meta = json_decode(file_get_contents($pluginJson), true);
+                if (isset($meta['name'])) $name = $meta['name'];
+            }
+            $plugins[] = [
+                'name' => $name,
+                'folder' => $folder,
+                'active' => in_array($folder, $activeFolders)
+            ];
+        }
+        return $plugins;
     }
 }
 
