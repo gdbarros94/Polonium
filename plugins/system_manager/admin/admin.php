@@ -70,7 +70,7 @@ class SystemManagerAdmin {
         // Torna plugins disponíveis para o template
         $sidebarMenu = self::renderSidebarMenu($plugins);
         // Torna callbacks disponíveis para o template
-        $adminContentCallbacks = self::$adminContentCallbacks;
+        $adminContentCallbacks = \System::$adminContentCallbacks;
         include __DIR__ . '/templates/admin_panel.php';
     }
 

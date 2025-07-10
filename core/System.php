@@ -125,6 +125,15 @@ class System
         $lines = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         return array_slice($lines, -$limit);
     }
+
+    /**
+     * Permite que plugins registrem conteúdo para o painel admin
+     * @param callable $callback
+     */
+    public static $adminContentCallbacks = [];
+    public static function addAdminContent(callable $callback) {
+        self::$adminContentCallbacks[] = $callback;
+    }
 }
 
 
