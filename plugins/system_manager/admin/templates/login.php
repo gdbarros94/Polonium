@@ -1,6 +1,6 @@
 <?php
 // Renderiza o header do tema, já incluindo o Tailwind via CDN no header.php do tema
-themeHandler::render_header(['title' => 'Login - CoreCRM']);
+//themeHandler::render_header(['title' => 'Login - CoreCRM']);
 ?>
 <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
     <div class="w-full max-w-md mx-auto bg-white/90 rounded-2xl shadow-2xl p-8 flex flex-col items-center relative">
@@ -52,7 +52,7 @@ themeHandler::render_header(['title' => 'Login - CoreCRM']);
         setTimeout(() => { count = 0; }, 2000);
     });
 </script>
-<?php ThemeHandler::render_footer(); ?>
+<?php //ThemeHandler::render_footer(); ?>
 <style>
     /* Easter egg: clique 5x no logo para um efeito especial */
     .egg { animation: rainbow 2s linear infinite; }
