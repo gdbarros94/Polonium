@@ -21,6 +21,12 @@ System::addAdminContent(function() {
     echo '</div>';
 });
 
+System::addAdminSidebarMenuItem([
+    'name' => 'Exemplo Plugin',
+    'icon' => 'extension',
+    'url'  => '/exemplo-plugin/teste'
+]);
+
 System::log("Plugin Exemplo de Plugin carregado com sucesso.");
 
 

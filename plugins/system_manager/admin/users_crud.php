@@ -71,4 +71,11 @@ class SystemManagerUsersCrud {
     }
 }
 
+// Registra item de menu lateral para Usuários
+System::addAdminSidebarMenuItem([
+    'name' => 'Usuários',
+    'icon' => 'group',
+    'url'  => '/admin/usuarios'
+]);
+
 SystemManagerUsersCrud::registerRoutes();

@@ -354,3 +354,9 @@ class InventoryCore
 InventoryCore::init();
 
 System::log("InventoryCore plugin loaded successfully.");
+
+System::addAdminSidebarMenuItem([
+    'name' => 'Estoque',
+    'icon' => 'inventory_2',
+    'url'  => '/inventory'
+]);
