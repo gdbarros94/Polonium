@@ -12,5 +12,5 @@ RoutesHandler::addRoute("POST", "/whatsapp/webhook", function() {
 
 RoutesHandler::addRoute("GET", "/whatsapp/webhook", function() {
     http_response_code(405); // Método não permitido
-    echo json_encode(['error' => 'Méthod not allowed']);
+    echo json_encode(['error' => 'Method not allowed']);
 });

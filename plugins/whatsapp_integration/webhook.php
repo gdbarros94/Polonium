@@ -6,7 +6,7 @@ $logFile = __DIR__ . '/webhook.log';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtém o payload recebido
     $payload = file_get_contents('php://input');
-
+    //var_dump($payload); // Exibe o payload para depuração
     // Salva o payload no arquivo de log
     file_put_contents($logFile, $payload . PHP_EOL, FILE_APPEND);
 
