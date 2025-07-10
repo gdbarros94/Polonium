@@ -10,7 +10,7 @@ class SystemManagerUsersCrud {
     }
 
     public static function listUsers() {
-        $pdo = DatabaseHandler::getPDO();
+        $pdo = DatabaseHandler::getConnection();
         $stmt = $pdo->query("SELECT * FROM users ORDER BY id DESC");
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         include __DIR__ . '/templates/users_list.php';
@@ -21,7 +21,7 @@ class SystemManagerUsersCrud {
     }
 
     public static function createUser() {
-        $pdo = DatabaseHandler::getPDO();
+        $pdo = DatabaseHandler::getConnection();
         $nome = $_POST['nome'] ?? '';
         $email = $_POST['email'] ?? '';
         $senha = password_hash($_POST['senha'] ?? '', PASSWORD_DEFAULT);
@@ -35,7 +35,7 @@ class SystemManagerUsersCrud {
     }
 
     public static function editUserForm($id) {
-        $pdo = DatabaseHandler::getPDO();
+        $pdo = DatabaseHandler::getConnection();
         $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
         $stmt->execute([$id]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -43,7 +43,7 @@ class SystemManagerUsersCrud {
     }
 
     public static function updateUser($id) {
-        $pdo = DatabaseHandler::getPDO();
+        $pdo = DatabaseHandler::getConnection();
         $nome = $_POST['nome'] ?? '';
         $email = $_POST['email'] ?? '';
         $tipo = $_POST['tipo'] ?? 'usuario';
@@ -63,7 +63,7 @@ class SystemManagerUsersCrud {
     }
 
     public static function deleteUser($id) {
-        $pdo = DatabaseHandler::getPDO();
+        $pdo = DatabaseHandler::getConnection();
         $stmt = $pdo->prepare("DELETE FROM users WHERE id = ?");
         $stmt->execute([$id]);
         header('Location: /usuarios');
