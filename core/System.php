@@ -134,6 +134,15 @@ class System
     public static function addAdminContent(callable $callback) {
         self::$adminContentCallbacks[] = $callback;
     }
+
+    /**
+     * Permite que plugins registrem itens de menu lateral do admin
+     * @param array $item Ex: ['name' => 'Usuários', 'icon' => 'users', 'url' => '/admin/usuarios']
+     */
+    public static $adminSidebarMenuItems = [];
+    public static function addAdminSidebarMenuItem(array $item) {
+        self::$adminSidebarMenuItems[] = $item;
+    }
 }
 
 

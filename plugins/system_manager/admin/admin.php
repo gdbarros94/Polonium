@@ -85,13 +85,14 @@ class SystemManagerAdmin {
      * @return string HTML do menu
      */
     public static function renderSidebarMenu($plugins) {
+        // Usa os itens registrados manualmente pelos plugins
+        $items = \System::$adminSidebarMenuItems;
         $html = '<nav class="h-full"><ul class="space-y-2">';
-        foreach ($plugins as $slug => $plugin) {
-            $name = htmlspecialchars($plugin['name'] ?? $slug);
-            $desc = htmlspecialchars($plugin['description'] ?? '');
-            $routes = $plugin['routes'] ?? [];
-            $mainRoute = is_array($routes) && count($routes) ? $routes[0] : '#';
-            $html .= "<li><a href=\"{$mainRoute}\" class=\"block px-4 py-2 rounded hover:bg-indigo-100 text-indigo-700 font-semibold\" title=\"{$desc}\">{$name}</a></li>";
+        foreach ($items as $item) {
+            $name = htmlspecialchars($item['name'] ?? 'Item');
+            $icon = $item['icon'] ?? 'circle';
+            $url = htmlspecialchars($item['url'] ?? '#');
+            $html .= "<li><a href=\"{$url}\" class=\"flex items-center gap-2 px-4 py-2 rounded hover:bg-indigo-100 text-indigo-700 font-semibold\"><span class=\"material-icons text-base\">{$icon}</span>{$name}</a></li>";
         }
         $html .= '</ul></nav>';
         return $html;
