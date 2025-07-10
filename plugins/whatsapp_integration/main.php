@@ -7,7 +7,7 @@
  */
 
 RoutesHandler::addRoute("POST", "/whatsapp/webhook", function() {
-    include './webhook.php';
+    include 'webhook.php';
 });
 
 RoutesHandler::addRoute("GET", "/whatsapp/webhook", function() {
