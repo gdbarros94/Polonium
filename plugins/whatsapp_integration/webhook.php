@@ -1,6 +1,6 @@
 <?php
 // Define o caminho do arquivo de log
-$logFile = __DIR__ . '/logs/webhook.log';
+$logFile = __DIR__ . '/webhook.log';
 
 // Verifica se há dados recebidos via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
