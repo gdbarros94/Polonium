@@ -36,21 +36,13 @@ class SystemManagerAdmin {
         $user = $_POST['user'] ?? '';
         $pass = $_POST['password'] ?? '';
         $redirect = $_POST['redirect'] ?? '/admin';
-        // Hashes fixos para teste (gerados previamente)
-        $users = [
-            'admin' => [
-                // senha: admin123
-                'password' => '$argon2id$v=19$m=65536,t=4,p=1$VlBaWVhocXRpcHBLSXdNZA$junmjqeOW2EN90RPy0Z5MLxu30YgUVg4/yrvY0pzqs4',
-                'role' => 'admin'
-            ],
-            'user' => [
-                // senha: user123
-                'password' => '$argon2id$v=19$m=65536,t=4,p=1$cXNHUzU3aVBUbEUudEZLVQ$qLfEhKVj0ssf7re1zwiOsHWL4bA7Y+y1CqEJY9x5p0c',
-                'role' => 'user'
-            ]
-        ];
-        if (isset($users[$user]) && AuthHandler::verifyPassword($pass, $users[$user]['password'])) {
-            AuthHandler::login($user, $users[$user]['role']);
+        // Busca usuário no banco de dados
+        $pdo = DatabaseHandler::getConnection();
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ? OR email = ? LIMIT 1");
+        $stmt->execute([$user, $user]);
+        $dbUser = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($dbUser && AuthHandler::verifyPassword($pass, $dbUser['senha'])) {
+            AuthHandler::login($dbUser['username'], $dbUser['tipo']);
             // Redireciona para a rota original, se for segura
             if (strpos($redirect, '/') === 0) {
                 AuthHandler::redirect($redirect);
