@@ -166,31 +166,14 @@ class SystemManagerAdmin {
     }
 
     private static function getAllPlugins() {
-        $pluginDir = dirname(__DIR__, 2) . '/plugins/';
-        $folders = array_filter(scandir($pluginDir), function($f) use ($pluginDir) {
-            return $f !== '.' && $f !== '..' && is_dir($pluginDir . $f);
-        });
+        // Usa apenas PluginHandler::getActivePlugins() para listar plugins
         $activePlugins = PluginHandler::getActivePlugins();
         $plugins = [];
-        foreach ($folders as $folder) {
-            $pluginJson = $pluginDir . $folder . '/plugin.json';
-            $name = $folder;
-            $active = false;
-            if (file_exists($pluginJson)) {
-                $meta = json_decode(file_get_contents($pluginJson), true);
-                if (isset($meta['name'])) $name = $meta['name'];
-                // Verifica se está ativo pelo slug
-                foreach ($activePlugins as $slug => $data) {
-                    if ($slug === $folder) {
-                        $active = true;
-                        break;
-                    }
-                }
-            }
+        foreach ($activePlugins as $slug => $meta) {
             $plugins[] = [
-                'name' => $name,
-                'folder' => $folder,
-                'active' => $active
+                'name' => $meta['name'] ?? $slug,
+                'folder' => $slug,
+                'active' => true
             ];
         }
         return $plugins;
