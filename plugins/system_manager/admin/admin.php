@@ -209,7 +209,6 @@ class SystemManagerAdmin {
         }
         // Complementa com plugins da pasta que não estão no banco
         $pluginDir = dirname(__DIR__, 2) . '/';
-        var_dump($pluginDir);
         $folders = [];
         if (is_dir($pluginDir)) {
             $folders = array_filter(scandir($pluginDir), function($f) use ($pluginDir) {
