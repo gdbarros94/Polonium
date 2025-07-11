@@ -114,7 +114,7 @@ class SystemManagerAdmin {
             return;
         }
         $plugins = self::getAllPlugins();
-        include __DIR__ . '/templates/plugins.php';
+        include __DIR__ .'/templates/plugins.php';
     }
 
     public static function pluginsUpload() {
@@ -166,28 +166,25 @@ class SystemManagerAdmin {
     }
 
     private static function getAllPlugins() {
-        $pluginDir = dirname(__DIR__, 2) . '/plugins/';
-        $folders = array_filter(scandir($pluginDir), function($f) use ($pluginDir) {
-            return $f !== '.' && $f !== '..' && is_dir($pluginDir . $f);
-        });
+        // Usa apenas PluginHandler::getActivePlugins() para listar plugins
         $activePlugins = PluginHandler::getActivePlugins();
-        $activeFolders = array_map(function($p) { return $p['folder'] ?? $p['name']; }, $activePlugins);
         $plugins = [];
-        foreach ($folders as $folder) {
-            $pluginJson = $pluginDir . $folder . '/plugin.json';
-            $name = $folder;
-            if (file_exists($pluginJson)) {
-                $meta = json_decode(file_get_contents($pluginJson), true);
-                if (isset($meta['name'])) $name = $meta['name'];
-            }
+        foreach ($activePlugins as $slug => $meta) {
             $plugins[] = [
-                'name' => $name,
-                'folder' => $folder,
-                'active' => in_array($folder, $activeFolders)
+                'name' => $meta['name'] ?? $slug,
+                'folder' => $slug,
+                'active' => true
             ];
         }
         return $plugins;
     }
 }
+
+// Registra item de menu lateral para Plugins
+\System::addAdminSidebarMenuItem([
+    'name' => 'Plugins',
+    'icon' => 'extension',
+    'url'  => '/admin/plugins'
+]);
 
 SystemManagerAdmin::registerRoutes();
