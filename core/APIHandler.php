@@ -27,19 +27,29 @@ class APIHandler
     }
 
     /**
-     * Obtém os headers HTTP, incluindo Authorization, de forma robusta
+     * Obtém os headers HTTP, incluindo Authorization, de forma robusta e case-insensitive
      */
     private static function getAuthorizationHeader()
     {
         $headers = function_exists('getallheaders') ? getallheaders() : [];
-        if (empty($headers['Authorization'])) {
+        // Normaliza as chaves para minúsculas
+        $normalized = [];
+        foreach ($headers as $k => $v) {
+            $normalized[strtolower($k)] = $v;
+        }
+        // Tenta pegar o Authorization de várias formas
+        if (empty($normalized['authorization'])) {
             if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
-                $headers['Authorization'] = $_SERVER['HTTP_AUTHORIZATION'];
+                $normalized['authorization'] = $_SERVER['HTTP_AUTHORIZATION'];
             } elseif (isset($_SERVER['REDIRECT_HTTP_AUTHORIZATION'])) {
-                $headers['Authorization'] = $_SERVER['REDIRECT_HTTP_AUTHORIZATION'];
+                $normalized['authorization'] = $_SERVER['REDIRECT_HTTP_AUTHORIZATION'];
             }
         }
-        return $headers;
+        // Log temporário para debug (remova em produção)
+        file_put_contents(__DIR__ . '/../logs/system.log', "HEADERS: " . json_encode($normalized) . "\n", FILE_APPEND);
+        return [
+            'Authorization' => $normalized['authorization'] ?? null
+        ];
     }
 
     /**
@@ -108,4 +118,3 @@ class APIHandler
         return bin2hex(random_bytes($length / 2));
     }
 }
-
