@@ -53,6 +53,29 @@ class PluginHandler
 
         $pluginFolders = array_filter(glob($pluginsDir . "*"), "is_dir");
         $pdo = DatabaseHandler::getConnection();
+        $useDb = true;
+        try {
+            // Testa se a tabela existe
+            $pdo->query("SELECT 1 FROM plugins LIMIT 1");
+        } catch (\PDOException $e) {
+            // Tenta rodar a migration se o arquivo existir
+            $migration = dirname(__DIR__) . '/plugins/system_manager/admin/migrations/plugins_migration.php';
+            if (file_exists($migration)) {
+                require_once $migration;
+                if (class_exists('SystemManagerPluginsMigration')) {
+                    try {
+                        \SystemManagerPluginsMigration::migrate($pdo);
+                        $pdo->query("SELECT 1 FROM plugins LIMIT 1"); // Testa de novo
+                    } catch (\Exception $e2) {
+                        $useDb = false;
+                    }
+                } else {
+                    $useDb = false;
+                }
+            } else {
+                $useDb = false;
+            }
+        }
 
         foreach ($pluginFolders as $folder) {
             $pluginSlug = basename($folder);
@@ -63,17 +86,25 @@ class PluginHandler
                 $pluginData = json_decode(file_get_contents($pluginJsonPath), true);
 
                 if ($pluginData && isset($pluginData["name"]) && isset($pluginData["slug"])) {
-                    // Verifica se está registrado no banco
-                    $stmt = $pdo->prepare("SELECT * FROM plugins WHERE slug = ?");
-                    $stmt->execute([$pluginSlug]);
-                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                    if (!$row) {
-                        // Registra plugin como ativo por padrão
-                        $stmt = $pdo->prepare("INSERT INTO plugins (slug, name, active) VALUES (?, ?, 1)");
-                        $stmt->execute([$pluginSlug, $pluginData['name']]);
-                        $active = true;
+                    if ($useDb) {
+                        try {
+                            // Verifica se está registrado no banco
+                            $stmt = $pdo->prepare("SELECT * FROM plugins WHERE slug = ?");
+                            $stmt->execute([$pluginSlug]);
+                            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                            if (!$row) {
+                                // Registra plugin como ativo por padrão
+                                $stmt = $pdo->prepare("INSERT INTO plugins (slug, name, active) VALUES (?, ?, 1)");
+                                $stmt->execute([$pluginSlug, $pluginData['name']]);
+                                $active = true;
+                            } else {
+                                $active = (bool)$row['active'];
+                            }
+                        } catch (\PDOException $e) {
+                            $active = true; // fallback se der erro
+                        }
                     } else {
-                        $active = (bool)$row['active'];
+                        $active = true; // fallback: ativa todos
                     }
                     if ($active) {
                         self::$activePlugins[$pluginSlug] = $pluginData;
