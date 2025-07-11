@@ -171,19 +171,26 @@ class SystemManagerAdmin {
             return $f !== '.' && $f !== '..' && is_dir($pluginDir . $f);
         });
         $activePlugins = PluginHandler::getActivePlugins();
-        $activeFolders = array_map(function($p) { return $p['folder'] ?? $p['name']; }, $activePlugins);
         $plugins = [];
         foreach ($folders as $folder) {
             $pluginJson = $pluginDir . $folder . '/plugin.json';
             $name = $folder;
+            $active = false;
             if (file_exists($pluginJson)) {
                 $meta = json_decode(file_get_contents($pluginJson), true);
                 if (isset($meta['name'])) $name = $meta['name'];
+                // Verifica se está ativo pelo slug
+                foreach ($activePlugins as $slug => $data) {
+                    if ($slug === $folder) {
+                        $active = true;
+                        break;
+                    }
+                }
             }
             $plugins[] = [
                 'name' => $name,
                 'folder' => $folder,
-                'active' => in_array($folder, $activeFolders)
+                'active' => $active
             ];
         }
         return $plugins;
