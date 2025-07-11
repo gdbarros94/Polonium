@@ -197,4 +197,11 @@ class SystemManagerAdmin {
     }
 }
 
+// Registra item de menu lateral para Plugins
+\System::addAdminSidebarMenuItem([
+    'name' => 'Plugins',
+    'icon' => 'extension',
+    'url'  => '/admin/plugins'
+]);
+
 SystemManagerAdmin::registerRoutes();
