@@ -208,7 +208,7 @@ class SystemManagerAdmin {
             // fallback: ignora banco
         }
         // Complementa com plugins da pasta que não estão no banco
-        $pluginDir = dirname(__DIR__, 2) . '/plugins/';
+        $pluginDir = dirname(__DIR__, 2) . '/';
         var_dump($pluginDir);
         $folders = [];
         if (is_dir($pluginDir)) {
