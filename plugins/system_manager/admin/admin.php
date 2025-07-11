@@ -27,6 +27,9 @@ class SystemManagerAdmin {
         // Rota para página de plugins (GET e POST)
         RoutesHandler::addRoute("GET", "/admin/plugins", [self::class, 'pluginsPage'], ["auth" => true, "permission" => "admin"]);
         RoutesHandler::addRoute("POST", "/admin/plugins", [self::class, 'pluginsUpload'], ["auth" => true, "permission" => "admin"]);
+
+        // Rota para ativar/desativar plugins
+        RoutesHandler::addRoute("POST", "/admin/plugins/toggle", [self::class, 'togglePlugin'], ["auth" => true, "permission" => "admin"]);
     }
 
     public static function loginGet() {
@@ -161,6 +164,27 @@ class SystemManagerAdmin {
             echo "Não foi possível abrir o arquivo ZIP.";
             return;
         }
+        header('Location: /admin/plugins');
+        exit;
+    }
+
+    public static function togglePlugin() {
+        AuthHandler::requireAuth();
+        if (!AuthHandler::checkPermission('admin')) {
+            echo "Acesso negado.";
+            return;
+        }
+        $slug = $_POST['slug'] ?? '';
+        $action = $_POST['action'] ?? '';
+        if (!$slug || !in_array($action, ['activate', 'deactivate'])) {
+            echo "Requisição inválida.";
+            return;
+        }
+        $pdo = DatabaseHandler::getConnection();
+        $active = $action === 'activate' ? 1 : 0;
+        $stmt = $pdo->prepare("UPDATE plugins SET active = ? WHERE slug = ?");
+        $stmt->execute([$active, $slug]);
+        // Reload para refletir mudança
         header('Location: /admin/plugins');
         exit;
     }

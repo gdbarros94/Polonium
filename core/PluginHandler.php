@@ -52,6 +52,7 @@ class PluginHandler
         }
 
         $pluginFolders = array_filter(glob($pluginsDir . "*"), "is_dir");
+        $pdo = DatabaseHandler::getConnection();
 
         foreach ($pluginFolders as $folder) {
             $pluginSlug = basename($folder);
@@ -62,24 +63,32 @@ class PluginHandler
                 $pluginData = json_decode(file_get_contents($pluginJsonPath), true);
 
                 if ($pluginData && isset($pluginData["name"]) && isset($pluginData["slug"])) {
-                    // Check if plugin is active (for now, assume all found are active)
-                    // In a real scenario, this would come from a database or config
-                    self::$activePlugins[$pluginSlug] = $pluginData;
-                    System::log("Loading plugin: " . $pluginData["name"] . " ({$pluginSlug})");
-
-                    // Include main.php to register routes, hooks, etc.
-                    require_once $mainPhpPath;
-
-                    // Register plugin routes
-                    if (isset($pluginData["routes"]) && is_array($pluginData["routes"])) {
-                        foreach ($pluginData["routes"] as $route) {
-                            // Assuming all plugin routes are GET for now, can be extended
-                            RoutesHandler::addRoute("GET", $route, function() use ($pluginSlug, $route) {
-                                echo "Plugin {$pluginSlug} route: {$route}";
-                            });
-                        }
+                    // Verifica se está registrado no banco
+                    $stmt = $pdo->prepare("SELECT * FROM plugins WHERE slug = ?");
+                    $stmt->execute([$pluginSlug]);
+                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                    if (!$row) {
+                        // Registra plugin como ativo por padrão
+                        $stmt = $pdo->prepare("INSERT INTO plugins (slug, name, active) VALUES (?, ?, 1)");
+                        $stmt->execute([$pluginSlug, $pluginData['name']]);
+                        $active = true;
+                    } else {
+                        $active = (bool)$row['active'];
                     }
-
+                    if ($active) {
+                        self::$activePlugins[$pluginSlug] = $pluginData;
+                        System::log("Loading plugin: " . $pluginData["name"] . " ({$pluginSlug})");
+                        require_once $mainPhpPath;
+                        if (isset($pluginData["routes"]) && is_array($pluginData["routes"])) {
+                            foreach ($pluginData["routes"] as $route) {
+                                RoutesHandler::addRoute("GET", $route, function() use ($pluginSlug, $route) {
+                                    echo "Plugin {$pluginSlug} route: {$route}";
+                                });
+                            }
+                        }
+                    } else {
+                        System::log("Plugin {$pluginData['name']} está desativado no banco de dados.", "info");
+                    }
                 } else {
                     System::log("Invalid plugin.json for plugin in folder: {$pluginSlug}", "warning");
                 }

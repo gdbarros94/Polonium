@@ -24,3 +24,12 @@ try {
 } catch (Exception $e) {
     System::log('Erro ao executar migration de usuários: ' . $e->getMessage(), 'error');
 }
+
+// Executa a migration de plugins ao iniciar o plugin
+try {
+    $pdo = DatabaseHandler::getConnection();
+    require_once __DIR__ . '/admin/migrations/plugins_migration.php';
+    SystemManagerPluginsMigration::migrate($pdo);
+} catch (Exception $e) {
+    System::log('Erro ao executar migration de plugins: ' . $e->getMessage(), 'error');
+}
