@@ -114,7 +114,7 @@ class SystemManagerAdmin {
             return;
         }
         $plugins = self::getAllPlugins();
-        include __DIR__ . '/templates/plugins.php';
+        include '/templates/plugins.php';
     }
 
     public static function pluginsUpload() {
