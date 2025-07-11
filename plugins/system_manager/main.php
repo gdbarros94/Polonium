@@ -29,6 +29,7 @@ try {
 try {
     $pdo = DatabaseHandler::getConnection();
     require_once __DIR__ . '/admin/migrations/users_migration.php';
+    require_once __DIR__ . '/admin/migrations/plugins_migration.php';
     SystemManagerUsersMigration::migrate($pdo);
 } catch (Exception $e) {
     System::log('Erro ao executar migration de usuários: ' . $e->getMessage(), 'error');
