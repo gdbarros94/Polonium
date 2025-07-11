@@ -209,9 +209,13 @@ class SystemManagerAdmin {
         }
         // Complementa com plugins da pasta que não estão no banco
         $pluginDir = dirname(__DIR__, 2) . '/plugins/';
-        $folders = array_filter(scandir($pluginDir), function($f) use ($pluginDir) {
-            return $f !== '.' && $f !== '..' && is_dir($pluginDir . $f);
-        });
+        var_dump($pluginDir);
+        $folders = [];
+        if (is_dir($pluginDir)) {
+            $folders = array_filter(scandir($pluginDir), function($f) use ($pluginDir) {
+                return $f !== '.' && $f !== '..' && is_dir($pluginDir . $f);
+            });
+        }
         foreach ($folders as $folder) {
             if (!isset($dbPlugins[$folder])) {
                 $pluginJson = $pluginDir . $folder . '/plugin.json';
