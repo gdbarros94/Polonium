@@ -190,17 +190,44 @@ class SystemManagerAdmin {
     }
 
     private static function getAllPlugins() {
-        // Usa apenas PluginHandler::getActivePlugins() para listar plugins
-        $activePlugins = PluginHandler::getActivePlugins();
+        $pdo = DatabaseHandler::getConnection();
         $plugins = [];
-        foreach ($activePlugins as $slug => $meta) {
-            $plugins[] = [
-                'name' => $meta['name'] ?? $slug,
-                'folder' => $slug,
-                'active' => true
-            ];
+        $dbPlugins = [];
+        // Busca todos do banco
+        try {
+            $stmt = $pdo->query("SELECT * FROM plugins");
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $plugins[$row['slug']] = [
+                    'name' => $row['name'],
+                    'folder' => $row['slug'],
+                    'active' => (bool)$row['active']
+                ];
+                $dbPlugins[$row['slug']] = true;
+            }
+        } catch (\Exception $e) {
+            // fallback: ignora banco
         }
-        return $plugins;
+        // Complementa com plugins da pasta que não estão no banco
+        $pluginDir = dirname(__DIR__, 2) . '/plugins/';
+        $folders = array_filter(scandir($pluginDir), function($f) use ($pluginDir) {
+            return $f !== '.' && $f !== '..' && is_dir($pluginDir . $f);
+        });
+        foreach ($folders as $folder) {
+            if (!isset($dbPlugins[$folder])) {
+                $pluginJson = $pluginDir . $folder . '/plugin.json';
+                $name = $folder;
+                if (file_exists($pluginJson)) {
+                    $meta = json_decode(file_get_contents($pluginJson), true);
+                    if (isset($meta['name'])) $name = $meta['name'];
+                }
+                $plugins[$folder] = [
+                    'name' => $name,
+                    'folder' => $folder,
+                    'active' => true // fallback: ativo
+                ];
+            }
+        }
+        return array_values($plugins);
     }
 }
 
