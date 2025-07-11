@@ -46,7 +46,7 @@ class APIHandler
             }
         }
         // Log temporário para debug (remova em produção)
-        System::log("HEADERS: " . json_encode($normalized), "debug");
+        System::log("HEADERS: " . json_encode($_SERVER), "debug");
         return [
             'Authorization' => $normalized['authorization'] ?? null
         ];
