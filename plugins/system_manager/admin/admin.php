@@ -30,6 +30,9 @@ class SystemManagerAdmin {
 
         // Rota para ativar/desativar plugins
         RoutesHandler::addRoute("POST", "/admin/plugins/toggle", [self::class, 'togglePlugin'], ["auth" => true, "permission" => "admin"]);
+
+        // Rota para página de logs
+        RoutesHandler::addRoute("GET", "/admin/logs", [self::class, 'logsPage'], ["auth" => true, "permission" => "admin"]);
     }
 
     public static function loginGet() {
@@ -189,6 +192,32 @@ class SystemManagerAdmin {
         exit;
     }
 
+    public static function logsPage() {
+        AuthHandler::requireAuth();
+        if (!AuthHandler::checkPermission('admin')) {
+            echo "Acesso negado.";
+            return;
+        }
+        $logsDir = dirname(__DIR__, 3) . '/logs/';
+        $logFiles = [];
+        if (is_dir($logsDir)) {
+            foreach (scandir($logsDir) as $file) {
+                if (substr($file, -4) === '.log') {
+                    $logFiles[] = $file;
+                }
+            }
+        }
+        $selectedLog = $_GET['logfile'] ?? ($logFiles[0] ?? '');
+        $logContent = '';
+        if ($selectedLog && in_array($selectedLog, $logFiles)) {
+            $logPath = $logsDir . $selectedLog;
+            if (file_exists($logPath)) {
+                $logContent = file_get_contents($logPath);
+            }
+        }
+        include __DIR__ . '/templates/logs.php';
+    }
+
     private static function getAllPlugins() {
         $pdo = DatabaseHandler::getConnection();
         $plugins = [];
@@ -239,6 +268,13 @@ class SystemManagerAdmin {
     'name' => 'Plugins',
     'icon' => 'extension',
     'url'  => '/admin/plugins'
+]);
+
+// Registra item de menu lateral para Logs
+\System::addAdminSidebarMenuItem([
+    'name' => 'Logs',
+    'icon' => 'description',
+    'url'  => '/admin/logs'
 ]);
 
 SystemManagerAdmin::registerRoutes();
