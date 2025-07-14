@@ -1,5 +1,4 @@
 -- Migration SQL para tabela users e dependências
--- Copiado de users_schema (1).txt
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
