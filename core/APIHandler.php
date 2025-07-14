@@ -82,23 +82,15 @@ class APIHandler
         if (empty($username) || empty($password)) {
             self::sendJsonResponse(["error" => "Username and password required"], 400);
         }
-        // Utiliza o array de usuários fixos para autenticação
-        $users = [
-            'admin' => [
-                // senha: admin123
-                'password' => '$argon2id$v=19$m=65536,t=4,p=1$VlBaWVhocXRpcHBLSXdNZA$junmjqeOW2EN90RPy0Z5MLxu30YgUVg4/yrvY0pzqs4',
-                'role' => 'admin',
-                'id' => 1
-            ],
-            'user' => [
-                // senha: user123
-                'password' => '$argon2id$v=19$m=65536,t=4,p=1$cXNHUzU3aVBUbEUudEZLVQ$qLfEhKVj0ssf7re1zwiOsHWL4bA7Y+y1CqEJY9x5p0c',
-                'role' => 'user',
-                'id' => 2
-            ]
-        ];
-        $user = isset($users[$username]) ? $users[$username] : null;
-        if (!$user || !AuthHandler::verifyPassword($password, $user["password"])) {
+        $user = (new QueryBuilder("users"))
+            ->select(["id", "username", "senha", "tipo", "ativo"])
+            ->where("username", "=", $username)
+            ->get();
+        $user = isset($user[0]) ? $user[0] : null;
+        if (!$user || !$user["ativo"]) {
+            self::sendJsonResponse(["error" => "Invalid credentials"], 401);
+        }
+        if (!AuthHandler::verifyPassword($password, $user["senha"])) {
             self::sendJsonResponse(["error" => "Invalid credentials"], 401);
         }
         $token = self::generateSecureToken();

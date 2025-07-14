@@ -17,7 +17,7 @@ class SystemManagerUsersApi {
 
     public static function listUsers() {
         if (!APIHandler::authenticate()) {
-            APIHandler::sendJsonResponse(["error" => "Unauthorized99"], 401);
+            APIHandler::sendJsonResponse(["error" => "Unauthorized"], 401);
         }
         $users = (new QueryBuilder("users"))->select()->get();
         APIHandler::sendJsonResponse($users);
@@ -25,7 +25,7 @@ class SystemManagerUsersApi {
 
     public static function createUser() {
         if (!APIHandler::authenticate()) {
-            APIHandler::sendJsonResponse(["error" => "Unauthorized88"], 401);
+            APIHandler::sendJsonResponse(["error" => "Unauthorized"], 401);
         }
         $input = json_decode(file_get_contents("php://input"), true);
         if (empty($input["username"]) || empty($input["password"])) {
@@ -42,7 +42,7 @@ class SystemManagerUsersApi {
 
     public static function getUser($params) {
         if (!APIHandler::authenticate()) {
-            APIHandler::sendJsonResponse(["error" => "Unauthorized77"], 401);
+            APIHandler::sendJsonResponse(["error" => "Unauthorized"], 401);
         }
         $user = (new QueryBuilder("users"))->select()->where(["id" => $params["id"]])->first();
         if (!$user) {
@@ -53,7 +53,7 @@ class SystemManagerUsersApi {
 
     public static function updateUser($params) {
         if (!APIHandler::authenticate()) {
-            APIHandler::sendJsonResponse(["error" => "Unauthorized66"], 401);
+            APIHandler::sendJsonResponse(["error" => "Unauthorized"], 401);
         }
         $input = json_decode(file_get_contents("php://input"), true);
         $data = [];
@@ -69,7 +69,7 @@ class SystemManagerUsersApi {
 
     public static function deleteUser($params) {
         if (!APIHandler::authenticate()) {
-            APIHandler::sendJsonResponse(["error" => "Unauthorized55"], 401);
+            APIHandler::sendJsonResponse(["error" => "Unauthorized"], 401);
         }
         (new QueryBuilder("users"))->delete()->where(["id" => $params["id"]])->execute();
         APIHandler::sendJsonResponse(["message" => "User deleted"]);
