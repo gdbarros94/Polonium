@@ -61,7 +61,9 @@ class APIHandler
         $headers = self::getAuthorizationHeader();
         $authToken = isset($headers["Authorization"]) ? str_replace("Bearer ", "", $headers["Authorization"]) : null;
         if (!$authToken) return false;
-        $token = (new QueryBuilder("api_tokens"))->select()->where(["token" => $authToken])->first();
+        $token = (new QueryBuilder("api_tokens"))->select()->where("token", "=", $authToken)->get();
+        $token = isset($token[0]) ? $token[0] : null;
+        
         return $token ? true : false;
     }
 
