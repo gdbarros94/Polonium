@@ -22,14 +22,14 @@ class SystemManagerUsersCrud {
 
     public static function createUser() {
         $pdo = DatabaseHandler::getConnection();
-        $nome = $_POST['nome'] ?? '';
+        $name = $_POST['name'] ?? '';
         $email = $_POST['email'] ?? '';
-        $senha = password_hash($_POST['senha'] ?? '', PASSWORD_DEFAULT);
-        $tipo = $_POST['tipo'] ?? 'usuario';
+        $password = password_hash($_POST['password'] ?? '', PASSWORD_DEFAULT);
+        $role = $_POST['role'] ?? 'user';
         $username = $_POST['username'] ?? '';
-        $ativo = isset($_POST['ativo']) ? 1 : 0;
-        $stmt = $pdo->prepare("INSERT INTO users (nome, email, senha, tipo, username, ativo) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->execute([$nome, $email, $senha, $tipo, $username, $ativo]);
+        $active = isset($_POST['active']) ? 1 : 0;
+        $stmt = $pdo->prepare("INSERT INTO users (name, email, password, role, username, active) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->execute([$name, $email, $password, $role, $username, $active]);
         header('Location: /usuarios');
         exit;
     }
@@ -44,19 +44,19 @@ class SystemManagerUsersCrud {
 
     public static function updateUser($id) {
         $pdo = DatabaseHandler::getConnection();
-        $nome = $_POST['nome'] ?? '';
+        $name = $_POST['name'] ?? '';
         $email = $_POST['email'] ?? '';
-        $tipo = $_POST['tipo'] ?? 'usuario';
+        $role = $_POST['role'] ?? 'user';
         $username = $_POST['username'] ?? '';
-        $ativo = isset($_POST['ativo']) ? 1 : 0;
-        $senha = $_POST['senha'] ?? '';
-        if ($senha) {
-            $senha = password_hash($senha, PASSWORD_DEFAULT);
-            $stmt = $pdo->prepare("UPDATE users SET nome=?, email=?, senha=?, tipo=?, username=?, ativo=? WHERE id=?");
-            $stmt->execute([$nome, $email, $senha, $tipo, $username, $ativo, $id]);
+        $active = isset($_POST['active']) ? 1 : 0;
+        $password = $_POST['password'] ?? '';
+        if ($password) {
+            $password = password_hash($password, PASSWORD_DEFAULT);
+            $stmt = $pdo->prepare("UPDATE users SET name=?, email=?, password=?, role=?, username=?, active=? WHERE id=?");
+            $stmt->execute([$name, $email, $password, $role, $username, $active, $id]);
         } else {
-            $stmt = $pdo->prepare("UPDATE users SET nome=?, email=?, tipo=?, username=?, ativo=? WHERE id=?");
-            $stmt->execute([$nome, $email, $tipo, $username, $ativo, $id]);
+            $stmt = $pdo->prepare("UPDATE users SET name=?, email=?, role=?, username=?, active=? WHERE id=?");
+            $stmt->execute([$name, $email, $role, $username, $active, $id]);
         }
         header('Location: /usuarios');
         exit;

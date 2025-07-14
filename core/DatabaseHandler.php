@@ -91,7 +91,7 @@ class DatabaseHandler
     }
 
     /**
-     * Executa uma consulta SQL com par metros.
+     * Executa uma consulta SQL com parâmetros.
      *
      * @param string $sql A consulta SQL a ser executada.
      * @param array $params Os par metros da consulta SQL.

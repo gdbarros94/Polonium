@@ -175,5 +175,3 @@ class AuthHandler
         return password_verify($password, $hash);
     }
 }
-
-
