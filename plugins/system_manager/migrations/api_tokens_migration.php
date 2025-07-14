@@ -8,6 +8,7 @@ class SystemManagerApiTokensMigration {
                 user_id INT NOT NULL,
                 token VARCHAR(128) NOT NULL,
                 created_at DATETIME NOT NULL,
+                expires_at DATETIME NOT NULL,
                 FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
         } catch (Exception $e) {

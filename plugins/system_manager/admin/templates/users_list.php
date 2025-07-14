@@ -12,10 +12,13 @@ ThemeHandler::render_header(['title' => 'Usuários - CoreCRM']);
             <tr>
                 <th class="py-2 px-4">ID</th>
                 <th class="py-2 px-4">Nome</th>
+                <th class="py-2 px-4">Name</th>
                 <th class="py-2 px-4">Email</th>
                 <th class="py-2 px-4">Usuário</th>
                 <th class="py-2 px-4">Tipo</th>
+                <th class="py-2 px-4">Role</th>
                 <th class="py-2 px-4">Ativo</th>
+                <th class="py-2 px-4">Active</th>
                 <th class="py-2 px-4">Ações</th>
             </tr>
         </thead>
@@ -24,10 +27,13 @@ ThemeHandler::render_header(['title' => 'Usuários - CoreCRM']);
             <tr class="border-b hover:bg-indigo-50">
                 <td class="py-2 px-4"><?php echo $user['id']; ?></td>
                 <td class="py-2 px-4"><?php echo htmlspecialchars($user['nome']); ?></td>
+                <td class="py-2 px-4"><?php echo htmlspecialchars($user['name']); ?></td>
                 <td class="py-2 px-4"><?php echo htmlspecialchars($user['email']); ?></td>
                 <td class="py-2 px-4"><?php echo htmlspecialchars($user['username']); ?></td>
                 <td class="py-2 px-4"><?php echo htmlspecialchars($user['tipo']); ?></td>
+                <td class="py-2 px-4"><?php echo htmlspecialchars($user['role']); ?></td>
                 <td class="py-2 px-4"><?php echo $user['ativo'] ? 'Sim' : 'Não'; ?></td>
+                <td class="py-2 px-4"><?php echo $user['active'] ? 'Yes' : 'No'; ?></td>
                 <td class="py-2 px-4 flex gap-2">
                     <a href="/usuarios/editar/<?php echo $user['id']; ?>" class="px-2 py-1 bg-yellow-400 text-white rounded hover:bg-yellow-500">Editar</a>
                     <form method="post" action="/usuarios/apagar/<?php echo $user['id']; ?>" onsubmit="return confirm('Tem certeza que deseja apagar este usuário?');">

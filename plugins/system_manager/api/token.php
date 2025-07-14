@@ -8,5 +8,4 @@ class SystemManagerTokenApi {
     }
 }
 
-// Garante que as rotas da API de token sejam registradas ao carregar o módulo
 SystemManagerTokenApi::registerRoutes();

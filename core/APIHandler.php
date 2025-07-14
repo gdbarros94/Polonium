@@ -63,14 +63,30 @@ class APIHandler
         if (!$authToken) return false;
         $token = (new QueryBuilder("api_tokens"))->select()->where("token", "=", $authToken)->get();
         $token = isset($token[0]) ? $token[0] : null;
-        
-        return $token ? true : false;
+        if (!$token) return false;
+        if (self::isTokenExpired($token)) {
+            // Exclui token expirado
+            (new QueryBuilder("api_tokens"))->delete()->where("id", "=", $token["id"])->execute();
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Verifica se o token está expirado
+     * @param array $token
+     * @return bool
+     */
+    public static function isTokenExpired($token)
+    {
+        if (empty($token["expires_at"])) return true;
+        return strtotime($token["expires_at"]) < time();
     }
 
     /**
      * Gera um token seguro e salva no banco para o usuário autenticado
      */
-    public static function generateToken()
+    public static function generateToken($lifetimeSeconds = 3600)
     {
         $headers = self::getAuthorizationHeader();
         if (empty($headers['Authorization']) || stripos($headers['Authorization'], 'Basic ') !== 0) {
@@ -85,23 +101,26 @@ class APIHandler
             self::sendJsonResponse(["error" => "Username and password required"], 400);
         }
         $user = (new QueryBuilder("users"))
-            ->select(["id", "username", "senha", "tipo", "ativo"])
+            ->select(["id", "username", "password", "role", "active"])
             ->where("username", "=", $username)
             ->get();
         $user = isset($user[0]) ? $user[0] : null;
-        if (!$user || !$user["ativo"]) {
+        if (!$user || !$user["active"]) {
             self::sendJsonResponse(["error" => "Invalid credentials"], 401);
         }
-        if (!AuthHandler::verifyPassword($password, $user["senha"])) {
+        if (!AuthHandler::verifyPassword($password, $user["password"])) {
             self::sendJsonResponse(["error" => "Invalid credentials"], 401);
         }
         $token = self::generateSecureToken();
+        $now = date("Y-m-d H:i:s");
+        $expires = date("Y-m-d H:i:s", time() + $lifetimeSeconds);
         (new QueryBuilder("api_tokens"))->insert([
             "user_id" => $user["id"],
             "token" => $token,
-            "created_at" => date("Y-m-d H:i:s")
+            "created_at" => $now,
+            "expires_at" => $expires
         ])->execute();
-        self::sendJsonResponse(["token" => $token]);
+        self::sendJsonResponse(["token" => $token, "expires_at" => $expires]);
     }
 
     /**

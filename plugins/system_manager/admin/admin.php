@@ -51,8 +51,8 @@ class SystemManagerAdmin {
         $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ? OR email = ? LIMIT 1");
         $stmt->execute([$user, $user]);
         $dbUser = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($dbUser && AuthHandler::verifyPassword($pass, $dbUser['senha'])) {
-            AuthHandler::login($dbUser['username'], $dbUser['tipo']);
+        if ($dbUser && AuthHandler::verifyPassword($pass, $dbUser['password'])) {
+            AuthHandler::login($dbUser['username'], $dbUser['role']);
             // Redireciona para a rota original, se for segura
             if (strpos($redirect, '/') === 0) {
                 AuthHandler::redirect($redirect);

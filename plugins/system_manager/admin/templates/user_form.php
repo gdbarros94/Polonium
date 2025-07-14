@@ -1,21 +1,21 @@
 <?php
-// Formulário de novo/edição de usuário
-ThemeHandler::render_header(['title' => 'Usuário - CoreCRM']);
+            Name:
+            <input type="text" name="name" value="<?php echo htmlspecialchars($user['name'] ?? ''); ?>" required class="mt-1 block w-full rounded border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
 $isEdit = isset($user);
 ?>
-<div class="container mx-auto mt-10 max-w-lg">
-    <h1 class="text-2xl font-bold text-indigo-800 mb-6"><?php echo $isEdit ? 'Editar Usuário' : 'Novo Usuário'; ?></h1>
-    <form method="post" class="bg-white rounded shadow p-6 flex flex-col gap-4">
-        <label>
-            Nome:
+            Role:
+            <select name="role" class="mt-1 block w-full rounded border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
+                <option value="admin" <?php if(($user['role'] ?? '')=='admin') echo 'selected'; ?>>Admin</option>
+                <option value="user" <?php if(($user['role'] ?? '')=='user') echo 'selected'; ?>>User</option>
+                <option value="moderator" <?php if(($user['role'] ?? '')=='moderator') echo 'selected'; ?>>Moderator</option>
             <input type="text" name="nome" value="<?php echo htmlspecialchars($user['nome'] ?? ''); ?>" required class="mt-1 block w-full rounded border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
         </label>
         <label>
-            Email:
+            <input type="checkbox" name="active" value="1" <?php if(($user['active'] ?? 1)) echo 'checked'; ?>> Active
             <input type="email" name="email" value="<?php echo htmlspecialchars($user['email'] ?? ''); ?>" required class="mt-1 block w-full rounded border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
         </label>
-        <label>
-            Usuário:
+            Password:
+            <input type="password" name="password" class="mt-1 block w-full rounded border-gray-300 focus:ring-indigo-500 focus:border-indigo-500" <?php if(!$isEdit) echo 'required'; ?> >
             <input type="text" name="username" value="<?php echo htmlspecialchars($user['username'] ?? ''); ?>" class="mt-1 block w-full rounded border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
         </label>
         <label>
