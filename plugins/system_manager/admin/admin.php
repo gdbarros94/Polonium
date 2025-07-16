@@ -44,7 +44,7 @@ class SystemManagerAdmin {
     public static function loginPost() {
         $error = '';
         $user = $_POST['user'] ?? '';
-        $pass = $_POST['password'] ?? '';
+        $pass = isset($_POST['password']) ? $_POST['password'] : '';
         $redirect = $_POST['redirect'] ?? '/admin';
         // Busca usuário no banco de dados
         $pdo = DatabaseHandler::getConnection();
