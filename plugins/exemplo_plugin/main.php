@@ -74,13 +74,17 @@ RoutesHandler::addRoute("GET", "/exemplo-plugin/exemplos", function() {
     ]);
     // TableBlock
     echo BlockRenderer::render('Table', [
-        'columns' => ['Nome','Função','Status'],
-        'rows' => [
-            ['João','Admin','Online'],
-            ['Maria','Usuário','Offline'],
+        'columns' => [
+            ['key'=>'name','label'=>'Name'],
+            ['key'=>'role','label'=>'Role'],
+            ['key'=>'status','label'=>'Status'],
+        ],
+        'data' => [
+            ['name'=>'João','role'=>'Admin','status'=>'Online'],
+            ['name'=>'Maria','role'=>'User','status'=>'Offline'],
         ],
         'search' => true,
-        'actions' => [ ['label'=>'Editar','icon'=>'fa-edit'] ],
+        'actions' => [ ['label'=>'Edit','icon'=>'fa-edit'] ],
     ]);
     // FormBlock
     echo BlockRenderer::render('Form', [
