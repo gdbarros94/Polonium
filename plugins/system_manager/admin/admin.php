@@ -51,7 +51,21 @@ class SystemManagerAdmin {
         $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ? OR email = ? LIMIT 1");
         $stmt->execute([$user, $user]);
         $dbUser = $stmt->fetch(PDO::FETCH_ASSOC);
-        var_dump($dbUser); // Debug: Verifica se o usuário foi encontrado
+        // Ajusta campos para inglês
+        // Se vier do banco como 'senha', converte para 'password'
+        if (isset($dbUser['senha']) && !isset($dbUser['password'])) {
+            $dbUser['password'] = $dbUser['senha'];
+        }
+        if (isset($dbUser['nome']) && !isset($dbUser['name'])) {
+            $dbUser['name'] = $dbUser['nome'];
+        }
+        if (isset($dbUser['tipo']) && !isset($dbUser['role'])) {
+            $dbUser['role'] = $dbUser['tipo'];
+        }
+        if (isset($dbUser['ativo']) && !isset($dbUser['active'])) {
+            $dbUser['active'] = $dbUser['ativo'];
+        }
+        // var_dump($dbUser); // Debug: Verifica se o usuário foi encontrado
         if ($dbUser && AuthHandler::verifyPassword($pass, $dbUser['password'])) {
             AuthHandler::login($dbUser['username'], $dbUser['role']);
             // Redireciona para a rota original, se for segura

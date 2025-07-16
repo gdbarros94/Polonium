@@ -87,7 +87,16 @@ class TableBlock {
                             <tr>
                                 <?php if ($selectable): ?><td class="px-4 py-2"><input type="checkbox" data-table-select-row="<?= $id ?>" /></td><?php endif; ?>
                                 <?php foreach ($columns as $col): ?>
-                                    <td class="px-4 py-2 <?= $col['align'] ?? '' ?>"> <?= htmlspecialchars($row[$col['key']] ?? '') ?> </td>
+                                    <td class="px-4 py-2 <?= $col['align'] ?? '' ?>">
+                                        <?php
+                                        // Garante que $row é array
+                                        if (is_array($row)) {
+                                            echo htmlspecialchars($row[$col['key']] ?? '');
+                                        } else {
+                                            echo htmlspecialchars((string)$row);
+                                        }
+                                        ?>
+                                    </td>
                                 <?php endforeach; ?>
                                 <?php if (!empty($actions)): ?>
                                     <td class="px-4 py-2">
