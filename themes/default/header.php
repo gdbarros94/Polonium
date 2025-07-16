@@ -11,8 +11,14 @@
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
         .container { width: 80%; margin: 20px auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
     </style>
+    <script src="/public/assets/js/theme.js"></script>
 </head>
 <body>
+    <div style="position:fixed;top:10px;right:10px;z-index:9999;">
+        <button onclick="toggleTheme()" style="padding:6px 12px;border-radius:6px;border:1px solid var(--color-border);background:var(--color-bg);color:var(--color-text);cursor:pointer;">
+            Alternar tema
+        </button>
+    </div>
 <?php
 require_once __DIR__ . '/blocks/BlockRenderer.php';
 $user = AuthHandler::isLoggedIn() ? ['name' => $_SESSION['user_id'] ?? 'Usuário'] : null;
