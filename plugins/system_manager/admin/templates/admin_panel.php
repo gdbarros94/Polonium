@@ -6,8 +6,15 @@
 </head>
 <body>
     <?php
-    // Renderiza o header do tema
-    ThemeHandler::render_header(['title' => 'Painel Admin - CoreCRM']);
+    require_once __DIR__ . '/../../../../themes/default/blocks/BlockRenderer.php';
+    echo BlockRenderer::render('Header', [
+        'title' => 'Painel Admin - CoreCRM',
+        'logo' => '<a href="/" class="text-xl font-bold tracking-tight hover:underline">CoreCRM Admin</a>',
+        'user' => ['name' => $_SESSION['user_id'] ?? 'Usuário'],
+        'actions' => [
+            ['label' => 'Sair', 'href' => '/logout', 'class' => 'bg-red-500 hover:bg-red-600']
+        ]
+    ]);
     ?>
     <div class="min-h-screen flex bg-gradient-to-br from-blue-50 to-indigo-100">
         <!-- Sidebar -->
