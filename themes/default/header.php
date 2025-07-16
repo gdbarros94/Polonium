@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -12,18 +11,19 @@
     </style>
 </head>
 <body>
-    <div class="w-full flex items-center justify-between px-6 py-3 bg-indigo-700 shadow text-white">
-        <div class="flex items-center gap-4">
-            <a href="/" class="text-xl font-bold tracking-tight hover:underline">CoreCRM</a>
-        </div>
-        <div class="flex items-center gap-4">
-            <?php if (AuthHandler::isLoggedIn()): ?>
-                <span class="hidden sm:inline">Olá, <?php echo htmlspecialchars($_SESSION['user_id'] ?? 'Usuário'); ?></span>
-                <a href="/logout" class="px-3 py-1 bg-red-500 hover:bg-red-600 rounded text-white font-semibold transition-colors">Logout</a>
-            <?php else: ?>
-                <a href="/login" class="px-3 py-1 bg-indigo-500 hover:bg-indigo-600 rounded text-white font-semibold transition-colors">Login</a>
-            <?php endif; ?>
-        </div>
-    </div>
+<?php
+require_once __DIR__ . '/blocks/BlockRenderer.php';
+$user = AuthHandler::isLoggedIn() ? ['name' => $_SESSION['user_id'] ?? 'Usuário'] : null;
+$actions = AuthHandler::isLoggedIn()
+    ? [ ['label'=>'Logout','href'=>'/logout','class'=>'bg-red-500 hover:bg-red-600'] ]
+    : [ ['label'=>'Login','href'=>'/login','class'=>'bg-indigo-500 hover:bg-indigo-600'] ];
+echo BlockRenderer::render('Header', [
+    'title' => $title ?? 'CRM V1',
+    'logo' => '<a href="/" class="text-xl font-bold tracking-tight hover:underline">CoreCRM</a>',
+    'user' => $user,
+    'actions' => $actions,
+    'class' => '',
+]);
+?>
 
 
