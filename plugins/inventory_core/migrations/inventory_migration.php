@@ -69,7 +69,7 @@ class InventoryMigration {
         }
 
         // Inserir categorias padrão
-        self::insertDefaultCategories($pdo);
+        //self::insertDefaultCategories($pdo);
     }
 
     private static function insertDefaultCategories($pdo) {
