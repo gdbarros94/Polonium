@@ -35,7 +35,7 @@ ThemeHandler::render_header(['title' => 'Usuários - CoreCRM']);
                 <td class="justify-center itens-center content-center py-2 px-4 flex gap-2">
                     <a href="/usuarios/editar/<?php echo $user['id']; ?>" class="align-middle text-center h-8 w-15 bg-yellow-400 text-white rounded my-auto content-center hover:bg-yellow-500 px-2 py-1 ">Editar</a>
                     <form method="post" action="/usuarios/apagar/<?php echo $user['id']; ?>" onsubmit="return confirm('Tem certeza que deseja apagar este usuário?');">
-                        <button type="submit" class="align-middle text-center h-8 w-15 bg-yellow-400 text-white rounded my-auto content-center hover:bg-yellow-500 px-2 py-1 ">Apagar</button>
+                        <button type="submit" class="align-middle text-center h-8 w-15 bg-red-400 text-white rounded my-auto content-center hover:bg-red-500 px-2 py-1 ">Apagar</button>
                     </form>
                 </td>
             </tr>
