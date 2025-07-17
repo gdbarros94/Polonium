@@ -24,20 +24,19 @@ ThemeHandler::render_header(['title' => 'Usuários - CoreCRM']);
         </thead>
         <tbody>
             <?php foreach ($users as $user): ?>
-            <tr class="border-b hover:bg-indigo-50">
+            <tr class="text-center border-b hover:bg-indigo-50">
                 <td class="py-2 px-4"><?php echo $user['id']; ?></td>
-                <td class="py-2 px-4"><?php echo htmlspecialchars($user['nome']); ?></td>
+                <td class="py-2 px-4"><?php echo htmlspecialchars($user['username']); ?></td>
+                <td class="py-2 px-4"><?php echo htmlspecialchars($user['role']); ?></td>
                 <td class="py-2 px-4"><?php echo htmlspecialchars($user['name']); ?></td>
                 <td class="py-2 px-4"><?php echo htmlspecialchars($user['email']); ?></td>
-                <td class="py-2 px-4"><?php echo htmlspecialchars($user['username']); ?></td>
-                <td class="py-2 px-4"><?php echo htmlspecialchars($user['tipo']); ?></td>
-                <td class="py-2 px-4"><?php echo htmlspecialchars($user['role']); ?></td>
-                <td class="py-2 px-4"><?php echo $user['ativo'] ? 'Sim' : 'Não'; ?></td>
+                <td class="py-2 px-4"><?php echo htmlspecialchars($user['created_at']); ?></td>
+                <td class="py-2 px-4"><?php echo htmlspecialchars($user['updated_at']); ?></td>
                 <td class="py-2 px-4"><?php echo $user['active'] ? 'Yes' : 'No'; ?></td>
                 <td class="py-2 px-4 flex gap-2">
-                    <a href="/usuarios/editar/<?php echo $user['id']; ?>" class="px-2 py-1 bg-yellow-400 text-white rounded hover:bg-yellow-500">Editar</a>
+                    <a href="/usuarios/editar/<?php echo $user['id']; ?>" class="text-center align-middle h-8 w-12 bg-yellow-400 text-white rounded hover:bg-yellow-500">Editar</a>
                     <form method="post" action="/usuarios/apagar/<?php echo $user['id']; ?>" onsubmit="return confirm('Tem certeza que deseja apagar este usuário?');">
-                        <button type="submit" class="px-2 py-1 bg-red-600 text-white rounded hover:bg-red-700">Apagar</button>
+                        <button type="submit" class="text-center align-middle h-8 w-15 bg-red-600 text-white rounded hover:bg-red-700">Apagar</button>
                     </form>
                 </td>
             </tr>
