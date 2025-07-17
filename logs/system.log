@@ -10644,3 +10644,1751 @@ HEADERS: {"authorization":"Basic YWRtaW46YWRtaW4xMjM=","user-agent":"Mozilla\/5.
 [2025-07-17 02:06:55][info] Route added: [GET] /webhook
 [2025-07-17 02:06:55][info] Finished loading plugins.
 [2025-07-17 02:06:55][debug] Checking permission: admin
+[2025-07-17 02:16:13][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:16:13][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:16:13][info] DatabaseHandler initialized.
+[2025-07-17 02:16:13][info] AuthHandler initialized. Session started.
+[2025-07-17 02:16:13][info] Route added: [GET] /
+[2025-07-17 02:16:13][info] RoutesHandler initialized.
+[2025-07-17 02:16:13][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:16:13][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:16:13][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:16:13][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:16:13][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:16:13][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:16:13][info] Route added: [GET] /clientes
+[2025-07-17 02:16:13][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:16:13][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:16:13][info] Route added: [GET] /inventory
+[2025-07-17 02:16:13][info] Route added: [GET] /inventory/products
+[2025-07-17 02:16:13][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:16:13][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:16:13][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:16:13][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:16:13][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:16:13][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:16:13][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:16:13][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:16:13][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:16:13][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:16:13][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:16:13][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:16:13][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:16:13][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:16:13][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:16:13][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:16:13][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:16:13][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:16:13][info] Route added: [GET] /inventory
+[2025-07-17 02:16:13][info] Route added: [GET] /inventory/products
+[2025-07-17 02:16:13][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:16:13][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:16:13][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:16:13][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:16:13][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:16:13][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:16:13][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:16:13][info] Route added: [GET] /login
+[2025-07-17 02:16:13][info] Route added: [POST] /login
+[2025-07-17 02:16:13][info] Route added: [GET] /admin
+[2025-07-17 02:16:13][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:16:13][info] Route added: [GET] /logout
+[2025-07-17 02:16:13][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:16:13][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:16:13][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:16:13][info] Route added: [GET] /admin/logs
+[2025-07-17 02:16:13][info] Route added: [GET] /usuarios
+[2025-07-17 02:16:13][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:16:13][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:16:13][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:16:13][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:16:13][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:16:13][info] Route added: [POST] /api/token
+[2025-07-17 02:16:13][info] Route added: [GET] /api/users
+[2025-07-17 02:16:13][info] Route added: [POST] /api/users
+[2025-07-17 02:16:13][info] Route added: [PUT] /api/users
+[2025-07-17 02:16:13][info] Route added: [DELETE] /api/users
+[2025-07-17 02:16:13][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:16:13][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:16:13][info] Route added: [GET] /admin
+[2025-07-17 02:16:13][info] Route added: [GET] /login
+[2025-07-17 02:16:13][info] Route added: [GET] /logout
+[2025-07-17 02:16:13][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:16:13][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:16:13][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:16:13][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:16:13][info] Route added: [GET] /webhook
+[2025-07-17 02:16:13][info] Finished loading plugins.
+[2025-07-17 02:16:13][debug] Checking permission: admin
+[2025-07-17 02:16:26][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:16:26][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:16:26][info] DatabaseHandler initialized.
+[2025-07-17 02:16:26][info] AuthHandler initialized. Session started.
+[2025-07-17 02:16:26][info] Route added: [GET] /
+[2025-07-17 02:16:26][info] RoutesHandler initialized.
+[2025-07-17 02:16:26][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:16:26][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:16:26][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:16:26][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:16:26][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:16:26][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:16:26][info] Route added: [GET] /clientes
+[2025-07-17 02:16:26][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:16:26][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:16:26][info] Route added: [GET] /inventory
+[2025-07-17 02:16:26][info] Route added: [GET] /inventory/products
+[2025-07-17 02:16:26][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:16:26][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:16:26][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:16:26][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:16:26][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:16:26][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:16:26][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:16:26][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:16:26][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:16:26][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:16:26][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:16:26][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:16:26][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:16:26][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:16:26][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:16:26][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:16:26][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:16:26][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:16:26][info] Route added: [GET] /inventory
+[2025-07-17 02:16:26][info] Route added: [GET] /inventory/products
+[2025-07-17 02:16:26][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:16:26][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:16:26][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:16:26][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:16:26][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:16:26][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:16:26][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:16:26][info] Route added: [GET] /login
+[2025-07-17 02:16:26][info] Route added: [POST] /login
+[2025-07-17 02:16:26][info] Route added: [GET] /admin
+[2025-07-17 02:16:26][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:16:26][info] Route added: [GET] /logout
+[2025-07-17 02:16:26][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:16:26][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:16:26][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:16:26][info] Route added: [GET] /admin/logs
+[2025-07-17 02:16:26][info] Route added: [GET] /usuarios
+[2025-07-17 02:16:26][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:16:26][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:16:26][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:16:26][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:16:26][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:16:26][info] Route added: [POST] /api/token
+[2025-07-17 02:16:26][info] Route added: [GET] /api/users
+[2025-07-17 02:16:26][info] Route added: [POST] /api/users
+[2025-07-17 02:16:26][info] Route added: [PUT] /api/users
+[2025-07-17 02:16:26][info] Route added: [DELETE] /api/users
+[2025-07-17 02:16:26][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:16:26][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:16:26][info] Route added: [GET] /admin
+[2025-07-17 02:16:26][info] Route added: [GET] /login
+[2025-07-17 02:16:26][info] Route added: [GET] /logout
+[2025-07-17 02:16:26][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:16:26][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:16:26][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:16:26][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:16:26][info] Route added: [GET] /webhook
+[2025-07-17 02:16:26][info] Finished loading plugins.
+[2025-07-17 02:16:26][debug] Checking permission: admin
+[2025-07-17 02:16:27][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:16:27][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:16:27][info] DatabaseHandler initialized.
+[2025-07-17 02:16:27][info] AuthHandler initialized. Session started.
+[2025-07-17 02:16:27][info] Route added: [GET] /
+[2025-07-17 02:16:27][info] RoutesHandler initialized.
+[2025-07-17 02:16:27][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:16:27][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:16:27][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:16:27][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:16:27][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:16:27][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:16:27][info] Route added: [GET] /clientes
+[2025-07-17 02:16:27][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:16:27][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:16:27][info] Route added: [GET] /inventory
+[2025-07-17 02:16:27][info] Route added: [GET] /inventory/products
+[2025-07-17 02:16:27][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:16:27][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:16:27][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:16:27][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:16:27][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:16:27][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:16:27][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:16:27][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:16:27][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:16:27][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:16:27][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:16:27][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:16:27][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:16:27][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:16:27][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:16:27][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:16:27][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:16:27][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:16:27][info] Route added: [GET] /inventory
+[2025-07-17 02:16:27][info] Route added: [GET] /inventory/products
+[2025-07-17 02:16:27][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:16:27][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:16:27][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:16:27][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:16:27][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:16:27][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:16:27][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:16:27][info] Route added: [GET] /login
+[2025-07-17 02:16:27][info] Route added: [POST] /login
+[2025-07-17 02:16:27][info] Route added: [GET] /admin
+[2025-07-17 02:16:27][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:16:27][info] Route added: [GET] /logout
+[2025-07-17 02:16:27][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:16:27][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:16:27][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:16:27][info] Route added: [GET] /admin/logs
+[2025-07-17 02:16:27][info] Route added: [GET] /usuarios
+[2025-07-17 02:16:27][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:16:27][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:16:27][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:16:27][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:16:27][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:16:27][info] Route added: [POST] /api/token
+[2025-07-17 02:16:27][info] Route added: [GET] /api/users
+[2025-07-17 02:16:27][info] Route added: [POST] /api/users
+[2025-07-17 02:16:27][info] Route added: [PUT] /api/users
+[2025-07-17 02:16:27][info] Route added: [DELETE] /api/users
+[2025-07-17 02:16:27][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:16:27][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:16:27][info] Route added: [GET] /admin
+[2025-07-17 02:16:27][info] Route added: [GET] /login
+[2025-07-17 02:16:27][info] Route added: [GET] /logout
+[2025-07-17 02:16:27][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:16:27][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:16:27][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:16:27][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:16:27][info] Route added: [GET] /webhook
+[2025-07-17 02:16:27][info] Finished loading plugins.
+[2025-07-17 02:16:27][debug] Checking permission: admin
+[2025-07-17 02:17:10][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:17:10][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:17:10][info] DatabaseHandler initialized.
+[2025-07-17 02:17:10][info] AuthHandler initialized. Session started.
+[2025-07-17 02:17:10][info] Route added: [GET] /
+[2025-07-17 02:17:10][info] RoutesHandler initialized.
+[2025-07-17 02:17:10][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:17:10][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:17:10][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:17:10][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:17:10][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:17:10][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:17:10][info] Route added: [GET] /clientes
+[2025-07-17 02:17:10][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:17:10][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:17:10][info] Route added: [GET] /inventory
+[2025-07-17 02:17:10][info] Route added: [GET] /inventory/products
+[2025-07-17 02:17:10][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:17:10][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:17:10][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:17:10][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:17:10][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:17:10][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:17:10][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:17:10][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:17:10][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:17:10][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:17:10][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:17:10][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:17:10][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:17:10][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:17:10][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:17:10][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:17:10][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:17:10][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:17:10][info] Route added: [GET] /inventory
+[2025-07-17 02:17:10][info] Route added: [GET] /inventory/products
+[2025-07-17 02:17:10][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:17:10][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:17:10][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:17:10][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:17:10][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:17:10][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:17:10][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:17:10][info] Route added: [GET] /login
+[2025-07-17 02:17:10][info] Route added: [POST] /login
+[2025-07-17 02:17:10][info] Route added: [GET] /admin
+[2025-07-17 02:17:10][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:17:10][info] Route added: [GET] /logout
+[2025-07-17 02:17:10][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:17:10][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:17:10][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:17:10][info] Route added: [GET] /admin/logs
+[2025-07-17 02:17:10][info] Route added: [GET] /usuarios
+[2025-07-17 02:17:10][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:17:10][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:17:10][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:17:10][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:17:10][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:17:10][info] Route added: [POST] /api/token
+[2025-07-17 02:17:10][info] Route added: [GET] /api/users
+[2025-07-17 02:17:10][info] Route added: [POST] /api/users
+[2025-07-17 02:17:10][info] Route added: [PUT] /api/users
+[2025-07-17 02:17:10][info] Route added: [DELETE] /api/users
+[2025-07-17 02:17:10][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:17:10][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:17:10][info] Route added: [GET] /admin
+[2025-07-17 02:17:10][info] Route added: [GET] /login
+[2025-07-17 02:17:10][info] Route added: [GET] /logout
+[2025-07-17 02:17:10][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:17:10][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:17:10][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:17:10][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:17:10][info] Route added: [GET] /webhook
+[2025-07-17 02:17:10][info] Finished loading plugins.
+[2025-07-17 02:17:10][debug] Checking permission: admin
+[2025-07-17 02:17:11][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:17:11][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:17:11][info] DatabaseHandler initialized.
+[2025-07-17 02:17:11][info] AuthHandler initialized. Session started.
+[2025-07-17 02:17:11][info] Route added: [GET] /
+[2025-07-17 02:17:11][info] RoutesHandler initialized.
+[2025-07-17 02:17:11][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:17:11][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:17:11][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:17:11][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:17:11][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:17:11][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:17:11][info] Route added: [GET] /clientes
+[2025-07-17 02:17:11][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:17:11][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/products
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:17:11][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:17:11][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:17:11][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:17:11][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:17:11][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:17:11][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:17:11][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:17:11][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:17:11][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:17:11][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:17:11][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:17:11][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/products
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:17:11][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:17:11][info] Route added: [GET] /login
+[2025-07-17 02:17:11][info] Route added: [POST] /login
+[2025-07-17 02:17:11][info] Route added: [GET] /admin
+[2025-07-17 02:17:11][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:17:11][info] Route added: [GET] /logout
+[2025-07-17 02:17:11][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:17:11][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:17:11][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:17:11][info] Route added: [GET] /admin/logs
+[2025-07-17 02:17:11][info] Route added: [GET] /usuarios
+[2025-07-17 02:17:11][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:17:11][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:17:11][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:17:11][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:17:11][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:17:11][info] Route added: [POST] /api/token
+[2025-07-17 02:17:11][info] Route added: [GET] /api/users
+[2025-07-17 02:17:11][info] Route added: [POST] /api/users
+[2025-07-17 02:17:11][info] Route added: [PUT] /api/users
+[2025-07-17 02:17:11][info] Route added: [DELETE] /api/users
+[2025-07-17 02:17:11][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:17:11][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:17:11][info] Route added: [GET] /admin
+[2025-07-17 02:17:11][info] Route added: [GET] /login
+[2025-07-17 02:17:11][info] Route added: [GET] /logout
+[2025-07-17 02:17:11][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:17:11][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:17:11][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:17:11][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:17:11][info] Route added: [GET] /webhook
+[2025-07-17 02:17:11][info] Finished loading plugins.
+[2025-07-17 02:17:11][debug] Checking permission: admin
+[2025-07-17 02:17:11][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:17:11][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:17:11][info] DatabaseHandler initialized.
+[2025-07-17 02:17:11][info] AuthHandler initialized. Session started.
+[2025-07-17 02:17:11][info] Route added: [GET] /
+[2025-07-17 02:17:11][info] RoutesHandler initialized.
+[2025-07-17 02:17:11][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:17:11][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:17:11][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:17:11][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:17:11][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:17:11][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:17:11][info] Route added: [GET] /clientes
+[2025-07-17 02:17:11][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:17:11][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/products
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:17:11][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:17:11][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:17:11][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:17:11][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:17:11][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:17:11][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:17:11][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:17:11][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:17:11][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:17:11][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:17:11][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:17:11][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/products
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:17:11][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:17:11][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:17:11][info] Route added: [GET] /login
+[2025-07-17 02:17:11][info] Route added: [POST] /login
+[2025-07-17 02:17:11][info] Route added: [GET] /admin
+[2025-07-17 02:17:11][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:17:11][info] Route added: [GET] /logout
+[2025-07-17 02:17:11][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:17:11][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:17:11][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:17:11][info] Route added: [GET] /admin/logs
+[2025-07-17 02:17:11][info] Route added: [GET] /usuarios
+[2025-07-17 02:17:11][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:17:11][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:17:11][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:17:11][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:17:11][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:17:11][info] Route added: [POST] /api/token
+[2025-07-17 02:17:11][info] Route added: [GET] /api/users
+[2025-07-17 02:17:11][info] Route added: [POST] /api/users
+[2025-07-17 02:17:11][info] Route added: [PUT] /api/users
+[2025-07-17 02:17:11][info] Route added: [DELETE] /api/users
+[2025-07-17 02:17:11][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:17:11][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:17:11][info] Route added: [GET] /admin
+[2025-07-17 02:17:11][info] Route added: [GET] /login
+[2025-07-17 02:17:11][info] Route added: [GET] /logout
+[2025-07-17 02:17:11][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:17:11][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:17:11][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:17:11][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:17:11][info] Route added: [GET] /webhook
+[2025-07-17 02:17:11][info] Finished loading plugins.
+[2025-07-17 02:17:11][debug] Checking permission: admin
+[2025-07-17 02:18:08][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:18:08][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:18:08][info] DatabaseHandler initialized.
+[2025-07-17 02:18:08][info] AuthHandler initialized. Session started.
+[2025-07-17 02:18:08][info] Route added: [GET] /
+[2025-07-17 02:18:08][info] RoutesHandler initialized.
+[2025-07-17 02:18:08][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:18:08][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:18:08][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:18:08][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:18:08][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:18:08][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:18:08][info] Route added: [GET] /clientes
+[2025-07-17 02:18:08][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:18:08][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:18:08][info] Route added: [GET] /inventory
+[2025-07-17 02:18:08][info] Route added: [GET] /inventory/products
+[2025-07-17 02:18:08][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:18:08][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:18:08][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:18:08][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:18:08][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:18:08][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:18:08][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:18:08][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:18:08][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:18:08][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:18:08][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:18:08][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:18:08][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:18:08][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:18:08][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:08][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:08][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:08][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:08][info] Route added: [GET] /inventory
+[2025-07-17 02:18:08][info] Route added: [GET] /inventory/products
+[2025-07-17 02:18:08][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:18:08][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:18:08][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:18:08][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:18:08][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:18:08][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:18:08][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:18:08][info] Route added: [GET] /login
+[2025-07-17 02:18:08][info] Route added: [POST] /login
+[2025-07-17 02:18:08][info] Route added: [GET] /admin
+[2025-07-17 02:18:08][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:18:08][info] Route added: [GET] /logout
+[2025-07-17 02:18:08][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:18:08][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:18:08][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:18:08][info] Route added: [GET] /admin/logs
+[2025-07-17 02:18:08][info] Route added: [GET] /usuarios
+[2025-07-17 02:18:08][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:18:08][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:18:08][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:18:08][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:18:08][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:18:08][info] Route added: [POST] /api/token
+[2025-07-17 02:18:08][info] Route added: [GET] /api/users
+[2025-07-17 02:18:08][info] Route added: [POST] /api/users
+[2025-07-17 02:18:08][info] Route added: [PUT] /api/users
+[2025-07-17 02:18:08][info] Route added: [DELETE] /api/users
+[2025-07-17 02:18:08][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:18:08][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:18:08][info] Route added: [GET] /admin
+[2025-07-17 02:18:08][info] Route added: [GET] /login
+[2025-07-17 02:18:08][info] Route added: [GET] /logout
+[2025-07-17 02:18:08][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:18:08][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:18:08][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:18:08][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:18:08][info] Route added: [GET] /webhook
+[2025-07-17 02:18:08][info] Finished loading plugins.
+[2025-07-17 02:18:08][debug] Checking permission: admin
+[2025-07-17 02:18:09][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:18:09][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:18:09][info] DatabaseHandler initialized.
+[2025-07-17 02:18:09][info] AuthHandler initialized. Session started.
+[2025-07-17 02:18:09][info] Route added: [GET] /
+[2025-07-17 02:18:09][info] RoutesHandler initialized.
+[2025-07-17 02:18:09][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:18:09][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:18:09][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:18:09][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:18:09][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:18:09][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:18:09][info] Route added: [GET] /clientes
+[2025-07-17 02:18:09][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:18:09][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/products
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:18:09][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:18:09][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:18:09][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:18:09][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:18:09][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:18:09][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:18:09][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:18:09][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:18:09][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:09][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:09][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:09][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/products
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:18:09][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:18:09][info] Route added: [GET] /login
+[2025-07-17 02:18:09][info] Route added: [POST] /login
+[2025-07-17 02:18:09][info] Route added: [GET] /admin
+[2025-07-17 02:18:09][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:18:09][info] Route added: [GET] /logout
+[2025-07-17 02:18:09][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:18:09][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:18:09][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:18:09][info] Route added: [GET] /admin/logs
+[2025-07-17 02:18:09][info] Route added: [GET] /usuarios
+[2025-07-17 02:18:09][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:18:09][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:18:09][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:18:09][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:18:09][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:18:09][info] Route added: [POST] /api/token
+[2025-07-17 02:18:09][info] Route added: [GET] /api/users
+[2025-07-17 02:18:09][info] Route added: [POST] /api/users
+[2025-07-17 02:18:09][info] Route added: [PUT] /api/users
+[2025-07-17 02:18:09][info] Route added: [DELETE] /api/users
+[2025-07-17 02:18:09][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:18:09][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:18:09][info] Route added: [GET] /admin
+[2025-07-17 02:18:09][info] Route added: [GET] /login
+[2025-07-17 02:18:09][info] Route added: [GET] /logout
+[2025-07-17 02:18:09][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:18:09][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:18:09][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:18:09][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:18:09][info] Route added: [GET] /webhook
+[2025-07-17 02:18:09][info] Finished loading plugins.
+[2025-07-17 02:18:09][debug] Checking permission: admin
+[2025-07-17 02:18:09][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:18:09][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:18:09][info] DatabaseHandler initialized.
+[2025-07-17 02:18:09][info] AuthHandler initialized. Session started.
+[2025-07-17 02:18:09][info] Route added: [GET] /
+[2025-07-17 02:18:09][info] RoutesHandler initialized.
+[2025-07-17 02:18:09][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:18:09][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:18:09][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:18:09][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:18:09][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:18:09][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:18:09][info] Route added: [GET] /clientes
+[2025-07-17 02:18:09][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:18:09][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/products
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:18:09][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:18:09][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:18:09][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:18:09][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:18:09][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:18:09][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:18:09][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:18:09][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:18:09][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:09][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:09][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:09][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/products
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:18:09][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:18:09][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:18:09][info] Route added: [GET] /login
+[2025-07-17 02:18:09][info] Route added: [POST] /login
+[2025-07-17 02:18:09][info] Route added: [GET] /admin
+[2025-07-17 02:18:09][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:18:09][info] Route added: [GET] /logout
+[2025-07-17 02:18:09][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:18:09][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:18:09][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:18:09][info] Route added: [GET] /admin/logs
+[2025-07-17 02:18:09][info] Route added: [GET] /usuarios
+[2025-07-17 02:18:09][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:18:09][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:18:09][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:18:09][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:18:09][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:18:09][info] Route added: [POST] /api/token
+[2025-07-17 02:18:09][info] Route added: [GET] /api/users
+[2025-07-17 02:18:09][info] Route added: [POST] /api/users
+[2025-07-17 02:18:09][info] Route added: [PUT] /api/users
+[2025-07-17 02:18:09][info] Route added: [DELETE] /api/users
+[2025-07-17 02:18:09][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:18:09][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:18:09][info] Route added: [GET] /admin
+[2025-07-17 02:18:09][info] Route added: [GET] /login
+[2025-07-17 02:18:09][info] Route added: [GET] /logout
+[2025-07-17 02:18:09][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:18:09][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:18:09][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:18:09][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:18:09][info] Route added: [GET] /webhook
+[2025-07-17 02:18:09][info] Finished loading plugins.
+[2025-07-17 02:18:09][debug] Checking permission: admin
+[2025-07-17 02:18:10][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:18:10][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:18:10][info] DatabaseHandler initialized.
+[2025-07-17 02:18:10][info] AuthHandler initialized. Session started.
+[2025-07-17 02:18:10][info] Route added: [GET] /
+[2025-07-17 02:18:10][info] RoutesHandler initialized.
+[2025-07-17 02:18:10][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:18:10][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:18:10][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:18:10][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:18:10][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:18:10][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:18:10][info] Route added: [GET] /clientes
+[2025-07-17 02:18:10][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:18:10][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/products
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:18:10][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:18:10][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:18:10][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:18:10][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:18:10][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:18:10][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:18:10][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:18:10][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:18:10][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:10][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:10][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:10][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/products
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:18:10][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:18:10][info] Route added: [GET] /login
+[2025-07-17 02:18:10][info] Route added: [POST] /login
+[2025-07-17 02:18:10][info] Route added: [GET] /admin
+[2025-07-17 02:18:10][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:18:10][info] Route added: [GET] /logout
+[2025-07-17 02:18:10][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:18:10][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:18:10][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:18:10][info] Route added: [GET] /admin/logs
+[2025-07-17 02:18:10][info] Route added: [GET] /usuarios
+[2025-07-17 02:18:10][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:18:10][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:18:10][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:18:10][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:18:10][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:18:10][info] Route added: [POST] /api/token
+[2025-07-17 02:18:10][info] Route added: [GET] /api/users
+[2025-07-17 02:18:10][info] Route added: [POST] /api/users
+[2025-07-17 02:18:10][info] Route added: [PUT] /api/users
+[2025-07-17 02:18:10][info] Route added: [DELETE] /api/users
+[2025-07-17 02:18:10][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:18:10][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:18:10][info] Route added: [GET] /admin
+[2025-07-17 02:18:10][info] Route added: [GET] /login
+[2025-07-17 02:18:10][info] Route added: [GET] /logout
+[2025-07-17 02:18:10][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:18:10][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:18:10][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:18:10][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:18:10][info] Route added: [GET] /webhook
+[2025-07-17 02:18:10][info] Finished loading plugins.
+[2025-07-17 02:18:10][debug] Checking permission: admin
+[2025-07-17 02:18:10][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:18:10][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:18:10][info] DatabaseHandler initialized.
+[2025-07-17 02:18:10][info] AuthHandler initialized. Session started.
+[2025-07-17 02:18:10][info] Route added: [GET] /
+[2025-07-17 02:18:10][info] RoutesHandler initialized.
+[2025-07-17 02:18:10][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:18:10][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:18:10][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:18:10][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:18:10][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:18:10][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:18:10][info] Route added: [GET] /clientes
+[2025-07-17 02:18:10][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:18:10][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/products
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:18:10][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:18:10][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:18:10][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:18:10][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:18:10][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:18:10][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:18:10][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:18:10][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:18:10][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:10][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:10][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:10][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/products
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:18:10][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:18:10][info] Route added: [GET] /login
+[2025-07-17 02:18:10][info] Route added: [POST] /login
+[2025-07-17 02:18:10][info] Route added: [GET] /admin
+[2025-07-17 02:18:10][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:18:10][info] Route added: [GET] /logout
+[2025-07-17 02:18:10][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:18:10][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:18:10][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:18:10][info] Route added: [GET] /admin/logs
+[2025-07-17 02:18:10][info] Route added: [GET] /usuarios
+[2025-07-17 02:18:10][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:18:10][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:18:10][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:18:10][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:18:10][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:18:10][info] Route added: [POST] /api/token
+[2025-07-17 02:18:10][info] Route added: [GET] /api/users
+[2025-07-17 02:18:10][info] Route added: [POST] /api/users
+[2025-07-17 02:18:10][info] Route added: [PUT] /api/users
+[2025-07-17 02:18:10][info] Route added: [DELETE] /api/users
+[2025-07-17 02:18:10][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:18:10][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:18:10][info] Route added: [GET] /admin
+[2025-07-17 02:18:10][info] Route added: [GET] /login
+[2025-07-17 02:18:10][info] Route added: [GET] /logout
+[2025-07-17 02:18:10][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:18:10][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:18:10][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:18:10][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:18:10][info] Route added: [GET] /webhook
+[2025-07-17 02:18:10][info] Finished loading plugins.
+[2025-07-17 02:18:10][debug] Checking permission: admin
+[2025-07-17 02:18:10][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:18:10][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:18:10][info] DatabaseHandler initialized.
+[2025-07-17 02:18:10][info] AuthHandler initialized. Session started.
+[2025-07-17 02:18:10][info] Route added: [GET] /
+[2025-07-17 02:18:10][info] RoutesHandler initialized.
+[2025-07-17 02:18:10][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:18:10][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:18:10][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:18:10][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:18:10][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:18:10][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:18:10][info] Route added: [GET] /clientes
+[2025-07-17 02:18:10][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:18:10][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/products
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:18:10][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:18:10][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:18:10][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:18:10][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:18:10][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:18:10][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:18:10][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:18:10][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:18:10][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:10][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:10][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:10][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/products
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:18:10][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:18:10][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:18:10][info] Route added: [GET] /login
+[2025-07-17 02:18:10][info] Route added: [POST] /login
+[2025-07-17 02:18:10][info] Route added: [GET] /admin
+[2025-07-17 02:18:10][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:18:10][info] Route added: [GET] /logout
+[2025-07-17 02:18:10][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:18:10][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:18:10][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:18:10][info] Route added: [GET] /admin/logs
+[2025-07-17 02:18:10][info] Route added: [GET] /usuarios
+[2025-07-17 02:18:10][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:18:10][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:18:10][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:18:10][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:18:10][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:18:10][info] Route added: [POST] /api/token
+[2025-07-17 02:18:10][info] Route added: [GET] /api/users
+[2025-07-17 02:18:10][info] Route added: [POST] /api/users
+[2025-07-17 02:18:10][info] Route added: [PUT] /api/users
+[2025-07-17 02:18:10][info] Route added: [DELETE] /api/users
+[2025-07-17 02:18:10][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:18:10][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:18:10][info] Route added: [GET] /admin
+[2025-07-17 02:18:10][info] Route added: [GET] /login
+[2025-07-17 02:18:10][info] Route added: [GET] /logout
+[2025-07-17 02:18:10][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:18:10][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:18:10][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:18:10][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:18:10][info] Route added: [GET] /webhook
+[2025-07-17 02:18:10][info] Finished loading plugins.
+[2025-07-17 02:18:10][debug] Checking permission: admin
+[2025-07-17 02:18:48][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:18:48][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:18:48][info] DatabaseHandler initialized.
+[2025-07-17 02:18:48][info] AuthHandler initialized. Session started.
+[2025-07-17 02:18:48][info] Route added: [GET] /
+[2025-07-17 02:18:48][info] RoutesHandler initialized.
+[2025-07-17 02:18:48][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:18:48][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:18:48][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:18:48][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:18:48][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:18:48][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:18:48][info] Route added: [GET] /clientes
+[2025-07-17 02:18:48][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:18:48][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/products
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:18:48][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:18:48][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:18:48][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:18:48][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:18:48][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:18:48][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:18:48][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:18:48][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:18:48][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:48][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:48][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:48][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/products
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:18:48][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:18:48][info] Route added: [GET] /login
+[2025-07-17 02:18:48][info] Route added: [POST] /login
+[2025-07-17 02:18:48][info] Route added: [GET] /admin
+[2025-07-17 02:18:48][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:18:48][info] Route added: [GET] /logout
+[2025-07-17 02:18:48][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:18:48][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:18:48][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:18:48][info] Route added: [GET] /admin/logs
+[2025-07-17 02:18:48][info] Route added: [GET] /usuarios
+[2025-07-17 02:18:48][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:18:48][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:18:48][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:18:48][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:18:48][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:18:48][info] Route added: [POST] /api/token
+[2025-07-17 02:18:48][info] Route added: [GET] /api/users
+[2025-07-17 02:18:48][info] Route added: [POST] /api/users
+[2025-07-17 02:18:48][info] Route added: [PUT] /api/users
+[2025-07-17 02:18:48][info] Route added: [DELETE] /api/users
+[2025-07-17 02:18:48][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:18:48][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:18:48][info] Route added: [GET] /admin
+[2025-07-17 02:18:48][info] Route added: [GET] /login
+[2025-07-17 02:18:48][info] Route added: [GET] /logout
+[2025-07-17 02:18:48][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:18:48][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:18:48][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:18:48][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:18:48][info] Route added: [GET] /webhook
+[2025-07-17 02:18:48][info] Finished loading plugins.
+[2025-07-17 02:18:48][debug] Checking permission: admin
+[2025-07-17 02:18:48][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:18:48][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:18:48][info] DatabaseHandler initialized.
+[2025-07-17 02:18:48][info] AuthHandler initialized. Session started.
+[2025-07-17 02:18:48][info] Route added: [GET] /
+[2025-07-17 02:18:48][info] RoutesHandler initialized.
+[2025-07-17 02:18:48][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:18:48][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:18:48][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:18:48][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:18:48][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:18:48][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:18:48][info] Route added: [GET] /clientes
+[2025-07-17 02:18:48][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:18:48][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/products
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:18:48][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:18:48][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:18:48][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:18:48][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:18:48][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:18:48][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:18:48][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:18:48][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:18:48][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:48][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:48][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:48][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/products
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:18:48][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:18:48][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:18:48][info] Route added: [GET] /login
+[2025-07-17 02:18:48][info] Route added: [POST] /login
+[2025-07-17 02:18:48][info] Route added: [GET] /admin
+[2025-07-17 02:18:48][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:18:48][info] Route added: [GET] /logout
+[2025-07-17 02:18:48][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:18:48][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:18:48][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:18:48][info] Route added: [GET] /admin/logs
+[2025-07-17 02:18:48][info] Route added: [GET] /usuarios
+[2025-07-17 02:18:48][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:18:48][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:18:48][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:18:48][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:18:48][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:18:48][info] Route added: [POST] /api/token
+[2025-07-17 02:18:48][info] Route added: [GET] /api/users
+[2025-07-17 02:18:48][info] Route added: [POST] /api/users
+[2025-07-17 02:18:48][info] Route added: [PUT] /api/users
+[2025-07-17 02:18:48][info] Route added: [DELETE] /api/users
+[2025-07-17 02:18:48][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:18:48][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:18:48][info] Route added: [GET] /admin
+[2025-07-17 02:18:48][info] Route added: [GET] /login
+[2025-07-17 02:18:48][info] Route added: [GET] /logout
+[2025-07-17 02:18:48][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:18:48][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:18:48][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:18:48][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:18:48][info] Route added: [GET] /webhook
+[2025-07-17 02:18:48][info] Finished loading plugins.
+[2025-07-17 02:18:48][debug] Checking permission: admin
+[2025-07-17 02:18:49][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:18:49][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:18:49][info] DatabaseHandler initialized.
+[2025-07-17 02:18:49][info] AuthHandler initialized. Session started.
+[2025-07-17 02:18:49][info] Route added: [GET] /
+[2025-07-17 02:18:49][info] RoutesHandler initialized.
+[2025-07-17 02:18:49][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:18:49][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:18:49][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:18:49][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:18:49][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:18:49][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:18:49][info] Route added: [GET] /clientes
+[2025-07-17 02:18:49][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:18:49][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:18:49][info] Route added: [GET] /inventory
+[2025-07-17 02:18:49][info] Route added: [GET] /inventory/products
+[2025-07-17 02:18:49][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:18:49][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:18:49][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:18:49][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:18:49][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:18:49][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:18:49][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:18:49][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:18:49][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:18:49][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:18:49][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:18:49][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:18:49][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:18:49][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:18:49][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:49][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:49][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:49][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:18:49][info] Route added: [GET] /inventory
+[2025-07-17 02:18:49][info] Route added: [GET] /inventory/products
+[2025-07-17 02:18:49][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:18:49][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:18:49][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:18:49][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:18:49][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:18:49][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:18:49][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:18:49][info] Route added: [GET] /login
+[2025-07-17 02:18:49][info] Route added: [POST] /login
+[2025-07-17 02:18:49][info] Route added: [GET] /admin
+[2025-07-17 02:18:49][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:18:49][info] Route added: [GET] /logout
+[2025-07-17 02:18:49][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:18:49][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:18:49][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:18:49][info] Route added: [GET] /admin/logs
+[2025-07-17 02:18:49][info] Route added: [GET] /usuarios
+[2025-07-17 02:18:49][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:18:49][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:18:49][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:18:49][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:18:49][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:18:49][info] Route added: [POST] /api/token
+[2025-07-17 02:18:49][info] Route added: [GET] /api/users
+[2025-07-17 02:18:49][info] Route added: [POST] /api/users
+[2025-07-17 02:18:49][info] Route added: [PUT] /api/users
+[2025-07-17 02:18:49][info] Route added: [DELETE] /api/users
+[2025-07-17 02:18:49][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:18:49][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:18:49][info] Route added: [GET] /admin
+[2025-07-17 02:18:49][info] Route added: [GET] /login
+[2025-07-17 02:18:49][info] Route added: [GET] /logout
+[2025-07-17 02:18:49][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:18:49][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:18:49][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:18:49][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:18:49][info] Route added: [GET] /webhook
+[2025-07-17 02:18:49][info] Finished loading plugins.
+[2025-07-17 02:18:49][debug] Checking permission: admin
+[2025-07-17 02:19:15][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:19:15][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:19:15][info] DatabaseHandler initialized.
+[2025-07-17 02:19:15][info] AuthHandler initialized. Session started.
+[2025-07-17 02:19:15][info] Route added: [GET] /
+[2025-07-17 02:19:15][info] RoutesHandler initialized.
+[2025-07-17 02:19:15][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:19:15][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:19:15][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:19:15][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:19:15][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:19:15][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:19:15][info] Route added: [GET] /clientes
+[2025-07-17 02:19:15][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:19:15][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:19:15][info] Route added: [GET] /inventory
+[2025-07-17 02:19:15][info] Route added: [GET] /inventory/products
+[2025-07-17 02:19:15][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:19:15][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:19:15][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:19:15][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:19:15][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:19:15][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:19:15][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:19:15][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:19:15][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:19:15][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:19:15][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:19:15][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:19:15][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:19:15][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:19:15][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:19:15][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:19:15][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:19:15][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:19:15][info] Route added: [GET] /inventory
+[2025-07-17 02:19:15][info] Route added: [GET] /inventory/products
+[2025-07-17 02:19:15][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:19:15][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:19:15][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:19:15][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:19:15][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:19:15][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:19:15][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:19:15][info] Route added: [GET] /login
+[2025-07-17 02:19:15][info] Route added: [POST] /login
+[2025-07-17 02:19:15][info] Route added: [GET] /admin
+[2025-07-17 02:19:15][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:19:15][info] Route added: [GET] /logout
+[2025-07-17 02:19:15][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:19:15][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:19:15][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:19:15][info] Route added: [GET] /admin/logs
+[2025-07-17 02:19:15][info] Route added: [GET] /usuarios
+[2025-07-17 02:19:15][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:19:15][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:19:15][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:19:15][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:19:15][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:19:15][info] Route added: [POST] /api/token
+[2025-07-17 02:19:15][info] Route added: [GET] /api/users
+[2025-07-17 02:19:15][info] Route added: [POST] /api/users
+[2025-07-17 02:19:15][info] Route added: [PUT] /api/users
+[2025-07-17 02:19:15][info] Route added: [DELETE] /api/users
+[2025-07-17 02:19:15][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:19:16][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:19:16][info] Route added: [GET] /admin
+[2025-07-17 02:19:16][info] Route added: [GET] /login
+[2025-07-17 02:19:16][info] Route added: [GET] /logout
+[2025-07-17 02:19:16][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:19:16][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:19:16][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:19:16][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:19:16][info] Route added: [GET] /webhook
+[2025-07-17 02:19:16][info] Finished loading plugins.
+[2025-07-17 02:19:16][debug] Checking permission: admin
+[2025-07-17 02:19:32][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:19:32][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:19:32][info] DatabaseHandler initialized.
+[2025-07-17 02:19:32][info] AuthHandler initialized. Session started.
+[2025-07-17 02:19:32][info] Route added: [GET] /
+[2025-07-17 02:19:32][info] RoutesHandler initialized.
+[2025-07-17 02:19:32][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:19:32][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:19:32][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:19:32][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:19:32][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:19:32][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:19:32][info] Route added: [GET] /clientes
+[2025-07-17 02:19:32][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:19:32][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/products
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:19:32][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:19:32][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:19:32][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:19:32][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:19:32][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:19:32][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:19:32][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:19:32][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:19:32][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:19:32][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:19:32][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:19:32][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/products
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:19:32][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:19:32][info] Route added: [GET] /login
+[2025-07-17 02:19:32][info] Route added: [POST] /login
+[2025-07-17 02:19:32][info] Route added: [GET] /admin
+[2025-07-17 02:19:32][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:19:32][info] Route added: [GET] /logout
+[2025-07-17 02:19:32][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:19:32][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:19:32][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:19:32][info] Route added: [GET] /admin/logs
+[2025-07-17 02:19:32][info] Route added: [GET] /usuarios
+[2025-07-17 02:19:32][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:19:32][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:19:32][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:19:32][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:19:32][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:19:32][info] Route added: [POST] /api/token
+[2025-07-17 02:19:32][info] Route added: [GET] /api/users
+[2025-07-17 02:19:32][info] Route added: [POST] /api/users
+[2025-07-17 02:19:32][info] Route added: [PUT] /api/users
+[2025-07-17 02:19:32][info] Route added: [DELETE] /api/users
+[2025-07-17 02:19:32][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:19:32][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:19:32][info] Route added: [GET] /admin
+[2025-07-17 02:19:32][info] Route added: [GET] /login
+[2025-07-17 02:19:32][info] Route added: [GET] /logout
+[2025-07-17 02:19:32][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:19:32][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:19:32][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:19:32][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:19:32][info] Route added: [GET] /webhook
+[2025-07-17 02:19:32][info] Finished loading plugins.
+[2025-07-17 02:19:32][debug] Checking permission: admin
+[2025-07-17 02:19:32][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:19:32][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:19:32][info] DatabaseHandler initialized.
+[2025-07-17 02:19:32][info] AuthHandler initialized. Session started.
+[2025-07-17 02:19:32][info] Route added: [GET] /
+[2025-07-17 02:19:32][info] RoutesHandler initialized.
+[2025-07-17 02:19:32][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:19:32][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:19:32][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:19:32][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:19:32][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:19:32][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:19:32][info] Route added: [GET] /clientes
+[2025-07-17 02:19:32][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:19:32][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/products
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:19:32][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:19:32][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:19:32][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:19:32][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:19:32][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:19:32][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:19:32][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:19:32][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:19:32][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:19:32][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:19:32][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:19:32][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/products
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:19:32][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:19:32][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:19:32][info] Route added: [GET] /login
+[2025-07-17 02:19:32][info] Route added: [POST] /login
+[2025-07-17 02:19:32][info] Route added: [GET] /admin
+[2025-07-17 02:19:32][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:19:32][info] Route added: [GET] /logout
+[2025-07-17 02:19:32][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:19:32][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:19:32][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:19:32][info] Route added: [GET] /admin/logs
+[2025-07-17 02:19:32][info] Route added: [GET] /usuarios
+[2025-07-17 02:19:32][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:19:32][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:19:32][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:19:32][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:19:32][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:19:32][info] Route added: [POST] /api/token
+[2025-07-17 02:19:32][info] Route added: [GET] /api/users
+[2025-07-17 02:19:32][info] Route added: [POST] /api/users
+[2025-07-17 02:19:32][info] Route added: [PUT] /api/users
+[2025-07-17 02:19:32][info] Route added: [DELETE] /api/users
+[2025-07-17 02:19:32][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:19:32][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:19:32][info] Route added: [GET] /admin
+[2025-07-17 02:19:32][info] Route added: [GET] /login
+[2025-07-17 02:19:32][info] Route added: [GET] /logout
+[2025-07-17 02:19:32][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:19:32][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:19:32][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:19:32][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:19:32][info] Route added: [GET] /webhook
+[2025-07-17 02:19:32][info] Finished loading plugins.
+[2025-07-17 02:19:32][debug] Checking permission: admin
+[2025-07-17 02:20:04][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:20:04][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:20:04][info] DatabaseHandler initialized.
+[2025-07-17 02:20:04][info] AuthHandler initialized. Session started.
+[2025-07-17 02:20:04][info] Route added: [GET] /
+[2025-07-17 02:20:04][info] RoutesHandler initialized.
+[2025-07-17 02:20:04][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:20:04][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:20:04][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:20:04][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:20:04][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:20:04][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:20:04][info] Route added: [GET] /clientes
+[2025-07-17 02:20:04][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:20:04][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:20:04][info] Route added: [GET] /inventory
+[2025-07-17 02:20:04][info] Route added: [GET] /inventory/products
+[2025-07-17 02:20:04][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:20:04][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:20:04][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:20:04][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:20:04][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:20:04][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:20:04][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:20:04][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:20:04][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:20:04][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:20:04][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:20:04][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:20:04][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:20:04][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:20:04][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:04][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:04][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:04][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:04][info] Route added: [GET] /inventory
+[2025-07-17 02:20:04][info] Route added: [GET] /inventory/products
+[2025-07-17 02:20:04][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:20:04][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:20:04][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:20:04][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:20:04][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:20:04][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:20:04][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:20:04][info] Route added: [GET] /login
+[2025-07-17 02:20:04][info] Route added: [POST] /login
+[2025-07-17 02:20:04][info] Route added: [GET] /admin
+[2025-07-17 02:20:04][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:20:04][info] Route added: [GET] /logout
+[2025-07-17 02:20:04][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:20:04][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:20:04][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:20:04][info] Route added: [GET] /admin/logs
+[2025-07-17 02:20:04][info] Route added: [GET] /usuarios
+[2025-07-17 02:20:04][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:20:04][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:20:04][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:20:04][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:20:04][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:20:04][info] Route added: [POST] /api/token
+[2025-07-17 02:20:04][info] Route added: [GET] /api/users
+[2025-07-17 02:20:04][info] Route added: [POST] /api/users
+[2025-07-17 02:20:04][info] Route added: [PUT] /api/users
+[2025-07-17 02:20:04][info] Route added: [DELETE] /api/users
+[2025-07-17 02:20:04][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:20:04][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:20:04][info] Route added: [GET] /admin
+[2025-07-17 02:20:04][info] Route added: [GET] /login
+[2025-07-17 02:20:04][info] Route added: [GET] /logout
+[2025-07-17 02:20:04][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:20:04][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:20:04][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:20:04][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:20:04][info] Route added: [GET] /webhook
+[2025-07-17 02:20:04][info] Finished loading plugins.
+[2025-07-17 02:20:04][debug] Checking permission: admin
+[2025-07-17 02:20:05][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:20:05][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:20:05][info] DatabaseHandler initialized.
+[2025-07-17 02:20:05][info] AuthHandler initialized. Session started.
+[2025-07-17 02:20:05][info] Route added: [GET] /
+[2025-07-17 02:20:05][info] RoutesHandler initialized.
+[2025-07-17 02:20:05][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:20:05][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:20:05][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:20:05][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:20:05][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:20:05][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:20:05][info] Route added: [GET] /clientes
+[2025-07-17 02:20:05][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:20:05][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:20:05][info] Route added: [GET] /inventory
+[2025-07-17 02:20:05][info] Route added: [GET] /inventory/products
+[2025-07-17 02:20:05][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:20:05][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:20:05][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:20:05][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:20:05][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:20:05][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:20:05][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:20:05][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:20:05][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:20:05][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:20:05][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:20:05][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:20:05][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:20:05][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:20:05][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:05][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:05][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:05][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:05][info] Route added: [GET] /inventory
+[2025-07-17 02:20:05][info] Route added: [GET] /inventory/products
+[2025-07-17 02:20:05][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:20:05][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:20:05][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:20:05][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:20:05][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:20:05][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:20:05][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:20:05][info] Route added: [GET] /login
+[2025-07-17 02:20:05][info] Route added: [POST] /login
+[2025-07-17 02:20:05][info] Route added: [GET] /admin
+[2025-07-17 02:20:05][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:20:05][info] Route added: [GET] /logout
+[2025-07-17 02:20:05][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:20:05][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:20:05][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:20:05][info] Route added: [GET] /admin/logs
+[2025-07-17 02:20:05][info] Route added: [GET] /usuarios
+[2025-07-17 02:20:05][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:20:05][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:20:05][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:20:05][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:20:05][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:20:05][info] Route added: [POST] /api/token
+[2025-07-17 02:20:05][info] Route added: [GET] /api/users
+[2025-07-17 02:20:05][info] Route added: [POST] /api/users
+[2025-07-17 02:20:05][info] Route added: [PUT] /api/users
+[2025-07-17 02:20:05][info] Route added: [DELETE] /api/users
+[2025-07-17 02:20:05][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:20:05][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:20:05][info] Route added: [GET] /admin
+[2025-07-17 02:20:05][info] Route added: [GET] /login
+[2025-07-17 02:20:05][info] Route added: [GET] /logout
+[2025-07-17 02:20:05][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:20:05][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:20:05][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:20:05][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:20:05][info] Route added: [GET] /webhook
+[2025-07-17 02:20:05][info] Finished loading plugins.
+[2025-07-17 02:20:05][debug] Checking permission: admin
+[2025-07-17 02:20:19][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:20:19][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:20:19][info] DatabaseHandler initialized.
+[2025-07-17 02:20:19][info] AuthHandler initialized. Session started.
+[2025-07-17 02:20:19][info] Route added: [GET] /
+[2025-07-17 02:20:19][info] RoutesHandler initialized.
+[2025-07-17 02:20:19][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:20:19][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:20:19][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:20:19][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:20:19][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:20:19][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:20:19][info] Route added: [GET] /clientes
+[2025-07-17 02:20:19][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:20:19][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/products
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:20:19][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:20:19][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:20:19][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:20:19][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:20:19][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:20:19][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:20:19][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:20:19][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:20:19][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:19][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:19][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:19][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/products
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:20:19][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:20:19][info] Route added: [GET] /login
+[2025-07-17 02:20:19][info] Route added: [POST] /login
+[2025-07-17 02:20:19][info] Route added: [GET] /admin
+[2025-07-17 02:20:19][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:20:19][info] Route added: [GET] /logout
+[2025-07-17 02:20:19][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:20:19][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:20:19][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:20:19][info] Route added: [GET] /admin/logs
+[2025-07-17 02:20:19][info] Route added: [GET] /usuarios
+[2025-07-17 02:20:19][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:20:19][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:20:19][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:20:19][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:20:19][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:20:19][info] Route added: [POST] /api/token
+[2025-07-17 02:20:19][info] Route added: [GET] /api/users
+[2025-07-17 02:20:19][info] Route added: [POST] /api/users
+[2025-07-17 02:20:19][info] Route added: [PUT] /api/users
+[2025-07-17 02:20:19][info] Route added: [DELETE] /api/users
+[2025-07-17 02:20:19][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:20:19][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:20:19][info] Route added: [GET] /admin
+[2025-07-17 02:20:19][info] Route added: [GET] /login
+[2025-07-17 02:20:19][info] Route added: [GET] /logout
+[2025-07-17 02:20:19][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:20:19][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:20:19][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:20:19][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:20:19][info] Route added: [GET] /webhook
+[2025-07-17 02:20:19][info] Finished loading plugins.
+[2025-07-17 02:20:19][debug] Checking permission: admin
+[2025-07-17 02:20:19][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:20:19][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:20:19][info] DatabaseHandler initialized.
+[2025-07-17 02:20:19][info] AuthHandler initialized. Session started.
+[2025-07-17 02:20:19][info] Route added: [GET] /
+[2025-07-17 02:20:19][info] RoutesHandler initialized.
+[2025-07-17 02:20:19][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:20:19][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:20:19][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:20:19][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:20:19][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:20:19][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:20:19][info] Route added: [GET] /clientes
+[2025-07-17 02:20:19][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:20:19][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/products
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:20:19][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:20:19][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:20:19][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:20:19][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:20:19][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:20:19][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:20:19][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:20:19][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:20:19][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:19][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:19][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:19][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/products
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:20:19][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:20:19][info] Route added: [GET] /login
+[2025-07-17 02:20:19][info] Route added: [POST] /login
+[2025-07-17 02:20:19][info] Route added: [GET] /admin
+[2025-07-17 02:20:19][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:20:19][info] Route added: [GET] /logout
+[2025-07-17 02:20:19][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:20:19][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:20:19][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:20:19][info] Route added: [GET] /admin/logs
+[2025-07-17 02:20:19][info] Route added: [GET] /usuarios
+[2025-07-17 02:20:19][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:20:19][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:20:19][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:20:19][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:20:19][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:20:19][info] Route added: [POST] /api/token
+[2025-07-17 02:20:19][info] Route added: [GET] /api/users
+[2025-07-17 02:20:19][info] Route added: [POST] /api/users
+[2025-07-17 02:20:19][info] Route added: [PUT] /api/users
+[2025-07-17 02:20:19][info] Route added: [DELETE] /api/users
+[2025-07-17 02:20:19][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:20:19][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:20:19][info] Route added: [GET] /admin
+[2025-07-17 02:20:19][info] Route added: [GET] /login
+[2025-07-17 02:20:19][info] Route added: [GET] /logout
+[2025-07-17 02:20:19][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:20:19][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:20:19][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:20:19][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:20:19][info] Route added: [GET] /webhook
+[2025-07-17 02:20:19][info] Finished loading plugins.
+[2025-07-17 02:20:19][debug] Checking permission: admin
+[2025-07-17 02:20:19][info] ThemeHandler initialized. Active theme: default
+[2025-07-17 02:20:19][info] Database connection established successfully with driver: mysql.
+[2025-07-17 02:20:19][info] DatabaseHandler initialized.
+[2025-07-17 02:20:19][info] AuthHandler initialized. Session started.
+[2025-07-17 02:20:19][info] Route added: [GET] /
+[2025-07-17 02:20:19][info] RoutesHandler initialized.
+[2025-07-17 02:20:19][info] PluginHandler initialized. Loading plugins...
+[2025-07-17 02:20:19][info] Loading plugin: Exemplo de Plugin (exemplo_plugin)
+[2025-07-17 02:20:19][info] Route added: [GET] /exemplo-plugin/teste
+[2025-07-17 02:20:19][info] Route added: [GET] /exemplo-plugin/exemplos
+[2025-07-17 02:20:19][info] Hook registered: after_gerar_relatorio (after, priority 10)
+[2025-07-17 02:20:19][info] Plugin Exemplo de Plugin carregado com sucesso.
+[2025-07-17 02:20:19][info] Route added: [GET] /clientes
+[2025-07-17 02:20:19][info] Route added: [GET] /clientes/novo
+[2025-07-17 02:20:19][info] Loading plugin: Inventory Core (inventory_core)
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/products
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:20:19][info] Route added: [POST] /inventory/products/new
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:20:19][info] Route added: [POST] /inventory/products/edit
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:20:19][info] Route added: [POST] /inventory/stock/update
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:20:19][info] Hook registered: api_inventory_products (after, priority 10)
+[2025-07-17 02:20:19][info] Hook registered: api_inventory_stock (after, priority 10)
+[2025-07-17 02:20:19][info] Hook registered: api_inventory_categories (after, priority 10)
+[2025-07-17 02:20:19][info] Hook registered: api_inventory_movements (after, priority 10)
+[2025-07-17 02:20:19][info] Plugin inventory_core carregado com sucesso.
+[2025-07-17 02:20:19][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:19][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:19][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:19][info] Tabela do inventário criada/verificada com sucesso.
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/products
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/products/new
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/products/edit
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/categories
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/stock
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/movements
+[2025-07-17 02:20:19][info] Route added: [GET] /inventory/reports
+[2025-07-17 02:20:19][info] Loading plugin: System Manager (system_manager)
+[2025-07-17 02:20:19][info] Route added: [GET] /login
+[2025-07-17 02:20:19][info] Route added: [POST] /login
+[2025-07-17 02:20:19][info] Route added: [GET] /admin
+[2025-07-17 02:20:19][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:20:19][info] Route added: [GET] /logout
+[2025-07-17 02:20:19][info] Route added: [GET] /admin/plugins
+[2025-07-17 02:20:19][info] Route added: [POST] /admin/plugins
+[2025-07-17 02:20:19][info] Route added: [POST] /admin/plugins/toggle
+[2025-07-17 02:20:19][info] Route added: [GET] /admin/logs
+[2025-07-17 02:20:19][info] Route added: [GET] /usuarios
+[2025-07-17 02:20:19][info] Route added: [GET] /usuarios/novo
+[2025-07-17 02:20:19][info] Route added: [POST] /usuarios/novo
+[2025-07-17 02:20:19][info] Route added: [GET] /usuarios/editar/(\d+)
+[2025-07-17 02:20:19][info] Route added: [POST] /usuarios/editar/(\d+)
+[2025-07-17 02:20:19][info] Route added: [POST] /usuarios/apagar/(\d+)
+[2025-07-17 02:20:19][info] Route added: [POST] /api/token
+[2025-07-17 02:20:19][info] Route added: [GET] /api/users
+[2025-07-17 02:20:19][info] Route added: [POST] /api/users
+[2025-07-17 02:20:19][info] Route added: [PUT] /api/users
+[2025-07-17 02:20:19][info] Route added: [DELETE] /api/users
+[2025-07-17 02:20:19][error] Erro ao executar migration de usuários: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nome' in 'users'
+[2025-07-17 02:20:19][info] Plugin system_manager carregado com sucesso.
+[2025-07-17 02:20:19][info] Route added: [GET] /admin
+[2025-07-17 02:20:19][info] Route added: [GET] /login
+[2025-07-17 02:20:19][info] Route added: [GET] /logout
+[2025-07-17 02:20:19][info] Route added: [GET] /admin/usuarios
+[2025-07-17 02:20:19][info] Loading plugin: Whatsapp integration (whatsapp_integration)
+[2025-07-17 02:20:19][info] Route added: [POST] /whatsapp/webhook
+[2025-07-17 02:20:19][info] Route added: [GET] /whatsapp/webhook
+[2025-07-17 02:20:19][info] Route added: [GET] /webhook
+[2025-07-17 02:20:19][info] Finished loading plugins.
+[2025-07-17 02:20:19][debug] Checking permission: admin
