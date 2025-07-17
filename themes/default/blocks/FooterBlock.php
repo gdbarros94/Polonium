@@ -28,7 +28,7 @@ class FooterBlock {
         $extraClass = $config['class'] ?? '';
         ob_start();
         ?>
-        <footer class="block-footer w-full flex flex-col sm:flex-row items-center justify-between px-4 py-2 bg-gray-100 border-t <?= $extraClass ?>">
+        <footer class="block-footer w-full flex flex-col sm:flex-row items-center justify-between fixed bottom-0 px-4 py-2 bg-gray-100 border-t <?= $extraClass ?>">
             <div class="flex-1 flex items-center gap-4">
                 <?php if ($breadcrumbs): ?>
                 <span id="footer-breadcrumbs" class="truncate">
