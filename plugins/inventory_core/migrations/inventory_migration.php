@@ -81,15 +81,18 @@ class InventoryMigration {
             ['name' => 'Outros', 'description' => 'Outros produtos']
         ];
 
+        try {
+            $pdo->exec("SET FOREIGN_KEY_CHECKS = 0");
+            $pdo->exec("DELETE FROM inventory_categories");
+            $pdo->exec("SET FOREIGN_KEY_CHECKS = 1");
+        } catch (Exception $e) {
+            System::log("Erro ao deletar categorias: " . $e->getMessage(), "error");
+        }
+
         foreach ($defaultCategories as $category) {
             try {
-                $check = $pdo->prepare("SELECT COUNT(*) FROM inventory_categories WHERE name = ?");
-                $check->execute([$category['name']]);
-                $exists = $check->fetchColumn();
-                if ($exists == 0) {
-                    $stmt = $pdo->prepare("INSERT INTO inventory_categories (name, description) VALUES (?, ?)");
-                    $stmt->execute([$category['name'], $category['description']]);
-                }
+                $stmt = $pdo->prepare("INSERT INTO inventory_categories (name, description) VALUES (?, ?)");
+                $stmt->execute([$category['name'], $category['description']]);
             } catch (Exception $e) {
                 System::log("Erro ao inserir categoria padrão: " . $e->getMessage(), "error");
             }
