@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Admin - CoreCRM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            DEFAULT: '#1e2526',
+                            light: '#2a3638'
+                        },
+                        slate: {
+                            DEFAULT: '#7d8c8c',
+                            light: '#a1b0b0',
+                            dark: '#5a6767'
+                        },
+                        primary: {
+                            DEFAULT: '#9accf5',
+                            light: '#c1e0fa',
+                            dark: '#5a8fbb',
+                            hover: '#7db8e8'
+                        },
+                        light: '#d9d9d9',
+                        pale: '#f5f5f5',
+                        success: '#4ade80',
+                        warning: '#fbbf24',
+                        danger: '#f87171'
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'system-ui', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px rgba(0, 0, 0, 0.08)',
+                        'hard': '0 4px 12px rgba(0, 0, 0, 0.15)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1e2526;
+            background-color: #f5f5f5;
+        }
+        
+        /* Sidebar transitions */
+        #sidebar {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .sidebar-collapsed {
+            width: 80px;
+        }
+        .sidebar-collapsed .sidebar-text,
+        .sidebar-collapsed .logo-text,
+        .sidebar-collapsed .user-info {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+        .sidebar-collapsed .menu-item {
+            justify-content: center;
+            padding: 0.75rem 0;
+        }
+        
+        /* Active menu item */
+        .nav-item-active {
+            background: linear-gradient(90deg, rgba(154, 204, 245, 0.15) 0%, rgba(154, 204, 245, 0.05) 100%);
+            border-left: 3px solid #9accf5;
+            color: #1e2526;
+        }
+        
+        /* Card hover effect */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #7d8c8c;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5a6767;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+        }
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 120px;
+            background-color: #1e2526;
+            color: #f5f5f5;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 12px;
+        }
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Notification badge */
+        .notification-badge {
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            width: 12px;
+            height: 12px;
+            background-color: #f87171;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+    </style>
+</head>
+<body class="bg-pale">
+    <!-- Layout Container -->
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-64 bg-white border-r border-light flex flex-col flex-shrink-0 shadow-sm z-10">
+            <!-- Sidebar Header -->
+            <div class="p-5 border-b border-light flex items-center justify-between bg-dark">
+                <div class="flex items-center space-x-3 overflow-hidden">
+                    <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center flex-shrink-0 shadow-md">
+                        <i class="fas fa-cube text-white text-sm"></i>
+                    </div>
+                    <span class="logo-text text-lg font-semibold text-pale whitespace-nowrap transition-all duration-300">CoreCRM</span>
+                </div>
+                <button id="toggle-sidebar" class="text-pale hover:text-primary transition-colors tooltip">
+                    <i class="fas fa-chevron-left text-sm"></i>
+                    <span class="tooltip-text">Recolher menu</span>
+                </button>
+            </div>
+            
+            <!-- User Info -->
+            <div class="p-4 border-b border-light user-info bg-white transition-all duration-300">
+                <div class="flex items-center space-x-3">
+                    <div class="relative">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 shadow-inner">
+                            <i class="fas fa-user text-primary"></i>
+                        </div>
+                        <span class="absolute bottom-0 right-0 w-3 h-3 bg-success rounded-full border-2 border-white"></span>
+                    </div>
+                    <div class="overflow-hidden transition-all duration-300">
+                        <p class="text-sm font-medium text-dark truncate"><?php echo htmlspecialchars($_SESSION['user_id'] ?? 'Usuário'); ?></p>
+                        <p class="text-xs text-slate truncate"><?php echo htmlspecialchars($_SESSION['user_role'] ?? 'Administrador'); ?></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="flex-1 overflow-y-auto py-4 bg-white">
+                <ul class="space-y-1 px-3">
+                    <li class="animate-fade-in" style="animation-delay: 0.1s">
+                        <a href="#" class="menu-item flex items-center px-3 py-2.5 text-sm font-medium rounded-lg nav-item-active text-dark transition-colors">
+                            <i class="fas fa-tachometer-alt w-5 text-center mr-3 text-primary"></i>
+                            <span class="sidebar-text whitespace-nowrap">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="animate-fade-in" style="animation-delay: 0.15s">
+                        <a href="#" class="menu-item flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-slate hover:bg-light/30 hover:text-dark transition-colors">
+                            <i class="fas fa-users w-5 text-center mr-3 text-slate"></i>
+                            <span class="sidebar-text whitespace-nowrap">Usuários</span>
+                            <span class="ml-auto bg-primary/10 text-primary text-xs px-2 py-0.5 rounded-full">12</span>
+                        </a>
+                    </li>
+                    <li class="animate-fade-in" style="animation-delay: 0.2s">
+                        <a href="#" class="menu-item flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-slate hover:bg-light/30 hover:text-dark transition-colors">
+                            <i class="fas fa-box w-5 text-center mr-3 text-slate"></i>
+                            <span class="sidebar-text whitespace-nowrap">Produtos</span>
+                        </a>
+                    </li>
+                    <li class="animate-fade-in" style="animation-delay: 0.25s">
+                        <a href="#" class="menu-item flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-slate hover:bg-light/30 hover:text-dark transition-colors">
+                            <i class="fas fa-file-invoice-dollar w-5 text-center mr-3 text-slate"></i>
+                            <span class="sidebar-text whitespace-nowrap">Vendas</span>
+                            <span class="ml-auto bg-success/10 text-success text-xs px-2 py-0.5 rounded-full">3</span>
+                        </a>
+                    </li>
+                    <li class="animate-fade-in" style="animation-delay: 0.3s">
+                        <a href="#" class="menu-item flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-slate hover:bg-light/30 hover:text-dark transition-colors">
+                            <i class="fas fa-cog w-5 text-center mr-3 text-slate"></i>
+                            <span class="sidebar-text whitespace-nowrap">Configurações</span>
+                        </a>
+                    </li>
+                    <li class="animate-fade-in" style="animation-delay: 0.35s">
+                        <a href="#" class="menu-item flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-slate hover:bg-light/30 hover:text-dark transition-colors">
+                            <i class="fas fa-chart-pie w-5 text-center mr-3 text-slate"></i>
+                            <span class="sidebar-text whitespace-nowrap">Relatórios</span>
+                            <span class="ml-auto bg-warning/10 text-warning text-xs px-2 py-0.5 rounded-full">New</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Sidebar Footer -->
+            <div class="p-4 border-t border-light bg-white">
+                <a href="/logout" class="menu-item flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-slate hover:bg-light/30 hover:text-dark transition-colors">
+                    <i class="fas fa-sign-out-alt w-5 text-center mr-3 text-slate"></i>
+                    <span class="sidebar-text whitespace-nowrap">Sair</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Navigation -->
+            <header class="bg-white border-b border-light shadow-sm">
+                <div class="flex items-center justify-between px-6 py-3.5">
+                    <!-- Search Bar -->
+                    <div class="relative w-72">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <input type="text" id="search-input" class="block w-full pl-10 pr-3 py-2 border border-light rounded-md leading-5 bg-pale placeholder-slate focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="Pesquisar...">
+                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                            <kbd class="inline-flex items-center px-2 py-1 rounded text-xs font-sans bg-white border border-light text-slate">⌘K</kbd>
+                        </div>
+                    </div>
+                    
+                    <!-- User Menu -->
+                    <div class="flex items-center space-x-5">
+                        <button class="p-1.5 rounded-full text-slate hover:text-dark hover:bg-light/30 transition-colors relative tooltip">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge"></span>
+                            <span class="tooltip-text">Notificações</span>
+                        </button>
+                        <button class="p-1.5 rounded-full text-slate hover:text-dark hover:bg-light/30 transition-colors tooltip">
+                            <i class="fas fa-envelope"></i>
+                            <span class="tooltip-text">Mensagens</span>
+                        </button>
+                        <div class="relative">
+                            <button id="user-menu-button" class="flex items-center space-x-2 focus:outline-none">
+                                <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center shadow-inner">
+                                    <i class="fas fa-user text-primary"></i>
+                                </div>
+                                <span class="hidden md:inline-block text-sm font-medium text-dark"><?php echo htmlspecialchars($_SESSION['user_id'] ?? 'Usuário'); ?></span>
+                                <i class="fas fa-chevron-down text-xs text-slate hidden md:inline-block transition-transform" id="user-menu-arrow"></i>
+                            </button>
+                            
+                            <!-- Dropdown Menu -->
+                            <div id="user-menu" class="hidden absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg py-1 z-10 border border-light divide-y divide-light animate-fade-in">
+                                <div class="px-4 py-3">
+                                    <p class="text-sm text-dark font-medium"><?php echo htmlspecialchars($_SESSION['user_id'] ?? 'Usuário'); ?></p>
+                                    <p class="text-xs text-slate truncate"><?php echo htmlspecialchars($_SESSION['user_role'] ?? 'Administrador'); ?></p>
+                                </div>
+                                <div class="py-1">
+                                    <a href="#" class="flex items-center px-4 py-2 text-sm text-dark hover:bg-light/30 transition-colors">
+                                        <i class="fas fa-user mr-3 text-sm w-5 text-center text-primary"></i>
+                                        <span>Meu Perfil</span>
+                                    </a>
+                                    <a href="#" class="flex items-center px-4 py-2 text-sm text-dark hover:bg-light/30 transition-colors">
+                                        <i class="fas fa-cog mr-3 text-sm w-5 text-center text-primary"></i>
+                                        <span>Configurações</span>
+                                    </a>
+                                    <a href="#" class="flex items-center px-4 py-2 text-sm text-dark hover:bg-light/30 transition-colors">
+                                        <i class="fas fa-bell mr-3 text-sm w-5 text-center text-primary"></i>
+                                        <span>Notificações</span>
+                                        <span class="ml-auto bg-danger text-white text-xs px-1.5 py-0.5 rounded-full">3</span>
+                                    </a>
+                                </div>
+                                <div class="py-1">
+                                    <a href="/logout" class="flex items-center px-4 py-2 text-sm text-dark hover:bg-light/30 transition-colors">
+                                        <i class="fas fa-sign-out-alt mr-3 text-sm w-5 text-center text-primary"></i>
+                                        <span>Sair</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="flex-1 overflow-y-auto bg-pale p-6">
+                <!-- Page Header -->
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+                    <div>
+                        <h1 class="text-2xl font-bold text-dark">Visão Geral</h1>
+                        <p class="text-sm text-slate">Bem-vindo de volta, <?php echo htmlspecialchars($_SESSION['user_id'] ?? 'Usuário'); ?>! Aqui está o que está acontecendo hoje.</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <button id="export-btn" class="inline-flex items-center px-4 py-2 border border-light bg-white text-sm font-medium rounded-md shadow-sm text-dark hover:bg-light/30 focus:outline-none focus:ring-1 focus:ring-primary transition-colors">
+                            <i class="fas fa-download mr-2 text-slate"></i> Exportar
+                        </button>
+                        <button id="new-item-btn" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-1 focus:ring-primary focus:ring-offset-1 transition-colors">
+                            <i class="fas fa-plus mr-2"></i> Novo Item
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+                    <div class="bg-white rounded-lg shadow p-5 border border-light card-hover">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-slate mb-1">Total de Clientes</p>
+                                <p class="text-2xl font-semibold text-dark">1,234</p>
+                                <div class="flex items-center mt-2">
+                                    <span class="text-xs text-success bg-success/10 px-2 py-0.5 rounded-full">
+                                        <i class="fas fa-arrow-up mr-1 text-xs"></i> 12%
+                                    </span>
+                                    <span class="text-xs text-slate ml-2">vs último mês</span>
+                                </div>
+                            </div>
+                            <div class="p-3 rounded-full bg-primary/10 text-primary shadow-inner">
+                                <i class="fas fa-users text-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow p-5 border border-light card-hover">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-slate mb-1">Vendas Totais</p>
+                                <p class="text-2xl font-semibold text-dark">R$ 34,567</p>
+                                <div class="flex items-center mt-2">
+                                    <span class="text-xs text-success bg-success/10 px-2 py-0.5 rounded-full">
+                                        <i class="fas fa-arrow-up mr-1 text-xs"></i> 8%
+                                    </span>
+                                    <span class="text-xs text-slate ml-2">vs último mês</span>
+                                </div>
+                            </div>
+                            <div class="p-3 rounded-full bg-primary/10 text-primary shadow-inner">
+                                <i class="fas fa-dollar-sign text-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow p-5 border border-light card-hover">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-slate mb-1">Tarefas Pendentes</p>
+                                <p class="text-2xl font-semibold text-dark">12</p>
+                                <div class="flex items-center mt-2">
+                                    <span class="text-xs text-danger bg-danger/10 px-2 py-0.5 rounded-full">
+                                        <i class="fas fa-arrow-down mr-1 text-xs"></i> 3%
+                                    </span>
+                                    <span class="text-xs text-slate ml-2">vs ontem</span>
+                                </div>
+                            </div>
+                            <div class="p-3 rounded-full bg-primary/10 text-primary shadow-inner">
+                                <i class="fas fa-tasks text-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow p-5 border border-light card-hover">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-slate mb-1">Taxa de Conversão</p>
+                                <p class="text-2xl font-semibold text-dark">3.2%</p>
+                                <div class="flex items-center mt-2">
+                                    <span class="text-xs text-success bg-success/10 px-2 py-0.5 rounded-full">
+                                        <i class="fas fa-arrow-up mr-1 text-xs"></i> 0.5%
+                                    </span>
+                                    <span class="text-xs text-slate ml-2">vs ontem</span>
+                                </div>
+                            </div>
+                            <div class="p-3 rounded-full bg-primary/10 text-primary shadow-inner">
+                                <i class="fas fa-percentage text-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-8">
+                    <!-- Sales Chart -->
+                    <div class="lg:col-span-2 bg-white rounded-lg shadow p-5 border border-light">
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5">
+                            <h3 class="text-lg font-semibold text-dark">Desempenho de Vendas</h3>
+                            <div class="flex gap-2">
+                                <select id="sales-period" class="appearance-none bg-pale border border-light text-dark text-xs py-1.5 px-3 pr-7 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all">
+                                    <option>Últimos 30 dias</option>
+                                    <option>Últimos 90 dias</option>
+                                    <option>Este ano</option>
+                                </select>
+                                <button class="bg-pale border border-light text-dark text-xs py-1.5 px-3 rounded-md hover:bg-light/30 transition-colors tooltip">
+                                    <i class="fas fa-download"></i>
+                                    <span class="tooltip-text">Exportar dados</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="h-64 bg-pale/50 rounded flex items-center justify-center text-slate">
+                            <div class="text-center p-4">
+                                <i class="fas fa-chart-line text-3xl mb-2 text-primary"></i>
+                                <p class="font-medium text-dark">Gráfico de vendas mensais</p>
+                                <p class="text-sm mt-1">Selecione um período para visualizar os dados</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Activity -->
+                    <div class="bg-white rounded-lg shadow p-5 border border-light">
+                        <div class="flex items-center justify-between mb-5">
+                            <h3 class="text-lg font-semibold text-dark">Atividades Recentes</h3>
+                            <button id="view-all-activities" class="text-sm text-primary hover:text-dark transition-colors">Ver tudo</button>
+                        </div>
+                        <div class="space-y-4" id="activities-list">
+                            <div class="flex items-start animate-fade-in">
+                                <div class="flex-shrink-0 mt-0.5">
+                                    <div class="w-8 h-8 rounded-full bg-success/10 flex items-center justify-center">
+                                        <i class="fas fa-check text-success text-sm"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-3 overflow-hidden">
+                                    <p class="text-sm font-medium text-dark truncate">Pedido #1234 concluído</p>
+                                    <p class="text-xs text-slate">João Silva marcou o pedido como concluído</p>
+                                    <p class="text-xs text-light mt-1">2 horas atrás</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start animate-fade-in">
+                                <div class="flex-shrink-0 mt-0.5">
+                                    <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                                        <i class="fas fa-user-plus text-primary text-sm"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-3 overflow-hidden">
+                                    <p class="text-sm font-medium text-dark truncate">Novo cliente adicionado</p>
+                                    <p class="text-xs text-slate">Maria Souza adicionou um novo cliente</p>
+                                    <p class="text-xs text-light mt-1">5 horas atrás</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start animate-fade-in">
+                                <div class="flex-shrink-0 mt-0.5">
+                                    <div class="w-8 h-8 rounded-full bg-warning/10 flex items-center justify-center">
+                                        <i class="fas fa-exclamation text-warning text-sm"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-3 overflow-hidden">
+                                    <p class="text-sm font-medium text-dark truncate">Pagamento atrasado</p>
+                                    <p class="text-xs text-slate">Pedro Alves marcou um pagamento como atrasado</p>
+                                    <p class="text-xs text-light mt-1">1 dia atrás</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Orders Table -->
+                <div class="bg-white rounded-lg shadow overflow-hidden border border-light">
+                    <div class="px-5 py-4 border-b border-light flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                        <h3 class="text-lg font-semibold text-dark">Últimos Pedidos</h3>
+                        <div class="flex gap-2">
+                            <input type="text" id="orders-filter" class="block w-full sm:w-48 px-3 py-1.5 border border-light rounded-md text-sm bg-pale placeholder-slate focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="Filtrar...">
+                            <button id="view-all-orders" class="text-sm text-primary hover:text-dark transition-colors whitespace-nowrap">Ver todos</button>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-light">
+                            <thead class="bg-pale">
+                                <tr>
+                                    <th scope="col" class="px-5 py-3 text-left text-xs font-medium text-slate uppercase tracking-wider">ID</th>
+                                    <th scope="col" class="px-5 py-3 text-left text-xs font-medium text-slate uppercase tracking-wider">Cliente</th>
+                                    <th scope="col" class="px-5 py-3 text-left text-xs font-medium text-slate uppercase tracking-wider">Data</th>
+                                    <th scope="col" class="px-5 py-3 text-left text-xs font-medium text-slate uppercase tracking-wider">Valor</th>
+                                    <th scope="col" class="px-5 py-3 text-left text-xs font-medium text-slate uppercase tracking-wider">Status</th>
+                                    <th scope="col" class="px-5 py-3 text-right text-xs font-medium text-slate uppercase tracking-wider">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-light" id="orders-table-body">
+                                <tr class="hover:bg-pale/50 transition-colors animate-fade-in">
+                                    <td class="px-5 py-4 whitespace-nowrap text-sm font-medium text-dark">#1234</td>
+                                    <td class="px-5 py-4 whitespace-nowrap text-sm text-slate">Empresa A</td>
+                                    <td class="px-5 py-4 whitespace-nowrap text-sm text-slate">15/05/2023</td>
+                                    <td class="px-5 py-4 whitespace-nowrap text-sm text-slate">R$ 1,234.00</td>
+                                    <td class="px-5 py-4 whitespace-nowrap">
+                                        <span class="px-2.5 py-1 inline-flex text-xs leading-4 font-medium rounded-full bg-success/10 text-success">Concluído</span>
+                                    </td>
+                                    <td class="px-5 py-4 whitespace-nowrap text-sm text-slate text-right">
+                                        <button class="text-primary hover:text-dark mr-3 transition-colors tooltip">
+                                            <i class="fas fa-eye"></i>
+                                            <span class="tooltip-text">Visualizar</span>
+                                        </button>
+                                        <button class="text-slate hover:text-dark transition-colors tooltip">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                            <span class="tooltip-text">Mais opções</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-pale/50 transition-colors animate-fade-in">
+                                    <td class="px-5 py-4 whitespace-nowrap text-sm font-medium text-dark">#1233</td>
+                                    <td class="px-5 py-4 whitespace-nowrap text-sm text-slate">Empresa B</td>
+                                    <td class="px-5 py-4 whitespace-nowrap text-sm text-slate">14/05/2023</td>
+                                    <td class="px-5 py-4 whitespace-nowrap text-sm text-slate">R$ 2,345.00</td>
+                                    <td class="px-5 py-4 whitespace-nowrap">
+                                        <span class="px-2.5 py-1 inline-flex text-xs leading-4 font-medium rounded-full bg-primary/10 text-primary">Processando</span>
+                                    </td>
+                                    <td class="px-5 py-4 whitespace-nowrap text-sm text-slate text-right">
+                                        <button class="text-primary hover:text-dark mr-3 transition-colors tooltip">
+                                            <i class="fas fa-eye"></i>
+                                            <span class="tooltip-text">Visualizar</span>
+                                        </button>
+                                        <button class="text-slate hover:text-dark transition-colors tooltip">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                            <span class="tooltip-text">Mais opções</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-pale/50 transition-colors animate-fade-in">
+                                    <td class="px-5 py-4 whitespace-nowrap text-sm font-medium text-dark">#1232</td>
+                                    <td class="px-5 py-4 whitespace-nowrap text-sm text-slate">Empresa C</td>
+                                    <td class="px-5 py-4 whitespace-nowrap text-sm text-slate">13/05/2023</td>
+                                    <td class="px-5 py-4 whitespace-nowrap text-sm text-slate">R$ 3,456.00</td>
+                                    <td class="px-5 py-4 whitespace-nowrap">
+                                        <span class="px-2.5 py-1 inline-flex text-xs leading-4 font-medium rounded-full bg-warning/10 text-warning">Pendente</span>
+                                    </td>
+                                    <td class="px-5 py-4 whitespace-nowrap text-sm text-slate text-right">
+                                        <button class="text-primary hover:text-dark mr-3 transition-colors tooltip">
+                                            <i class="fas fa-eye"></i>
+                                            <span class="tooltip-text">Visualizar</span>
+                                        </button>
+                                        <button class="text-slate hover:text-dark transition-colors tooltip">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                            <span class="tooltip-text">Mais opções</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="px-5 py-3 border-t border-light bg-pale/30 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-sm text-slate">
+                        <span>Mostrando 1 a 3 de 15 resultados</span>
+                        <div class="flex gap-2">
+                            <button class="px-3 py-1 border border-light rounded bg-white hover:bg-light/30 transition-colors">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="px-3 py-1 border border-primary rounded bg-primary text-white">1</button>
+                            <button class="px-3 py-1 border border-light rounded bg-white hover:bg-light/30 transition-colors">2</button>
+                            <button class="px-3 py-1 border border-light rounded bg-white hover:bg-light/30 transition-colors">3</button>
+                            <button class="px-3 py-1 border border-light rounded bg-white hover:bg-light/30 transition-colors">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle sidebar
+            const toggleSidebar = document.getElementById('toggle-sidebar');
+            const sidebar = document.getElementById('sidebar');
+            
+            toggleSidebar.addEventListener('click', function() {
+                sidebar.classList.toggle('sidebar-collapsed');
+                const icon = toggleSidebar.querySelector('i');
+                if (sidebar.classList.contains('sidebar-collapsed')) {
+                    icon.classList.remove('fa-chevron-left');
+                    icon.classList.add('fa-chevron-right');
+                } else {
+                    icon.classList.remove('fa-chevron-right');
+                    icon.classList.add('fa-chevron-left');
+                }
+            });
+            
+            // Toggle user dropdown
+            const userMenuButton = document.getElementById('user-menu-button');
+            const userMenu = document.getElementById('user-menu');
+            const userMenuArrow = document.getElementById('user-menu-arrow');
+            
+            userMenuButton.addEventListener('click', function() {
+                userMenu.classList.toggle('hidden');
+                userMenuArrow.classList.toggle('rotate-180');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!userMenuButton.contains(event.target) && !userMenu.contains(event.target)) {
+                    userMenu.classList.add('hidden');
+                    userMenuArrow.classList.remove('rotate-180');
+                }
+            });
+            
+            // Active menu item
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    menuItems.forEach(i => i.classList.remove('nav-item-active'));
+                    this.classList.add('nav-item-active');
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.getElementById('search-input');
+            searchInput.addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') {
+                    alert(`Buscando por: ${this.value}`);
+                    this.value = '';
+                }
+            });
+            
+            // Add keyboard shortcut for search
+            document.addEventListener('keydown', function(e) {
+                if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                    e.preventDefault();
+                    searchInput.focus();
+                }
+            });
+            
+            // Export button
+            const exportBtn = document.getElementById('export-btn');
+            exportBtn.addEventListener('click', function() {
+                alert('Exportando dados...');
+            });
+            
+            // New item button
+            const newItemBtn = document.getElementById('new-item-btn');
+            newItemBtn.addEventListener('click', function() {
+                alert('Criando novo item...');
+            });
+            
+            // Sales period selector
+            const salesPeriod = document.getElementById('sales-period');
+            salesPeriod.addEventListener('change', function() {
+                alert(`Período selecionado: ${this.value}`);
+            });
+            
+            // View all activities
+            const viewAllActivities = document.getElementById('view-all-activities');
+            viewAllActivities.addEventListener('click', function() {
+                alert('Mostrando todas as atividades...');
+            });
+            
+            // Filter orders
+            const ordersFilter = document.getElementById('orders-filter');
+            ordersFilter.addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') {
+                    alert(`Filtrando pedidos por: ${this.value}`);
+                }
+            });
+            
+            // View all orders
+            const viewAllOrders = document.getElementById('view-all-orders');
+            viewAllOrders.addEventListener('click', function() {
+                alert('Mostrando todos os pedidos...');
+            });
+            
+            // Simulate loading data
+            setTimeout(() => {
+                document.querySelectorAll('.animate-fade-in').forEach((el, index) => {
+                    el.style.animationDelay = `${index * 0.1}s`;
+                });
+            }, 100);
+            
+            // Add sample notification
+            setTimeout(() => {
+                const notification = document.createElement('div');
+                notification.className = 'flex items-start animate-fade-in';
+                notification.innerHTML = `
+                    <div class="flex-shrink-0 mt-0.5">
+                        <div class="w-8 h-8 rounded-full bg-danger/10 flex items-center justify-center">
+                            <i class="fas fa-exclamation text-danger text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="ml-3 overflow-hidden">
+                        <p class="text-sm font-medium text-dark truncate">Novo pedido recebido</p>
+                        <p class="text-xs text-slate">Pedido #1235 foi criado por Empresa D</p>
+                        <p class="text-xs text-light mt-1">Agora há pouco</p>
+                    </div>
+                `;
+                document.getElementById('activities-list').prepend(notification);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
