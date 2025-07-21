@@ -160,6 +160,12 @@ WidgetHandler::register('admin_panel', function() {
     echo '</div>';
 });
 
+// DEBUG: Dump dos widgets registrados
+echo '<pre style="background:#fff;border:1px solid #ccc;padding:8px;margin:8px 0;">';
+echo "<strong>WidgetHandler::\$widgets dump:</strong>\n";
+var_dump((function() { $ref = new ReflectionClass('WidgetHandler'); $prop = $ref->getProperty('widgets'); $prop->setAccessible(true); return $prop->getValue(); })());
+echo '</pre>';
+
 System::addAdminSidebarMenuItem([
     'name' => 'Exemplo Plugin',
     'icon' => 'extension',
