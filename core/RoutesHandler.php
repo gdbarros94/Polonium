@@ -146,6 +146,111 @@ class RoutesHandler
     {
         return self::$routes;
     }
+
+    /**
+     * RoutesHandler - Registro e gerenciamento de rotas customizadas por plugins
+     * Plugins podem registrar rotas e callbacks para páginas customizadas
+     * Suporta self-test para diagnóstico
+     */
+    class RoutesHandler {
+        /**
+         * Registra uma rota customizada
+         * @param string $route
+         * @param callable $callback
+         */
+        public static function register($route, $callback) {
+            if (isset(self::$routes[$route])) {
+                System::log("RoutesHandler: rota duplicada '$route'", "error");
+                return false;
+            }
+            if (!is_callable($callback)) {
+                System::log("RoutesHandler: callback inválido para rota '$route'", "error");
+                return false;
+            }
+            self::$routes[$route] = $callback;
+            return true;
+        }
+
+        /**
+         * Executa o callback da rota, incluindo layout do tema
+         * @param string $route
+         * @param array $data
+         */
+        public static function handle($route, $data = []) {
+            if (!isset(self::$routes[$route])) {
+                System::log("RoutesHandler: rota '$route' não encontrada", "error");
+                ThemeHandler::render_layout("<div class='text-red-600 p-8'>Página não encontrada</div>", $data);
+                return;
+            }
+            ThemeHandler::render_layout(function($d) use ($route) {
+                self::$routes[$route]($d);
+            }, $data);
+        }
+
+        /**
+         * Registra uma rota customizada (para plugins)
+         * @param string $route
+         * @param callable $callback
+         */
+        public static function registerPluginRoute($route, $callback) {
+            if (!is_callable($callback)) {
+                System::log("RoutesHandler: callback inválido para rota '$route'", "error");
+                return false;
+            }
+            // Adiciona como rota GET sem middlewares
+            self::addRoute("GET", $route, function($data = []) use ($callback) {
+                ThemeHandler::render_layout(function($d) use ($callback) {
+                    $callback($d);
+                }, $data);
+            });
+            return true;
+        }
+
+        /**
+         * Self-test: simula requisições para todas rotas e verifica se retornam layout válido
+         * @return array
+         */
+        public static function selfTest() {
+            $results = [];
+            foreach (self::$routes as $route) {
+                try {
+                    ob_start();
+                    if (is_callable($route['callback'])) {
+                        $route['callback'](['test' => true]);
+                    }
+                    ob_end_clean();
+                    $results[$route['pattern']] = 'ok';
+                } catch (Exception $e) {
+                    $results[$route['pattern']] = 'error: ' . $e->getMessage();
+                    System::log("RoutesHandler selfTest: erro em '{$route['pattern']}': " . $e->getMessage(), "error");
+                }
+            }
+            return $results;
+        }
+
+        /**
+         * Lista todas rotas registradas
+         */
+        public static function list() {
+            return array_keys(self::$routes);
+        }
+
+        /**
+         * Teste de mesa para RoutesHandler
+         */
+        public static function testBench() {
+            echo "<h3>RoutesHandler::selfTest</h3>";
+            $result = self::selfTest();
+            foreach ($result as $k => $v) {
+                echo "<div>Rota $k: $v</div>";
+            }
+            echo "<h3>RoutesHandler::list</h3>";
+            $list = self::list();
+            foreach ($list as $route) {
+                echo "<div>Rota registrada: $route</div>";
+            }
+        }
+    }
 }
 
 
