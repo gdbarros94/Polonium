@@ -6,6 +6,7 @@ $config = require_once __DIR__ . '/config/config.php';
 // Carrega os módulos principais
 require_once __DIR__ . '/core/System.php';
 require_once __DIR__ . '/core/ThemeHandler.php';
+require_once __DIR__ . '/core/WidgetHandler.php';
 require_once __DIR__ . '/core/RoutesHandler.php';
 require_once __DIR__ . '/core/HookHandler.php';
 require_once __DIR__ . '/core/DatabaseHandler.php';
