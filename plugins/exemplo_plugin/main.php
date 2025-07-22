@@ -153,12 +153,13 @@ HookHandler::register_hook("after_gerar_relatorio", function() {
 });
 
 // Adiciona conteúdo ao painel admin
-System::addAdminContent(function() {
+WidgetHandler::register('admin_panel', function() {
     echo '<div class="bg-indigo-50 border-l-4 border-indigo-400 p-4 rounded shadow mb-4">';
     echo '<h2 class="text-lg font-bold text-indigo-700 mb-1">Exemplo de Plugin</h2>';
     echo '<p class="text-gray-700">Este bloco foi adicionado pelo Exemplo de Plugin! Você pode usar este espaço para mostrar informações, gráficos ou ações do seu plugin.</p>';
     echo '</div>';
 });
+
 
 System::addAdminSidebarMenuItem([
     'name' => 'Exemplo Plugin',

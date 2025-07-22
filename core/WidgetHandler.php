@@ -67,7 +67,7 @@ class WidgetHandler {
         foreach ($result as $k => $v) {
             echo "<div>Widget $k: $v</div>";
         }
-        echo "<h3>WidgetHandler::render_widgets('dashboard')</h3>";
-        WidgetHandler::render_widgets('dashboard', ['test' => true]);
+        //echo "<h3>WidgetHandler::render_widgets('dashboard')</h3>";
+        //WidgetHandler::render_widgets('dashboard', ['test' => true]);
     }
 }

@@ -28,6 +28,7 @@ class HeaderBlock {
         $user = $config['user'] ?? null;
         $actions = $config['actions'] ?? [];
         $extraClass = $config['class'] ?? '';
+        $sidebar = $config['sidebar'] ?? null;
         ob_start();
         ?>
         <html lang="pt-BR">
@@ -45,6 +46,30 @@ class HeaderBlock {
             </style>
         </head>
         <body>
+        <?php if ($sidebar): ?>
+        <aside class="w-64 bg-white/90 shadow-lg p-6 flex flex-col min-h-screen float-left">
+            <div class="mb-8">
+                <h2 class="text-xl font-bold text-indigo-700 mb-2"><?= htmlspecialchars($sidebar['title'] ?? 'Sidebar') ?></h2>
+                <p class="text-gray-500 text-sm">Bem-vindo, <?= htmlspecialchars($sidebar['user']['name'] ?? 'Usuário') ?>!</p>
+                <p class="text-gray-400 text-xs mb-2">Papel: <?= htmlspecialchars($sidebar['user']['role'] ?? 'N/A') ?></p>
+            </div>
+            <?php if (!empty($sidebar['menu'])): ?>
+                <nav class="mb-4">
+                    <?php foreach ($sidebar['menu'] as $item): ?>
+                        <a href="<?= htmlspecialchars($item['href'] ?? '#') ?>" class="block px-3 py-2 rounded hover:bg-indigo-100 text-indigo-700 font-medium <?= $item['class'] ?? '' ?>">
+                            <?php if (!empty($item['icon'])): ?><i class="fa <?= htmlspecialchars($item['icon']) ?> mr-1"></i><?php endif; ?>
+                            <?= htmlspecialchars($item['label'] ?? '') ?>
+                        </a>
+                    <?php endforeach; ?>
+                </nav>
+            <?php endif; ?>
+            <div class="mt-auto pt-8">
+                <a href="<?= htmlspecialchars($sidebar['logout']['href'] ?? '/logout') ?>" class="<?= $sidebar['logout']['class'] ?? 'block text-center text-red-600 hover:underline font-semibold' ?>">
+                    <?= htmlspecialchars($sidebar['logout']['label'] ?? 'Sair') ?>
+                </a>
+            </div>
+        </aside>
+        <?php endif; ?>
         <header class="block-header w-full flex items-center justify-between px-6 py-3 bg-indigo-700 shadow text-white <?= $extraClass ?>">
             <div class="flex items-center gap-4">
                 <?= $logo ?>
