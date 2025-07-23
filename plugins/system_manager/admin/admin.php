@@ -105,22 +105,23 @@ class SystemManagerAdmin {
     }
 
     /**
-     * Renderiza o menu lateral com base nos plugins ativos
+     * Retorna array de itens do menu lateral com base nos plugins ativos
      * @param array $plugins
-     * @return string HTML do menu
+     * @return array Itens do menu
      */
     public static function renderSidebarMenu($plugins) {
         // Usa os itens registrados manualmente pelos plugins
         $items = \System::$adminSidebarMenuItems;
-        $html = '<nav class="h-full"><ul class="space-y-2">';
+        $menu = [];
         foreach ($items as $item) {
-            $name = htmlspecialchars($item['name'] ?? 'Item');
-            $icon = $item['icon'] ?? 'circle';
-            $url = htmlspecialchars($item['url'] ?? '#');
-            $html .= "<li><a href=\"{$url}\" class=\"flex items-center gap-2 px-4 py-2 rounded hover:bg-indigo-100 text-indigo-700 font-semibold\"><span class=\"material-icons text-base\">{$icon}</span>{$name}</a></li>";
+            $menu[] = [
+                'label' => $item['name'] ?? 'Item',
+                'icon' => $item['icon'] ?? 'circle',
+                'href' => $item['url'] ?? '#',
+                'class' => $item['class'] ?? ''
+            ];
         }
-        $html .= '</ul></nav>';
-        return $html;
+        return $menu;
     }
 
     public static function logout() {
