@@ -53,7 +53,7 @@ class HeaderBlock {
                 <p class="text-gray-500 text-sm">Bem-vindo, <?= htmlspecialchars($sidebar['user']['name'] ?? 'Usuário') ?>!</p>
                 <p class="text-gray-400 text-xs mb-2">Papel: <?= htmlspecialchars($sidebar['user']['role'] ?? 'N/A') ?></p>
             </div>
-            <?php if (!empty($sidebar['menu'])): ?>
+            <?php if (!empty($sidebar['menu']) && is_array($sidebar['menu'])): ?>
                 <nav class="mb-4">
                     <?php foreach ($sidebar['menu'] as $item): ?>
                         <a href="<?= htmlspecialchars($item['href'] ?? '#') ?>" class="block px-3 py-2 rounded hover:bg-indigo-100 text-indigo-700 font-medium <?= $item['class'] ?? '' ?>">

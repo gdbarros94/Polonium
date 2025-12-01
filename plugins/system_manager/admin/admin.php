@@ -233,7 +233,7 @@ class SystemManagerAdmin {
         }
         include __DIR__ . '/templates/logs.php';
     }
-
+//sdafsdafdsa
     private static function getAllPlugins() {
         $pdo = DatabaseHandler::getConnection();
         $plugins = [];
